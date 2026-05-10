@@ -18,7 +18,6 @@
   <link href="./build.css" rel="stylesheet">
   <title>高璿程 Kao Xuan-Cheng — AI Systems Architect</title>
   <style>
-    /* Subtle on-screen print button */
     .print-bar {
       position: fixed; top: 16px; right: 16px;
       background: #1a202c; color: #fff;
@@ -39,10 +38,9 @@
 
   <main class="font-firago hyphens-manual">
 
-    <!-- Page -->
     <div class="p-6 mx-auto page max-w-2xl print:max-w-letter md:max-w-letter md:h-letter xsm:p-8 sm:p-9 md:p-16 bg-white">
 
-      <!-- ─── Name + Initials ─── -->
+      <!-- Name -->
       <header class="flex items-center mb-8 md:mb-11">
         <div class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-black px-3"
              style="padding-bottom: 0.6875rem; padding-top: 0.6875rem;">
@@ -54,33 +52,26 @@
             高璿程 &nbsp;&middot;&nbsp; Kao Xuan-Cheng
           </h1>
           <p class="text-md text-gray-650 mt-2.1 leading-normal">
-            AI Systems Architect &mdash; LLM Multi-Agent OS &middot; ZK Financial Compliance &middot; Production Engineering
+            AI Systems Architect &middot; LLM Multi-Agent OS &middot; ZK Financial Compliance
           </p>
         </div>
       </header>
 
-      <!-- ─── Two-column content flow ─── -->
       <div class="md:col-count-2 print:col-count-2 col-gap-md md:h-letter-col print:h-letter-col col-fill-auto">
 
-        <!-- ════════════ ABOUT ════════════ -->
+        <!-- ABOUT -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
               ABOUT
             </h2>
-            <p class="text-md text-gray-700 leading-normal mb-1.6">
-              政大資料科學研究所碩士（2025-12 預計畢業），研究方向<span class="font-medium text-gray-600 print:text-black">零知識證明在金融安全領域的應用</span>。把超越函數塞進 ZK 電路，建構首個 end-to-end ZK transcendental-function evaluation。
-            </p>
-            <p class="text-md text-gray-700 leading-normal mb-1.6">
-              過去 12 個月主導設計並運行多個 LLM 系統。旗艦作品 <span class="font-medium text-gray-600 print:text-black">Ductor</span> 是雙機跨進程的 LLM Agent 作業系統，每天作為個人 AI 助理在 production 中 dogfooding。
-            </p>
             <p class="text-md text-gray-700 leading-normal">
-              工作模式：<span class="font-medium text-gray-600 print:text-black">架構決策、AI agent 編排、結果驗收</span>。應用數學底子 + 密碼學研究 + 金融證照三者交集。
+              政大資料科學研究所碩士（2025-12 預計畢業）。研究方向<span class="font-medium text-gray-600 print:text-black">零知識證明在金融安全領域的應用</span>。過去 12 個月自寫多個 LLM 系統，旗艦作品 <span class="font-medium text-gray-600 print:text-black">Ductor</span> 是雙機 multi-agent OS，每天 production dogfooding。工作模式：<span class="font-medium text-gray-600 print:text-black">架構決策 + AI agent 編排 + 結果驗收</span>。應用數學 + 密碼學 + 金融證照三者交集。
             </p>
           </div>
         </section>
 
-        <!-- ════════════ CONTACT ════════════ -->
+        <!-- CONTACT -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
@@ -89,19 +80,15 @@
             <p class="text-md text-gray-700 leading-normal">
               <a class="hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="mailto:b128506789@gmail.com">b128506789@gmail.com&nbsp;&deg;</a>
             </p>
-            <p class="text-md text-gray-700 leading-normal mt-1.5">
-              0970 527 427
-            </p>
+            <p class="text-md text-gray-700 leading-normal mt-1.5">0970 527 427</p>
             <p class="text-md text-gray-700 leading-normal mt-1.5">
               <a class="hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="https://github.com/xuancheng307">github.com/xuancheng307&nbsp;&deg;</a>
             </p>
-            <p class="text-md text-gray-700 leading-normal mt-1.5">
-              Taipei, Taiwan
-            </p>
+            <p class="text-md text-gray-700 leading-normal mt-1.5">Taipei, Taiwan</p>
           </div>
         </section>
 
-        <!-- ════════════ EXPERIENCE ════════════ -->
+        <!-- EXPERIENCE -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
@@ -117,28 +104,30 @@
                   Data Engineering Intern &middot; Feb 2025 &ndash; Present
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Designed structured ETL pipeline for DRAM module test logs (SPD, voltage, PMIC, error bitmaps, pattern errors), producing fully-automated processing of <span class="font-medium text-gray-600 print:text-black">100&thinsp;million&plus; records</span> into MySQL. Built Streamlit internal query UI used cross-departmentally (test floor, finance, R&amp;D).
-              </p>
+              <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
+                <li>DRAM 模組測試 log ETL pipeline &mdash; 1&thinsp;億&plus; records 自動化進 production MySQL</li>
+                <li>跨部門 Streamlit 內部查詢介面（測試現場 / 財務 / 研發）</li>
+              </ul>
             </section>
           </div>
 
           <section class="mb-4.5 break-inside-avoid">
             <header>
               <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                政治大學企管系 &middot; NCCU Department of Business Admin
+                政大企管系 &middot; NCCU Business Admin
               </h3>
               <p class="leading-normal text-md text-gray-650">
                 Teaching Assistant &middot; Sep 2020 &ndash; Sep 2022
               </p>
             </header>
-            <p class="mt-2.1 text-md text-gray-700 leading-normal">
-              Designed Excel-based business simulation for Management course. Used Google Forms for real-time data submission and VBA macros for round settlement and ranking visualization, supporting 30+ students simultaneously. <span class="font-medium text-gray-600 print:text-black">Long-term impact:</span> system still adopted by multiple instructors years later.
-            </p>
+            <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
+              <li>Excel 經營模擬遊戲（Forms &plus; VBA），30&plus; 學生同時操作</li>
+              <li>系統至今仍被多位教師沿用</li>
+            </ul>
           </section>
         </section>
 
-        <!-- ════════════ PROJECTS ════════════ -->
+        <!-- PROJECTS -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
@@ -151,20 +140,14 @@
                   Ductor &mdash; LLM Multi-Agent OS
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Individual project &middot; 2025 &ndash; Present
+                  Individual &middot; 2025 &ndash; Present
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                A dual-machine, cross-process LLM agent operating system. Runs as primary personal AI assistant in production daily.
-              </p>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Designed Supervisor model managing <span class="font-medium text-gray-600 print:text-black">11 sub-agents</span> across 2 Windows machines, 9 Telegram bots, 3 Discord guilds</li>
-                <li>Engineered cross-machine user-as-relay via Telethon with task ack contract (task_assignment &rarr; progress &rarr; completion / blocked / clarification / handoff)</li>
-                <li>Patched two SDK boundary bugs at framework level: Opus stop-with-tool_use-only stdout silence, and Win 8,191-char cmd-line limit</li>
+                <li>雙機跨進程 LLM agent OS &mdash; 11 sub-agents / 9 TG bots / 3 Discord guilds</li>
+                <li>自寫 cross-machine relay &plus; 記憶分層 &plus; 任務 ack 契約</li>
+                <li>Framework-level patches：Opus stop-with-tool_use, Win cmd-line 8191 limit</li>
               </ul>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                <a class="font-medium text-gray-600 print:text-black hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/01_ductor.md">Read case study&nbsp;&rarr;</a>
-              </p>
             </section>
 
             <section class="mb-4.5 break-inside-avoid">
@@ -173,17 +156,13 @@
                   Atlas &mdash; Discord AI Company HQ
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Individual project &middot; Apr &ndash; May 2026
+                  Individual &middot; Apr &ndash; May 2026
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Discord upgraded into a multi-channel &times; multi-agent &times; multi-context AI office.
-              </p>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Built <span class="font-medium text-gray-600 print:text-black">DiscordEditStreamer</span> (~225 LOC) fixing rate-limit 40062 via placeholder-send + 1.5s/edit throttle + 1900-char split</li>
-                <li>Wrote <span class="font-medium text-gray-600 print:text-black">buttons.py</span> (~120 LOC) parsing message markers into native Discord UI rerouted through full agent context</li>
-                <li>Designed channel-context awareness: per-channel rules / per-guild FAQ / per-channel 4-section memory schema</li>
-                <li>Live across 3 guilds, 5 global slash commands, 14 channels, with 3 ADRs documenting architecture decisions</li>
+                <li>自寫 DiscordEditStreamer 解 rate-limit 40062 &plus; buttons.py 解析 message UI markers</li>
+                <li>Channel-context awareness 4-section memory schema</li>
+                <li>3 guilds / 5 slash commands / 14 channels</li>
               </ul>
             </section>
 
@@ -193,16 +172,13 @@
                   Xunrex HR &mdash; Production B2B HR SaaS
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Individual project &middot; 2025 &ndash; 2026
+                  Individual &middot; 2025 &ndash; 2026
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Compliant labor-law HR system for Taiwan SMEs (~30 employees), with first paying customer in production.
-              </p>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Architected <span class="font-medium text-gray-600 print:text-black">single-tenant multi-instance</span> deployment in three modes: Docker, PyInstaller exe + Waitress (~30MB), centralized hosting</li>
-                <li>Used <span class="font-medium text-gray-600 print:text-black">native_enum=False</span> across all SQLAlchemy enums for cross-DB compatibility (MySQL prod / SQLite lightweight)</li>
-                <li>Shipped 11 phases (attendance, leave, payroll preview, insurance, email log, dept analytics) with <span class="font-medium text-gray-600 print:text-black">11,055 unit tests, 0 failures</span></li>
+                <li>台灣中小企業合規勞基法 HR 系統 &mdash; 第一個付費客戶上線</li>
+                <li>Single-tenant 多 instance 部署，三模式（Docker / exe / hosting）</li>
+                <li>11,055 unit tests pass, 0 failures</li>
               </ul>
             </section>
 
@@ -212,22 +188,19 @@
                   LOL Analytics &mdash; Research-grounded AI Coach
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Individual project &middot; 2025 &ndash; 2026 &middot; B2B SaaS
+                  Individual &middot; 2025 &ndash; 2026 &middot; B2B SaaS
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                To-coach data tool for PCS / Tier 2-3 esports teams. Production live with 4,000+ matches across KR/TW.
-              </p>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Engineered PostgreSQL materialized view with <span class="font-medium text-gray-600 print:text-black">GROUPING SETS</span>: one MV produces win/loss/all rows simultaneously and remains CONCURRENTLY refreshable</li>
-                <li>Built 14-metric registry backed by gol.gg LCK + Sage Journals 2026 + ScienceDirect 2025 academic literature</li>
-                <li>Designed <span class="font-medium text-gray-600 print:text-black">&lt;AiInsightCard&gt;</span> component (5 placement &times; 4 kind &times; 2 variant) wired to Anthropic API</li>
+                <li>PCS / Tier 2-3 戰隊 to-coach 工具 &mdash; 4,000&plus; matches 跨服資料</li>
+                <li>PostgreSQL materialized view &plus; GROUPING SETS</li>
+                <li>14-metric registry 套用學術文獻 &middot; AiInsightCard 對接 Anthropic API</li>
               </ul>
             </section>
           </div>
         </section>
 
-        <!-- ════════════ RESEARCH ════════════ -->
+        <!-- RESEARCH -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
@@ -240,68 +213,50 @@
                   Master&apos;s Thesis &mdash; ZK Financial Compliance
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  78-page thesis &middot; 2024 &ndash; Dec 2025 (expected)
+                  78-page thesis &middot; 2024 &ndash; Dec 2025
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="font-medium text-gray-600 print:text-black">Polynomial Approximation of Transcendental Functions for ZK Financial Compliance.</span> Stack: Halo2 PSE / KZG/SHPLONK / BN254.
-              </p>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Built first end-to-end ZK transcendental-function evaluation (Black-Scholes Delta hedging at pp=24, Merton credit default at pp=32)</li>
-                <li>Core contribution: <span class="font-medium text-gray-600 print:text-black">deferred truncation with BN254 headroom analysis</span> &mdash; boundary equation: deferred if (d+1)&middot;pp &lt; 254 else per-step; lets 13 functions reach ULP=1 at pp=16</li>
-                <li>Polynomial evaluation <span class="font-medium text-gray-600 print:text-black">26.3&times; faster than lookup</span> (lookup infeasible at pp &gt;= 24); Merton scenario: <span class="font-medium text-gray-600 print:text-black">6,944-byte proof</span> verified in <span class="font-medium text-gray-600 print:text-black">23 ms</span></li>
-                <li>Originality lies in the numerical analysis layer (Remez minimax + Horner evaluation); ZK system uses stock Halo2/KZG &mdash; not novel cryptography</li>
+                <li>首個 end-to-end ZK transcendental-function evaluation（Black-Scholes &plus; Merton）</li>
+                <li>核心貢獻：<span class="font-medium text-gray-600 print:text-black">Deferred truncation with BN254 headroom analysis</span></li>
+                <li>26.3&times; faster than lookup &middot; 6,944-byte proof / 23ms verification</li>
+                <li>Stack：Halo2 PSE / KZG/SHPLONK / BN254</li>
               </ul>
             </section>
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  PLONK
-                </h3>
-                <p class="leading-normal text-md text-gray-650">
-                  Personal project &middot; Dec 2025
-                </p>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">PLONK</h3>
+                <p class="leading-normal text-md text-gray-650">Personal &middot; Dec 2025</p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Authored ~4,500-line monolithic 繁中 technical report covering 5-round prover, AGM security model, batched pairing verification. Paired with two in-browser interactive demos and a working Rust/Python PLONK backend.
-                &nbsp;<a class="font-medium text-gray-600 print:text-black hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="https://github.com/xuancheng307/PLONK">repo&nbsp;&rarr;</a>
+                4,500-line 繁中 technical report &plus; 2 in-browser demos &plus; Rust/Python backend.
               </p>
             </section>
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  ZKMM &mdash; ZK Financial Compliance Research Site
-                </h3>
-                <p class="leading-normal text-md text-gray-650">
-                  Companion to thesis &middot; 2025
-                </p>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">ZKMM</h3>
+                <p class="leading-normal text-md text-gray-650">Companion to thesis &middot; 2025</p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Designed 34-page research site in 4 sections, including formal protocol specs (Merkle commitments + Delta-Greek constraints over Black-Scholes), MathJax-rendered proofs, Mermaid pipeline diagrams, and oral-defense lecture script. Pure HTML / CSS / vanilla JS, no framework.
-                &nbsp;<a class="font-medium text-gray-600 print:text-black hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="https://github.com/xuancheng307/ZKMM">repo&nbsp;&rarr;</a>
+                34-page research site &mdash; formal protocol specs, MathJax, Mermaid, lecture script。Pure HTML / CSS / vanilla JS。
               </p>
             </section>
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  zkml-knowledge-base
-                </h3>
-                <p class="leading-normal text-md text-gray-650">
-                  50-Article ZKML Reference (Curated) &middot; 2025
-                </p>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">zkml-knowledge-base</h3>
+                <p class="leading-normal text-md text-gray-650">2025</p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                Curated and edited 50 articles spanning Groth16 / PLONK / Halo2 / STARK proof systems, KZG / IPA / FRI commitments, arithmetizations, and toolchains (EZKL / Circom / Noir) with consistent citation scaffolding.
-                &nbsp;<a class="font-medium text-gray-600 print:text-black hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="https://github.com/xuancheng307/zkml-knowledge-base">repo&nbsp;&rarr;</a>
+                Curated 50-article ZKML reference 跨 8 sections。
               </p>
             </section>
           </div>
         </section>
 
-        <!-- ════════════ EDUCATION ════════════ -->
+        <!-- EDUCATION -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
@@ -317,17 +272,15 @@
                   Sep 2018 &ndash; Dec 2025
                 </p>
               </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="font-medium text-gray-600 print:text-black">M.S., Data Science</span> &middot; 資料科學研究所 &middot; Sep 2023 &ndash; Dec 2025 (expected)
-              </p>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="font-medium text-gray-600 print:text-black">B.S., Applied Mathematics</span> &middot; 應用數學系 &middot; Sep 2018 &ndash; Jul 2023 &middot; Cross-disciplinary courses in Business School (Management, Accounting, Insurance)
-              </p>
+              <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
+                <li><span class="font-medium text-gray-600 print:text-black">M.S., Data Science</span> &middot; 2023 &ndash; 2025（預計）</li>
+                <li><span class="font-medium text-gray-600 print:text-black">B.S., Applied Mathematics</span> &middot; 2018 &ndash; 2023 &middot; 跨修商學院</li>
+              </ul>
             </section>
           </div>
         </section>
 
-        <!-- ════════════ SKILLS ════════════ -->
+        <!-- SKILLS -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
@@ -336,89 +289,54 @@
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  Advanced
-                </h3>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">Advanced</h3>
               </header>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Python · Anthropic Claude SDK · Multi-agent orchestration</li>
-                <li>MySQL · PostgreSQL · Materialized View · Schema design</li>
-                <li>Telethon · Linux/Win Ops · Framework patching</li>
-                <li>Halo2 / KZG / PLONK proof system implementation</li>
+                <li>Python &middot; Anthropic Claude SDK &middot; Multi-agent orchestration</li>
+                <li>MySQL / PostgreSQL &middot; Materialized View &middot; Telethon</li>
+                <li>Halo2 / KZG / PLONK &middot; Framework patching</li>
               </ul>
             </section>
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  Intermediate
-                </h3>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">Intermediate</h3>
               </header>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>TypeScript / Next.js · Flask / Streamlit / Express</li>
-                <li>Vercel / Railway / Cloudflare · Docker / PyInstaller</li>
-                <li>ezkl ONNX → Halo2 · Remez minimax · pandas</li>
+                <li>TypeScript / Next.js &middot; Flask / Streamlit &middot; Docker / PyInstaller</li>
+                <li>ezkl ONNX &rarr; Halo2 &middot; Remez minimax &middot; pandas</li>
               </ul>
             </section>
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  Learning
-                </h3>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">Learning</h3>
               </header>
-              <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>Rust · C++ / MFC · Plonky2</li>
-                <li>Halo2 advanced lookup arguments</li>
-              </ul>
+              <p class="mt-2.1 text-md text-gray-700 leading-normal">
+                Rust &middot; C++ / MFC &middot; Plonky2
+              </p>
             </section>
           </div>
         </section>
 
-        <!-- ════════════ LANGUAGES & CERTIFICATIONS ════════════ -->
+        <!-- LANG + CERT -->
         <section class="mt-8 first:mt-0">
           <div class="break-inside-avoid">
             <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
               LANGUAGES &amp; CERTIFICATIONS
             </h2>
-
-            <section class="mb-4.5 break-inside-avoid">
-              <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  Languages
-                </h3>
-              </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="font-medium text-gray-600 print:text-black">中文 Chinese</span> &middot; Native
-              </p>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                <span class="font-medium text-gray-600 print:text-black">English</span> &middot; Reading Advanced; Speaking / Writing Intermediate
-              </p>
-            </section>
-
-            <section class="mb-4.5 break-inside-avoid">
-              <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">
-                  Certifications
-                </h3>
-                <p class="leading-normal text-md text-gray-650">
-                  Mar 2021
-                </p>
-              </header>
-              <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li>證券商高級業務員 · Senior Securities Specialist</li>
-                <li>證券商業務員 · Securities Specialist</li>
-                <li>期貨商業務員 · Futures Specialist</li>
-              </ul>
-            </section>
+            <p class="text-md text-gray-700 leading-normal">
+              <span class="font-medium text-gray-600 print:text-black">中文</span> Native &middot; <span class="font-medium text-gray-600 print:text-black">English</span> Reading Advanced; Speaking / Writing Intermediate
+            </p>
+            <p class="mt-2.1 text-md text-gray-700 leading-normal">
+              證券商高級業務員 &middot; 證券商業務員 &middot; 期貨商業務員（2021.03）
+            </p>
           </div>
         </section>
 
       </div>
-      <!-- end Column -->
 
     </div>
-    <!-- end Page -->
 
   </main>
 
