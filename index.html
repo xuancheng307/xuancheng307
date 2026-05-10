@@ -9,30 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --canvas:    #e8dec5;
+  --canvas:    #ebe2c9;
   --paper:     #f4ecd6;
   --bg:        #faf3df;
-  --bg-soft:   #f5ecd2;
-  --bg-warm:   #f0e5c5;
   --ink:       #1a1814;
   --text:      #2a2722;
   --body:      #3d3a33;
-  --muted:     #75695a;
-  --faint:     #ada183;
+  --muted:     #756f5f;
+  --faint:     #a99e89;
   --rule:      #1a1814;
-  --rule-soft: #cfc3a5;
+  --rule-soft: #c9bfa5;
   --rule-fine: #ddd3b3;
   --accent:    #8b3a2e;
-  --accent-2:  #2d4257;
-  --gold:      #a08544;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
   font-family: 'Inter', 'Noto Sans TC', -apple-system, sans-serif;
-  font-size: 10.5pt;
-  line-height: 1.6;
+  font-size: 10pt;
+  line-height: 1.55;
   color: var(--body);
   background: var(--canvas);
   -webkit-font-smoothing: antialiased;
@@ -57,13 +53,9 @@ a:hover { border-bottom-color: var(--accent); color: var(--accent); }
   background: var(--bg);
   border: 0.5px solid var(--rule-soft);
   position: relative;
-  box-shadow: 0 1px 3px rgba(26,24,20,0.04), 0 12px 40px -16px rgba(26,24,20,0.14);
-  /* Subtle paper grain via gradient */
-  background-image:
-    radial-gradient(ellipse at top, var(--bg) 0%, var(--bg-soft) 100%);
+  box-shadow: 0 1px 3px rgba(26,24,20,0.04), 0 12px 40px -16px rgba(26,24,20,0.12);
 }
 
-/* Top trim — single elegant rule */
 .page::before {
   content: '';
   display: block;
@@ -72,164 +64,117 @@ a:hover { border-bottom-color: var(--accent); color: var(--accent); }
 }
 
 .page-inner {
-  padding: 64px 80px 56px;
-}
-
-/* ─── MASTHEAD ─── */
-.masthead {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 7pt;
-  text-transform: uppercase;
-  letter-spacing: 3.5px;
-  color: var(--faint);
-  padding-bottom: 4px;
-  margin-bottom: 36px;
-  border-bottom: 0.5px solid var(--rule-fine);
-}
-
-.masthead .ornament {
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 9pt;
-  color: var(--gold);
-  letter-spacing: 0.5px;
-  text-transform: none;
-  font-weight: 500;
+  padding: 56px 72px 52px;
 }
 
 /* ─── HEADER ─── */
 header {
-  text-align: center;
-  margin-bottom: 52px;
-  padding-bottom: 36px;
-  position: relative;
+  margin-bottom: 44px;
+  padding-bottom: 28px;
+  border-bottom: 0.5px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
 }
 
-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 28px;
-  height: 0.5px;
-  background: var(--ink);
+.head-left {
+  display: flex;
+  flex-direction: column;
 }
 
 .kicker {
   font-family: 'JetBrains Mono', monospace;
   font-size: 8pt;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 4.5px;
   color: var(--accent);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   font-weight: 500;
 }
 
 .name {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 48pt;
+  font-size: 42pt;
   font-weight: 500;
   color: var(--ink);
-  letter-spacing: -1.4px;
+  letter-spacing: -1.2px;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .name-en {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
   font-style: italic;
-  font-size: 13pt;
+  font-size: 12pt;
   font-weight: 400;
   color: var(--muted);
-  margin-bottom: 22px;
-  letter-spacing: 0.6px;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
 }
 
 .subtitle {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
   font-style: italic;
-  font-size: 12pt;
+  font-size: 11.5pt;
   color: var(--text);
-  margin-bottom: 22px;
   letter-spacing: 0.2px;
+  line-height: 1.4;
+  max-width: 460px;
 }
 
-.subtitle .sep {
-  display: inline-block;
-  margin: 0 6px;
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 500;
-  transform: translateY(-1px);
-}
-
-.contacts {
+.head-right {
+  text-align: right;
   font-family: 'JetBrains Mono', monospace;
   font-size: 8.5pt;
   color: var(--muted);
   letter-spacing: 0.3px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  line-height: 1.85;
 }
-
-.contacts span {
-  position: relative;
-  padding: 0 16px;
-}
-.contacts span:not(:last-child)::after {
-  content: '·';
-  position: absolute;
-  right: -3px;
-  color: var(--faint);
-}
-
-.contacts a { color: var(--muted); border-bottom: none; }
-.contacts a:hover { color: var(--accent); }
+.head-right a { color: var(--muted); border-bottom: none; }
+.head-right a:hover { color: var(--accent); }
 
 /* ─── SECTION ─── */
 section {
-  margin-bottom: 38px;
+  margin-bottom: 28px;
   page-break-inside: avoid;
 }
 
 .section-header {
   display: flex;
   align-items: baseline;
-  gap: 16px;
-  margin-bottom: 22px;
+  gap: 14px;
+  margin-bottom: 14px;
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 6px;
 }
 
 .section-num {
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 14pt;
+  font-size: 11pt;
   color: var(--accent);
   font-weight: 400;
-  width: 32px;
+  width: 22px;
   flex-shrink: 0;
+  letter-spacing: 0.2px;
 }
 
 .section-title {
-  font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 18pt;
-  font-weight: 500;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  font-size: 9.5pt;
+  font-weight: 700;
   color: var(--ink);
-  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
   flex: 1;
-  border-bottom: 0.5px solid var(--rule);
-  padding-bottom: 6px;
 }
 
-/* ─── SUMMARY (with drop cap) ─── */
+/* ─── ABOUT (single prose section) ─── */
 .summary p {
-  margin-bottom: 12px;
+  margin-bottom: 9px;
   color: var(--body);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 .summary p:last-child { margin-bottom: 0; }
 .summary strong { color: var(--ink); font-weight: 600; }
@@ -239,227 +184,220 @@ section {
   font-size: 12pt;
   font-weight: 400;
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.65;
   letter-spacing: 0.1px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .lead em { font-style: italic; color: var(--ink); }
 
-.lead::first-letter {
-  font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 48pt;
-  font-weight: 500;
-  float: left;
-  line-height: 0.9;
-  color: var(--accent);
-  margin-right: 8px;
-  margin-top: 4px;
-  margin-bottom: -4px;
-}
-
-/* ─── ENTRY ─── */
+/* ─── ENTRY (the layout that actually matters) ─── */
 .entry {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   page-break-inside: avoid;
 }
 .entry:last-child { margin-bottom: 0; }
 
-.entry-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+.entry-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 16px;
-  margin-bottom: 4px;
+  align-items: baseline;
+  margin-bottom: 2px;
 }
 
 .entry-title {
-  font-size: 11.5pt;
-  font-weight: 600;
+  font-size: 10.5pt;
+  font-weight: 700;
   color: var(--ink);
-  letter-spacing: -0.1px;
-  flex: 1;
+  letter-spacing: -0.05px;
+  line-height: 1.35;
 }
 
 .entry-title .arrow {
   font-family: 'EB Garamond', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 10pt;
+  font-size: 9.5pt;
   color: var(--accent);
-  margin-left: 8px;
+  margin-left: 6px;
   border-bottom: none;
 }
 .entry-title .arrow:hover { color: var(--ink); }
 
 .entry-date {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 8.5pt;
+  font-size: 8.3pt;
   color: var(--muted);
   font-feature-settings: 'tnum';
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
   white-space: nowrap;
   font-weight: 400;
+  padding-top: 1px;
 }
 
-.entry-meta {
-  font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-style: italic;
-  font-size: 10.5pt;
+.entry-context {
+  font-size: 9.5pt;
   color: var(--muted);
   margin-bottom: 6px;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.05px;
   line-height: 1.5;
 }
+.entry-context .stack {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.3pt;
+  color: var(--faint);
+  letter-spacing: 0.3px;
+}
+.entry-context .stack::before { content: '· '; color: var(--rule-soft); }
 
-.entry-body {
-  font-size: 10pt;
+.entry ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 4px 0 0;
+}
+
+.entry li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 3px;
+  font-size: 9.7pt;
+  line-height: 1.55;
   color: var(--body);
-  line-height: 1.65;
 }
 
-.entry-body strong { color: var(--ink); font-weight: 600; }
-
-.entry-body .scale {
-  display: block;
-  margin-top: 8px;
-  font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-style: italic;
-  font-size: 10pt;
-  color: var(--muted);
-  letter-spacing: 0.1px;
+.entry li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  width: 6px;
+  height: 0.5px;
+  background: var(--ink);
 }
 
-/* ─── METRICS GRID (hairline-divided, no fill) ─── */
+.entry li strong { color: var(--ink); font-weight: 600; }
+
+.entry li .metric {
+  color: var(--accent);
+  font-weight: 600;
+  font-feature-settings: 'tnum';
+}
+
+/* ─── METRICS GRID (thesis hero — refined) ─── */
 .metrics-grid {
-  margin-top: 18px;
+  margin-top: 12px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 0.5px solid var(--rule);
   border-bottom: 0.5px solid var(--rule);
+  background: var(--paper);
 }
 
 .metric-cell {
   text-align: center;
-  padding: 16px 12px 14px;
+  padding: 12px 10px 10px;
   border-right: 0.5px solid var(--rule-fine);
 }
-
 .metric-cell:last-child { border-right: none; }
 
 .metric-value {
   font-family: 'EB Garamond', serif;
-  font-size: 24pt;
+  font-size: 22pt;
   font-weight: 500;
   color: var(--accent);
   line-height: 1;
   letter-spacing: -0.5px;
   font-feature-settings: 'tnum';
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-.metric-value .unit { font-size: 13pt; color: var(--accent); margin-left: 1px; font-weight: 500; }
+.metric-value .unit { font-size: 12pt; color: var(--accent); margin-left: 1px; font-weight: 500; }
 
 .metric-label {
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 9pt;
+  font-size: 8.5pt;
   color: var(--muted);
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 1.35;
-  text-transform: none;
 }
 
 /* ─── SKILLS ─── */
 .skills-row {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 10px 24px;
-  margin-bottom: 10px;
+  grid-template-columns: 90px 1fr;
+  gap: 10px 20px;
+  margin-bottom: 6px;
   align-items: baseline;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
   border-bottom: 0.5px solid var(--rule-fine);
 }
 .skills-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
 
 .skills-label {
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 11pt;
+  font-family: 'Inter', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 700;
   color: var(--accent);
-  font-weight: 400;
-  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
 }
 
 .skills-list {
-  font-size: 10pt;
+  font-size: 9.7pt;
   color: var(--body);
-  line-height: 1.7;
+  line-height: 1.65;
 }
+.skills-list .sep { color: var(--rule-soft); margin: 0 4px; }
 
-/* ─── TWO COLUMN ─── */
+/* ─── TWO COLUMN (lang + cert) ─── */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 0.5px 1fr;
-  gap: 32px;
+  gap: 28px;
   align-items: start;
 }
 .two-col-divider {
   background: var(--rule-fine);
   width: 0.5px;
-  height: 100%;
   align-self: stretch;
 }
 .two-col-block .col-label {
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 10.5pt;
+  font-family: 'Inter', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 700;
   color: var(--accent);
-  margin-bottom: 8px;
-  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin-bottom: 6px;
 }
 .two-col-block p {
-  font-size: 10pt;
+  font-size: 9.7pt;
   color: var(--body);
-  margin-bottom: 4px;
-  line-height: 1.55;
+  margin-bottom: 3px;
+  line-height: 1.5;
 }
 .two-col-block strong { color: var(--ink); font-weight: 600; }
 .two-col-block .note {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
   font-style: italic;
-  font-size: 9.5pt;
+  font-size: 9pt;
   color: var(--muted);
-  line-height: 1.55;
-  margin-top: 8px;
+  line-height: 1.5;
+  margin-top: 6px;
 }
 
-/* ─── CLOSING (refined, with printer's ornament) ─── */
-.closing-wrapper {
-  position: relative;
-  padding-top: 12px;
-}
-
-.ornament {
-  text-align: center;
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 14pt;
-  color: var(--gold);
-  margin-bottom: 16px;
-  letter-spacing: 0.5em;
-}
-
-.closing {
+/* ─── PHILOSOPHY ─── */
+.philosophy {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 11.5pt;
-  line-height: 1.75;
+  font-size: 11pt;
+  line-height: 1.7;
   color: var(--text);
   letter-spacing: 0.1px;
-  text-align: center;
-  max-width: 540px;
-  margin: 0 auto;
+  border-left: 2px solid var(--accent);
+  padding-left: 18px;
 }
-.closing strong {
+.philosophy strong {
   color: var(--ink);
   font-weight: 600;
   font-style: normal;
@@ -467,24 +405,23 @@ section {
 
 /* ─── FOOTER ─── */
 .page-footer {
-  margin-top: 52px;
-  padding-top: 22px;
+  margin-top: 44px;
+  padding-top: 18px;
   border-top: 0.5px solid var(--rule-fine);
   text-align: center;
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 10pt;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8pt;
   color: var(--muted);
-  letter-spacing: 0.3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .page-footer a { color: var(--accent); border-bottom: none; }
 
-/* Bottom trim — matched single rule */
 .page::after {
   content: '';
   display: block;
   height: 2px;
-  background: var(--accent-2);
+  background: var(--ink);
 }
 
 /* ─── PRINT BAR ─── */
@@ -511,12 +448,11 @@ section {
 /* ─── PRINT ─── */
 @media print {
   @page { size: A4; margin: 14mm 16mm; }
-  html, body { background: white !important; font-size: 10pt; }
+  html, body { background: white !important; font-size: 9.5pt; }
   .page {
     margin: 0 !important;
     border: none !important;
     background: var(--bg) !important;
-    background-image: none !important;
     max-width: 100% !important;
     box-shadow: none !important;
     -webkit-print-color-adjust: exact;
@@ -527,20 +463,19 @@ section {
   section, .entry { page-break-inside: avoid; }
   a { color: inherit !important; border-bottom: none !important; }
   .print-bar { display: none !important; }
-  .metric-value, .section-num, .skills-label, .col-label, .lead::first-letter, .kicker {
+  .metric-value, .section-num, .skills-label, .col-label, .kicker, .entry li .metric {
     color: var(--accent) !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .ornament, .masthead .ornament, .subtitle .sep {
-    color: var(--gold) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .entry-title .arrow { color: var(--accent) !important; }
   .page-footer a { color: var(--accent) !important; }
-  header::after { background: var(--ink) !important; }
-  .section-title { border-bottom: 0.5px solid var(--ink) !important; }
+  .metrics-grid {
+    background: var(--paper) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .philosophy { border-left: 2px solid var(--accent) !important; }
 }
 </style>
 </head>
@@ -551,25 +486,19 @@ section {
 <div class="page">
 <div class="page-inner">
 
-<!-- ────────── MASTHEAD ────────── -->
-<div class="masthead">
-  <span>Curriculum Vitae</span>
-  <span class="ornament">— 高璿程 —</span>
-  <span>MMXXVI · 臺北</span>
-</div>
-
 <!-- ────────── HEADER ────────── -->
 <header>
-  <div class="kicker">AI Systems Architect</div>
-  <h1 class="name">高璿程</h1>
-  <div class="name-en">Kao Xuan-Cheng</div>
-  <div class="subtitle">
-    LLM Multi-Agent OS<span class="sep">·</span>Zero-Knowledge Financial Compliance<span class="sep">·</span>Production Engineering
+  <div class="head-left">
+    <div class="kicker">AI Systems Architect</div>
+    <h1 class="name">高璿程</h1>
+    <div class="name-en">Kao Xuan-Cheng</div>
+    <div class="subtitle">LLM Multi-Agent OS · Zero-Knowledge Financial Compliance · Production Engineering</div>
   </div>
-  <div class="contacts">
-    <span><a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></span>
-    <span>0970 527 427</span>
-    <span><a href="https://github.com/xuancheng307">github.com/xuancheng307</a></span>
+  <div class="head-right">
+    <div><a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></div>
+    <div>0970 527 427</div>
+    <div><a href="https://github.com/xuancheng307">github.com/xuancheng307</a></div>
+    <div>Taipei, Taiwan</div>
   </div>
 </header>
 
@@ -585,11 +514,7 @@ section {
   </p>
 
   <p>
-    過去 12 個月主導設計並運行多個 LLM 系統。旗艦作品 <strong>Ductor</strong> 是雙機跨進程的 LLM Agent 作業系統，每天作為個人 AI 助理在 production 中 dogfooding。延伸應用涵蓋 Discord 多 agent 架構、B2B SaaS、付費客戶 HR 系統、製造業大規模資料 ETL。
-  </p>
-
-  <p>
-    工作模式：<strong>架構決策、AI agent 編排、結果驗收</strong>。應用數學底子 + 密碼學研究 + 金融證照三者交集。
+    過去 12 個月主導設計並運行多個 LLM 系統。旗艦作品 <strong>Ductor</strong> 是雙機跨進程的 LLM Agent 作業系統，每天作為個人 AI 助理在 production 中 dogfooding。延伸應用涵蓋 Discord 多 agent 架構、B2B SaaS、付費客戶 HR 系統、製造業大規模資料 ETL。工作模式：<strong>架構決策、AI agent 編排、結果驗收</strong>。應用數學底子 + 密碼學研究 + 金融證照三者交集。
   </p>
 </section>
 
@@ -601,14 +526,17 @@ section {
   </div>
 
   <div class="entry">
-    <div class="entry-row">
+    <div class="entry-head">
       <div class="entry-title">Master's Thesis — Polynomial Approximation of Transcendental Functions for ZK Financial Compliance<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/05_thesis_v4.md">↗</a></div>
-      <div class="entry-date">2024 — 2025·12</div>
+      <div class="entry-date">2024 – 2025.12</div>
     </div>
-    <div class="entry-meta">78-page thesis · Halo2 PSE / KZG/SHPLONK / BN254</div>
-    <div class="entry-body">
-      首個 end-to-end ZK transcendental-function evaluation — 涵蓋 Black-Scholes Delta hedging 與 Merton credit default 兩個 production 級金融場景。原創貢獻在數值分析層（Remez minimax + Horner evaluation + deferred truncation with BN254 headroom analysis），ZK 系統用 stock Halo2/KZG。
-    </div>
+    <div class="entry-context">78-page thesis, NCCU<span class="stack">Halo2 PSE · KZG/SHPLONK · BN254</span></div>
+    <ul>
+      <li><strong>建構首個 end-to-end ZK transcendental-function evaluation</strong>，涵蓋 Black-Scholes Delta hedging (pp=24) 與 Merton credit default (pp=32) 兩個 production 級金融場景</li>
+      <li>核心貢獻：<strong>Deferred truncation with BN254 headroom analysis</strong>（§3.3.2），boundary equation：if (d+1)·pp &lt; 254 then deferred else per-step；讓 13 函數在 pp=16 全達 ULP=1</li>
+      <li>提出 <strong>dual-proof architecture</strong>（compliance + state-transition）+ four-layer trust model + two Merkle commitments，分離 state 與 market data</li>
+      <li>原創在數值分析層（Remez minimax + Horner evaluation），ZK 系統用 stock Halo2/KZG — 不假裝 novel cryptography</li>
+    </ul>
     <div class="metrics-grid">
       <div class="metric-cell">
         <div class="metric-value">26.3<span class="unit">×</span></div>
@@ -630,36 +558,40 @@ section {
   </div>
 
   <div class="entry">
-    <div class="entry-row">
-      <div class="entry-title">PLONK — Protocol Report, Interactive Demos, Rust/Python Backend<a class="arrow" href="https://github.com/xuancheng307/PLONK">↗</a></div>
-      <div class="entry-date">2025·12</div>
+    <div class="entry-head">
+      <div class="entry-title">PLONK — Protocol Report, Demos, and Rust/Python Backend<a class="arrow" href="https://github.com/xuancheng307/PLONK">↗</a></div>
+      <div class="entry-date">2025.12</div>
     </div>
-    <div class="entry-meta">~4,500-line monolithic technical report · 2 in-browser demos · working backend</div>
-    <div class="entry-body">
-      原創繁中技術寫作：5-round prover 拆解、AGM security model、batched pairing verification。配合 PLONK Live Demo 與 range proof demo，及 <code>backend_new/</code> 內的 Rust + Python 實作。
-    </div>
+    <div class="entry-context">Personal project<span class="stack">HTML · Rust · Python · MathJax · Mermaid</span></div>
+    <ul>
+      <li>Authored <strong>~4,500-line monolithic 繁中 technical report</strong> covering 5-round prover, AGM security model, batched pairing verification</li>
+      <li>Built two <strong>in-browser interactive demos</strong> (PLONK Live Demo · range proof) and a working Rust/Python PLONK backend</li>
+      <li>Includes 13-chapter COMPLETE_TECHNICAL_GUIDE — 證明能把硬技術寫成可讀內容</li>
+    </ul>
   </div>
 
   <div class="entry">
-    <div class="entry-row">
+    <div class="entry-head">
       <div class="entry-title">ZKMM — ZK Financial Compliance Research Site<a class="arrow" href="https://github.com/xuancheng307/ZKMM">↗</a></div>
       <div class="entry-date">2025</div>
     </div>
-    <div class="entry-meta">34 pages · pure HTML / CSS / vanilla JS · MathJax + Mermaid</div>
-    <div class="entry-body">
-      Formal protocol specs（Merkle commitments + Delta-Greek constraints over Black-Scholes）的可讀化身。含口試 lecture script with stage directions，無 framework 依賴。
-    </div>
+    <div class="entry-context">Companion to thesis<span class="stack">Pure HTML · CSS · vanilla JS · MathJax · Mermaid</span></div>
+    <ul>
+      <li>Designed <strong>34-page research site</strong> in 4 sections，含 formal protocol specs (Merkle + Delta-Greek over Black-Scholes)</li>
+      <li>Includes oral-defense lecture script with stage directions, MathJax-rendered proofs, Mermaid pipeline diagrams (22/34 files)</li>
+      <li>Pure static HTML — 無 framework 依賴，學術論文配套網站該有的耐久度</li>
+    </ul>
   </div>
 
   <div class="entry">
-    <div class="entry-row">
-      <div class="entry-title">zkml-knowledge-base — 50-Article ZKML Reference<a class="arrow" href="https://github.com/xuancheng307/zkml-knowledge-base">↗</a></div>
+    <div class="entry-head">
+      <div class="entry-title">zkml-knowledge-base — 50-Article ZKML Reference (Curated)<a class="arrow" href="https://github.com/xuancheng307/zkml-knowledge-base">↗</a></div>
       <div class="entry-date">2025</div>
     </div>
-    <div class="entry-meta">curated · 8 sections · cited bibliography</div>
-    <div class="entry-body">
-      Curated and edited 50 篇 ZKML 文章，涵蓋 proof systems、commitments、arithmetizations、toolchains，統一 citation scaffolding。
-    </div>
+    <div class="entry-context">8 sections · proof systems · commitments · arithmetizations · toolchains</div>
+    <ul>
+      <li><strong>Curated and edited</strong> 50 篇 ZKML 文章涵蓋 Groth16 / PLONK / Halo2 / STARK、KZG / IPA / FRI、EZKL / Circom / Noir，配統一 citation scaffolding</li>
+    </ul>
   </div>
 </section>
 
@@ -671,15 +603,17 @@ section {
   </div>
 
   <div class="entry">
-    <div class="entry-row">
+    <div class="entry-head">
       <div class="entry-title">Ductor — LLM Multi-Agent 作業系統<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/01_ductor.md">↗</a></div>
-      <div class="entry-date">2025 — present</div>
+      <div class="entry-date">2025 – present</div>
     </div>
-    <div class="entry-meta">individual project · dual-machine production dogfooding</div>
-    <div class="entry-body">
-      跨進程、跨機器、跨 agent 角色的 LLM agent OS。<strong>Supervisor 模型</strong>管 11 個 sub-agent，<strong>Telethon-based cross-machine relay</strong> 讓兩台 Windows 機器互通，<strong>記憶分層協議</strong>把 SHAREDMEMORY 自動 propagate。曾 framework-level patch 過 Opus stop-with-tool_use-only、Win cmd-line 8191 字元上限等 SDK 邊界問題。
-      <span class="scale">11 sub-agents · 9 Telegram bots · 3 Discord guilds · 2 machines · daily personal use</span>
-    </div>
+    <div class="entry-context">Individual project · dual-machine production dogfooding<span class="stack">Python · Telethon · discord.py · Anthropic SDK</span></div>
+    <ul>
+      <li>Designed <strong>Supervisor model</strong> managing <span class="metric">11 sub-agents</span> across 2 Windows machines, 9 Telegram bots, 3 Discord guilds — 每天 dogfooding</li>
+      <li>Engineered <strong>cross-machine user-as-relay</strong> via Telethon，跨機訊息含 <code>[From {agent}@{hostname}]</code> prefix；自寫任務 ack 契約 (task_assignment → progress → completion / blocked / clarification / handoff) 確保 wait_all 不 timeout</li>
+      <li>Implemented <strong>memory hierarchy protocol</strong>：SHAREDMEMORY → MAINMEMORY → working memory，Supervisor 自動 propagate 同機 agents</li>
+      <li>Patched two SDK boundary bugs at framework level：<span class="metric">Opus stop-with-tool_use-only</span> stdout silence (force-injected visible-text directive) + <span class="metric">Win 8,191-char cmd-line limit</span> (rewrote pipx package to file-based prompt injection)</li>
+    </ul>
   </div>
 </section>
 
@@ -691,47 +625,58 @@ section {
   </div>
 
   <div class="entry">
-    <div class="entry-row">
+    <div class="entry-head">
       <div class="entry-title">Atlas — Discord AI Company HQ<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/02_atlas.md">↗</a></div>
-      <div class="entry-date">2026·04 — 05</div>
+      <div class="entry-date">2026.04 – 05</div>
     </div>
-    <div class="entry-meta">multi-channel × multi-agent × multi-context</div>
-    <div class="entry-body">
-      自寫 <code>DiscordEditStreamer</code> 解決 rate-limit 40062，<code>buttons.py</code> 把 message marker 解析成 native UI，channel-context awareness 讓 agent 知道在哪裡說話。<strong>3 guilds · 5 slash commands · 14 channels</strong>。
-    </div>
+    <div class="entry-context">Multi-channel × multi-agent × multi-context<span class="stack">discord.py · Anthropic SDK</span></div>
+    <ul>
+      <li>Built <code>DiscordEditStreamer</code> (~225 LOC) to <strong>fix rate-limit 40062</strong> via placeholder-send + 1.5s/edit throttle + 1900-char split + 3-fail fallback</li>
+      <li>Wrote <code>buttons.py</code> (~120 LOC) parsing <code>[button:Label]</code> markers into native Discord UI; click reroutes through full agent context</li>
+      <li>Designed channel-context awareness：per-channel rules JSON · per-guild FAQ · per-channel memory 4-section schema (前 3 段 LLM 寫，Auto-summary cron 寫不踩前者)</li>
+      <li>Live across <span class="metric">3 guilds</span>, <span class="metric">5 global slash commands</span>, <span class="metric">14 channels</span>, with 3 ADRs documenting architecture decisions</li>
+    </ul>
   </div>
 
   <div class="entry">
-    <div class="entry-row">
-      <div class="entry-title">LOL Analytics — Research-grounded AI Coach<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/03_lol_analytics.md">↗</a></div>
-      <div class="entry-date">2025 — 2026</div>
+    <div class="entry-head">
+      <div class="entry-title">LOL Analytics — Research-grounded AI Coach (B2B SaaS)<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/03_lol_analytics.md">↗</a></div>
+      <div class="entry-date">2025 – 2026</div>
     </div>
-    <div class="entry-meta">PCS / Tier 2-3 戰隊用 to-coach 數據工具 · B2B SaaS</div>
-    <div class="entry-body">
-      14-metric registry 套用 gol.gg LCK / Sage Journals 學術文獻。<code>&lt;AiInsightCard&gt;</code> 對接 Anthropic API。Materialized view 用 GROUPING SETS 一張 MV 同時產 win/loss/all 三組維度。<strong>Production live · 4,000+ matches 跨服資料</strong>。
-    </div>
+    <div class="entry-context">PCS / Tier 2-3 戰隊用 to-coach 數據工具<span class="stack">Next.js · TypeScript · PostgreSQL · Riot API · Anthropic API</span></div>
+    <ul>
+      <li>Engineered PostgreSQL materialized view with <strong>GROUPING SETS</strong>—一張 MV 同時產 win/loss/all 三組 row，仍可 CONCURRENTLY refresh</li>
+      <li>Built <strong>14-metric registry</strong> backed by gol.gg LCK + Sage Journals 2026 + ScienceDirect 2025 文獻，設定 ROLE_DEFAULT_METRICS</li>
+      <li>Designed <code>&lt;AiInsightCard&gt;</code> 元件：5 placement × 4 kind × 2 variant，對接 Anthropic API；先用手寫 sample insight 上線驗 UI 再接 LLM</li>
+      <li>Production live with <span class="metric">4,000+ matches</span> Riot Match-V5 backfill across KR/TW，30+ iterative rounds (A → AP)</li>
+    </ul>
   </div>
 
   <div class="entry">
-    <div class="entry-row">
+    <div class="entry-head">
       <div class="entry-title">Xunrex HR — Production B2B HR SaaS<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/04_xunrex_hr.md">↗</a></div>
-      <div class="entry-date">2025 — 2026</div>
+      <div class="entry-date">2025 – 2026</div>
     </div>
-    <div class="entry-meta">台灣中小企業合規勞基法 HR 系統</div>
-    <div class="entry-body">
-      Single-tenant 多 instance 部署（Docker / PyInstaller exe / 集中 hosting 三模式）。<strong>11,055 unit tests pass · 第一個付費客戶上線運作中</strong>。
-    </div>
+    <div class="entry-context">合規勞基法 HR 系統 for 台灣中小企業<span class="stack">Flask · SQLAlchemy · MySQL/SQLite · Waitress · PyInstaller</span></div>
+    <ul>
+      <li>Architected <strong>single-tenant multi-instance</strong> deployment (NOT multi-tenant SaaS)，三模式：Docker / PyInstaller exe + Waitress (~30MB) / 集中 hosting</li>
+      <li>Used <code>native_enum=False</code> across all SQLAlchemy enums for cross-DB compat (MySQL prod / SQLite lightweight 同 codebase)</li>
+      <li>Shipped 11 phases (考勤、補休、薪資預覽、保險、email log、文件可見性、部門統計⋯) with <span class="metric">11,055 unit tests, 0 failures</span></li>
+      <li><span class="metric">First paying customer (Xunrex) live</span>; bug-fix loop 已驗證 production-ready</li>
+    </ul>
   </div>
 
   <div class="entry">
-    <div class="entry-row">
+    <div class="entry-head">
       <div class="entry-title">森嶸電子 — DRAM 測試資料工程</div>
-      <div class="entry-date">2025·02 — present</div>
+      <div class="entry-date">2025.02 – present</div>
     </div>
-    <div class="entry-meta">DRAM 模組測試 log 結構化 ETL pipeline</div>
-    <div class="entry-body">
-      Python pandas + pymysql 自動解析 SPD / 電壓 / PMIC / 錯誤 bitmap。Streamlit 內部查詢介面。<strong>1 億+ 筆測試資料 ETL 全自動化</strong>。
-    </div>
+    <div class="entry-context">DRAM 模組測試 log 結構化 ETL pipeline<span class="stack">Python · pandas · pymysql · MySQL · Streamlit</span></div>
+    <ul>
+      <li>Automated parsing of SPD / 電壓 / PMIC / 錯誤 bitmap / pattern error logs，正規化 schema + JSON columns 處理彈性錯誤資訊</li>
+      <li>Streamlit 內部查詢介面整合後端 ETL，跨部門協作工具</li>
+      <li><span class="metric">1 億+ records</span> 全自動化 ETL 進 production</li>
+    </ul>
   </div>
 </section>
 
@@ -743,19 +688,19 @@ section {
   </div>
 
   <div class="entry">
-    <div class="entry-row">
-      <div class="entry-title">政治大學 資料科學研究所</div>
-      <div class="entry-date">2023·09 — 2025·12</div>
+    <div class="entry-head">
+      <div class="entry-title">M.S., Data Science · 政治大學 資料科學研究所</div>
+      <div class="entry-date">2023.09 – 2025.12</div>
     </div>
-    <div class="entry-meta">M.S. · 碩士論文：Polynomial Approximation of Transcendental Functions for ZK Financial Compliance</div>
+    <div class="entry-context">Thesis: Polynomial Approximation of Transcendental Functions for ZK Financial Compliance（見 §ii）</div>
   </div>
 
   <div class="entry">
-    <div class="entry-row">
-      <div class="entry-title">政治大學 應用數學系</div>
-      <div class="entry-date">2018·09 — 2023·07</div>
+    <div class="entry-head">
+      <div class="entry-title">B.S., Applied Mathematics · 政治大學 應用數學系</div>
+      <div class="entry-date">2018.09 – 2023.07</div>
     </div>
-    <div class="entry-meta">B.S. · 應數核心 + 跨修商學院（管理學、初級會計、保險）</div>
+    <div class="entry-context">應數核心（線代 / 機率 / 統計 / 微積分 / 抽象代數 / 數值分析）+ 跨修商學院（管理學、初級會計、保險）</div>
   </div>
 </section>
 
@@ -767,16 +712,16 @@ section {
   </div>
 
   <div class="skills-row">
-    <span class="skills-label">advanced</span>
-    <span class="skills-list">Python · Anthropic Claude SDK · Multi-agent orchestration · MySQL / PostgreSQL · Materialized View · Telethon · Linux/Win Ops · Halo2 / KZG / PLONK · Framework Patching</span>
+    <span class="skills-label">Advanced</span>
+    <span class="skills-list">Python <span class="sep">·</span> Anthropic Claude SDK <span class="sep">·</span> Multi-agent orchestration <span class="sep">·</span> MySQL / PostgreSQL <span class="sep">·</span> Materialized View <span class="sep">·</span> Telethon <span class="sep">·</span> Linux/Win Ops <span class="sep">·</span> Halo2 / KZG / PLONK <span class="sep">·</span> Framework Patching</span>
   </div>
   <div class="skills-row">
-    <span class="skills-label">intermediate</span>
-    <span class="skills-list">TypeScript / Next.js · Flask / Streamlit / Express · Vercel / Railway / Cloudflare · Docker / PyInstaller · ezkl ONNX→Halo2 · Remez minimax · pandas</span>
+    <span class="skills-label">Intermediate</span>
+    <span class="skills-list">TypeScript / Next.js <span class="sep">·</span> Flask / Streamlit / Express <span class="sep">·</span> Vercel / Railway / Cloudflare <span class="sep">·</span> Docker / PyInstaller <span class="sep">·</span> ezkl ONNX→Halo2 <span class="sep">·</span> Remez minimax <span class="sep">·</span> pandas</span>
   </div>
   <div class="skills-row">
-    <span class="skills-label">learning</span>
-    <span class="skills-list">Rust · C++ / MFC · Plonky2 · Halo2 進階 lookup arguments</span>
+    <span class="skills-label">Learning</span>
+    <span class="skills-list">Rust <span class="sep">·</span> C++ / MFC <span class="sep">·</span> Plonky2 <span class="sep">·</span> Halo2 進階 lookup arguments</span>
   </div>
 </section>
 
@@ -797,7 +742,7 @@ section {
     <div class="two-col-block">
       <div class="col-label">Certifications</div>
       <p>證券商高級業務員 · 證券商業務員 · 期貨商業務員</p>
-      <p style="font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; color: var(--muted); letter-spacing: 0.3px;">2021·03</p>
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 8.3pt; color: var(--muted); letter-spacing: 0.4px;">2021.03</p>
     </div>
   </div>
 </section>
@@ -809,16 +754,13 @@ section {
     <h2 class="section-title">Working Philosophy</h2>
   </div>
 
-  <div class="closing-wrapper">
-    <div class="ornament">❦ ❦ ❦</div>
-    <div class="closing">
-      我設計、編排、驗收。具體實作高比例由 AI agent 完成，但<strong>架構決策、ADR 撰寫、debug 介入、production deploy</strong> 全程主導。這在 2026 不是 disclaimer — 能把不會講話的需求拆成 agent 可執行的 sub-task、能讀完 agent 產出的 PR 知道它「對但不夠」、能 framework-level 介入修補 SDK 的本質 bug 不繞過，這就是 AI 架構師職位的核心競爭力。Ductor 本身就是這個工作模式的 dogfooding 證明。
-    </div>
+  <div class="philosophy">
+    我設計、編排、驗收。具體實作高比例由 AI agent 完成，但<strong>架構決策、ADR 撰寫、debug 介入、production deploy</strong> 全程主導。這在 2026 不是 disclaimer — 能把不會講話的需求拆成 agent 可執行的 sub-task、能讀完 agent 產出的 PR 知道它「對但不夠」、能 framework-level 介入修補 SDK 的本質 bug 不繞過，這就是 AI 架構師職位的核心競爭力。
   </div>
 </section>
 
 <div class="page-footer">
-  Full case studies and technical detail at <a href="https://github.com/xuancheng307/xuancheng307">github.com/xuancheng307</a>
+  <a href="https://github.com/xuancheng307/xuancheng307">github.com/xuancheng307</a> · case studies & technical detail
 </div>
 
 </div><!-- /.page-inner -->
