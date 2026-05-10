@@ -37,18 +37,74 @@
       height: auto !important;
     }
 
-    /* === Header — bigger, stronger === */
-    header h1 {
-      font-size: 2rem !important;          /* was 1.5rem (text-2xl) */
-      line-height: 1.15 !important;
-      letter-spacing: -0.5px;
+    /* === Header (new structure) === */
+    .resume-header {
+      margin-bottom: 2.25rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid #1a202c;
     }
-
+    .header-row-1 {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 0.85rem;
+    }
     .initials-container {
-      min-width: 3rem !important;
-      font-size: 1.125rem !important;
+      background: #1a365d;
+      color: #fff;
+      font-family: FiraGO, "Noto Sans TC", system-ui, sans-serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1;
+      min-width: 3.5rem;
+      padding: 0.85rem 0.85rem;
+      text-align: center;
     }
-    .initial { padding: 1px 0; }
+    .initials-container .initial {
+      padding: 1px 0;
+    }
+    .header-name { display: flex; flex-direction: column; }
+    .header-name-cn {
+      font-family: "Noto Sans TC", FiraGO, sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a202c;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .header-name-en {
+      font-size: 1rem;
+      color: #68778d;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+    .header-role {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #1a365d;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.1px;
+    }
+    .header-tagline {
+      font-size: 0.95rem;
+      color: #4a5568;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05px;
+    }
+    .header-contact {
+      font-size: 0.85rem;
+      color: #68778d;
+      font-family: FiraGO, "Noto Sans TC", system-ui, sans-serif;
+      letter-spacing: 0.2px;
+    }
+    .header-contact a {
+      color: #68778d;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .header-contact a:hover { color: #1a365d; }
+    .header-contact .sep { color: #cbd5e0; padding: 0 0.4rem; }
 
     /* === Section header — darker, warmer accent === */
     h2.tracking-widest {
@@ -122,20 +178,28 @@
 
     <div class="p-6 mx-auto page max-w-2xl print:max-w-letter md:max-w-letter md:h-letter xsm:p-8 sm:p-9 md:p-16 bg-white">
 
-      <!-- Name -->
-      <header class="flex items-center mb-8 md:mb-11">
-        <div class="initials-container mr-5 text-base leading-none text-white bg-gray-700 font-medium print:bg-black px-3"
-             style="padding-bottom: 0.6875rem; padding-top: 0.6875rem;">
-          <div class="initial text-center" style="padding-bottom: 0.1875rem;">K</div>
-          <div class="text-center initial">X</div>
+      <!-- Name + contact (top of page) -->
+      <header class="resume-header">
+        <div class="header-row-1">
+          <div class="initials-container">
+            <div class="initial">K</div>
+            <div class="initial">X</div>
+          </div>
+          <div class="header-name">
+            <h1 class="header-name-cn">高璿程</h1>
+            <div class="header-name-en">Kao Xuan-Cheng</div>
+          </div>
         </div>
-        <div>
-          <h1 class="text-2xl font-semibold text-gray-750 pb-px leading-none">
-            高璿程 &nbsp;&middot;&nbsp; Kao Xuan-Cheng
-          </h1>
-          <p class="text-md text-gray-650 mt-2.1 leading-normal">
-            AI Systems Architect &middot; LLM Multi-Agent OS &middot; ZK Financial Compliance
-          </p>
+        <div class="header-role">AI Systems Architect</div>
+        <div class="header-tagline">LLM Multi-Agent OS &middot; ZK Financial Compliance &middot; Production Engineering</div>
+        <div class="header-contact">
+          <a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a>
+          <span class="sep">|</span>
+          <span>0970 527 427</span>
+          <span class="sep">|</span>
+          <a href="https://github.com/xuancheng307">github.com/xuancheng307</a>
+          <span class="sep">|</span>
+          <span>Taipei, Taiwan</span>
         </div>
       </header>
 
@@ -150,23 +214,6 @@
             <p class="text-md text-gray-700 leading-normal">
               政大資料科學研究所碩士（2025-12 預計畢業）。研究方向<span class="font-medium text-gray-600 print:text-black">零知識證明在金融安全領域的應用</span>。過去 12 個月自寫多個 LLM 系統，旗艦作品 <span class="font-medium text-gray-600 print:text-black">Ductor</span> 是雙機 multi-agent OS，每天 production dogfooding。工作模式：<span class="font-medium text-gray-600 print:text-black">架構決策 + AI agent 編排 + 結果驗收</span>。應用數學 + 密碼學 + 金融證照三者交集。
             </p>
-          </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="mt-8 first:mt-0">
-          <div class="break-inside-avoid">
-            <h2 class="mb-4 font-bold tracking-widest text-sm2 text-gray-550 print:font-normal">
-              CONTACT
-            </h2>
-            <p class="text-md text-gray-700 leading-normal">
-              <a class="hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="mailto:b128506789@gmail.com">b128506789@gmail.com&nbsp;&deg;</a>
-            </p>
-            <p class="text-md text-gray-700 leading-normal mt-1.5">0970 527 427</p>
-            <p class="text-md text-gray-700 leading-normal mt-1.5">
-              <a class="hover:bg-gray-150 rounded-lg transition ease-in duration-100" href="https://github.com/xuancheng307">github.com/xuancheng307&nbsp;&deg;</a>
-            </p>
-            <p class="text-md text-gray-700 leading-normal mt-1.5">Taipei, Taiwan</p>
           </div>
         </section>
 
