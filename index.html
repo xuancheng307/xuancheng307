@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>高璿程 — AI Systems Architect (v4)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0F1419; --text: #1a1f2e; --muted: #5b6573; --faint: #8a94a3;
+  --rule: #e7eaf0; --rule-soft: #f0f2f6;
+  --bg: #ffffff; --paper: #fcfcfd;
+  --accent: #1e40af; --accent-2: #2563eb; --accent-soft: #eff6ff;
+  --tag-bg: #f3f4f6; --tag-text: #374151;
+  --emerald: #047857; --amber: #b45309;
+  --research: #6d28d9; --research-soft: #f5f3ff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: 'Inter', 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 10.3pt; line-height: 1.5; color: var(--text);
+  background: var(--paper); -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 210mm; margin: 24px auto; padding: 18mm 16mm;
+  background: var(--bg); box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 12px 32px -12px rgba(0,0,0,.10);
+  border-radius: 4px;
+}
+header { border-bottom: 2px solid var(--ink); padding-bottom: 14px; margin-bottom: 18px; }
+.name-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+.name { font-size: 32pt; font-weight: 800; color: var(--ink); letter-spacing: -0.5px; font-family: 'Noto Sans TC', sans-serif; }
+.name-en { font-size: 13pt; color: var(--muted); font-weight: 400; letter-spacing: 0.5px; }
+.tagline { font-size: 11.5pt; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
+.contacts { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 9.5pt; color: var(--muted); }
+.contacts a { color: var(--muted); text-decoration: none; }
+.contacts a:hover { color: var(--accent); }
+.contacts svg { width: 13px; height: 13px; vertical-align: -2px; margin-right: 4px; fill: currentColor; }
+
+section { margin-bottom: 18px; page-break-inside: avoid; }
+h2 {
+  font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--accent); margin-bottom: 9px; padding-bottom: 5px;
+  border-bottom: 1px solid var(--rule);
+}
+h2.research { color: var(--research); }
+h3 { font-size: 11pt; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+h3 .right { float: right; font-size: 9pt; font-weight: 500; }
+h3 .right a { color: var(--accent-2); text-decoration: none; border-bottom: 1px dashed var(--accent-2); }
+h4 { font-size: 9.5pt; font-weight: 700; color: var(--ink); margin: 6px 0 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+p { margin-bottom: 6px; }
+
+.summary p { margin-bottom: 7px; }
+.summary strong { color: var(--ink); font-weight: 700; }
+.summary .data { background: var(--accent-soft); padding: 1px 6px; border-radius: 3px; color: var(--accent); font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 9.5pt; }
+
+.skill-grid { display: grid; grid-template-columns: 130px 1fr; gap: 4px 14px; font-size: 9.6pt; }
+.skill-grid dt { font-weight: 700; color: var(--ink); padding: 3px 0; }
+.skill-grid dd { color: var(--text); padding: 3px 0; }
+
+.case { margin-bottom: 12px; padding-left: 14px; border-left: 3px solid var(--rule); page-break-inside: avoid; }
+.case.flagship {
+  border-left-color: var(--accent); border-left-width: 4px;
+  background: linear-gradient(to right, var(--accent-soft), transparent 40%);
+  padding: 8px 14px 10px; margin-left: -14px; border-radius: 0 4px 4px 0;
+}
+.case.research {
+  border-left-color: var(--research); border-left-width: 4px;
+  background: linear-gradient(to right, var(--research-soft), transparent 50%);
+  padding: 8px 14px 10px; margin-left: -14px; border-radius: 0 4px 4px 0;
+}
+.case h3 { margin-bottom: 4px; }
+.case .tag {
+  display: inline-block; font-size: 7.5pt; font-weight: 600;
+  padding: 1px 7px; border-radius: 3px; background: var(--accent); color: white;
+  text-transform: uppercase; letter-spacing: 0.6px; vertical-align: middle; margin-right: 6px;
+}
+.case .tag.thesis { background: var(--research); }
+.case .meta { font-size: 9pt; color: var(--muted); font-style: italic; margin-bottom: 5px; }
+.case ul { list-style: none; padding-left: 0; }
+.case ul li { padding-left: 12px; position: relative; font-size: 9.6pt; margin-bottom: 2px; line-height: 1.45; }
+.case ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-2); font-size: 8pt; top: 1px; }
+.case.research ul li::before { color: var(--research); }
+.case ul li strong { color: var(--ink); font-weight: 600; }
+.case .outcome {
+  display: inline-block; margin-top: 6px; padding: 4px 10px;
+  background: var(--accent-soft); color: var(--accent); border-radius: 3px;
+  font-size: 9pt; font-weight: 500;
+}
+.case.research .outcome { background: var(--research-soft); color: var(--research); }
+.case .outcome strong { font-weight: 700; }
+.case .data-pill {
+  display: inline-block; background: var(--accent-soft); color: var(--accent);
+  padding: 1px 7px; border-radius: 3px; font-family: 'JetBrains Mono', monospace;
+  font-size: 9pt; font-weight: 600; margin: 0 2px;
+}
+.case.research .data-pill { background: var(--research-soft); color: var(--research); }
+
+.entry { margin-bottom: 8px; page-break-inside: avoid; }
+.entry-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+.entry-title { font-weight: 700; color: var(--ink); font-size: 10.3pt; }
+.entry-date { font-size: 9pt; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+.entry-sub { font-size: 9.5pt; color: var(--muted); margin-bottom: 4px; }
+.entry ul { list-style: none; padding-left: 0; margin-top: 3px; }
+.entry ul li { padding-left: 12px; position: relative; font-size: 9.6pt; margin-bottom: 2px; }
+.entry ul li::before { content: '·'; position: absolute; left: 4px; color: var(--faint); font-weight: 700; }
+
+.skill-block { margin-bottom: 6px; }
+.skill-label { display: inline-block; width: 70px; font-weight: 700; font-size: 9pt; color: var(--ink); text-transform: uppercase; letter-spacing: 0.5px; vertical-align: top; }
+.skill-label.advanced { color: var(--accent); }
+.skill-label.medium { color: var(--emerald); }
+.skill-label.beginner { color: var(--amber); }
+.skill-tags { display: inline; font-size: 9.5pt; line-height: 1.7; }
+.skill-tags .tag-item {
+  display: inline-block; background: var(--tag-bg); color: var(--tag-text);
+  padding: 1px 8px; border-radius: 3px; margin: 0 3px 3px 0;
+  font-family: 'Inter', monospace; font-size: 8.7pt; font-weight: 500; white-space: nowrap;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.closing {
+  background: linear-gradient(to right, var(--accent-soft), transparent);
+  padding: 10px 14px; border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0; font-size: 9.7pt; line-height: 1.55; margin-top: 4px;
+}
+.closing strong { color: var(--accent); font-weight: 700; }
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  html, body { background: white !important; font-size: 9.8pt; }
+  .page { margin: 0 !important; padding: 0 !important; box-shadow: none !important; border-radius: 0 !important; max-width: 100% !important; }
+  section { page-break-inside: avoid; }
+  .case.flagship, .case.research, .closing, .case .outcome, .skill-tags .tag-item, .summary .data, .case .data-pill, .case .tag, .case .tag.thesis, header, h2 {
+    -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
+  }
+  a { color: inherit !important; text-decoration: none !important; }
+  .case h3 .right a { color: var(--accent-2) !important; }
+  .contacts a { color: var(--muted) !important; }
+  .print-bar { display: none !important; }
+}
+
+.print-bar {
+  position: fixed; top: 12px; right: 12px; background: var(--ink); color: white;
+  padding: 8px 14px; border-radius: 4px; font-size: 9pt; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2); user-select: none; z-index: 100;
+}
+.print-bar:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="print-bar" onclick="window.print()">⌘ Print / Save as PDF</div>
+
+<div class="page">
+
+<header>
+  <div class="name-row">
+    <span class="name">高璿程</span>
+    <span class="name-en">Kao Xuan-Cheng</span>
+  </div>
+  <div class="tagline">AI Systems Architect ｜ LLM Multi-Agent OS × ZK Financial Security × Production Engineering</div>
+  <div class="contacts">
+    <span><svg viewBox="0 0 16 16"><path d="M14.5 3.5h-13C.67 3.5 0 4.17 0 5v6c0 .83.67 1.5 1.5 1.5h13c.83 0 1.5-.67 1.5-1.5V5c0-.83-.67-1.5-1.5-1.5zM14 4l-6 4-6-4h12zM1.5 11.5V5.43l6.5 4.33 6.5-4.33V11.5h-13z"/></svg><a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></span>
+    <span><svg viewBox="0 0 16 16"><path d="M3.65 4.66c1.27 2.46 3.27 4.46 5.73 5.73l1.91-1.91c.24-.24.59-.31.91-.21 1 .33 2.07.51 3.18.51.5 0 .91.41.91.91v3.04c0 .5-.41.91-.91.91C6.96 13.64 1.36 8.04 1.36 1.05c0-.5.41-.91.91-.91h3.05c.5 0 .91.41.91.91 0 1.11.18 2.18.51 3.18.1.32.03.66-.21.91L4.6 7.05z"/></svg>0970527427</span>
+    <span><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.69-.01-1.35-2.22.48-2.69-1.07-2.69-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.74.54 1.49 0 1.08-.01 1.95-.01 2.21 0 .21.15.46.55.38C13.71 14.53 16 11.54 16 8c0-4.42-3.58-8-8-8z"/></svg><a href="https://github.com/xuancheng307">github.com/xuancheng307</a></span>
+    <span><svg viewBox="0 0 16 16"><path d="M14 1H2c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM5 13H3V6h2v7zm-1-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm9 8h-2V9.5c0-.55-.45-1-1-1s-1 .45-1 1V13H7V6h2v1c.55-.55 1.45-1 2.5-1S13 6.45 13 7.5V13z"/></svg>1999-03-07 ｜ 男</span>
+  </div>
+</header>
+
+<section class="summary">
+  <h2>簡歷</h2>
+  <p>政大資料科學研究所碩士（<strong>2025-12 預計畢業</strong>）。碩士論文：<strong>「零知識證明在金融安全領域的應用」</strong> — 78 頁完整論文，建構<strong>首個 end-to-end ZK transcendental-function evaluation</strong>（Black-Scholes Delta hedging 與 Merton credit default scenarios）。實證 polynomial evaluation 比 lookup 快 <span class="data">26.3×</span>、Merton scenario <span class="data">6,944-byte proof</span> 在 <span class="data">~23ms</span> 內驗證。原創在數值分析層（Remez minimax + Horner evaluation 把超越函數塞進 ZK 電路），ZK 系統用 stock Halo2/KZG。</p>
+  <p>過去 12 個月主導設計並運行多個 LLM 系統。旗艦作品 <strong>Ductor 是雙機跨進程的 LLM Agent 作業系統</strong> — Telegram 主控介面、11 個跨機 sub-agent、cron 任務委派、cross-machine 記憶同步、自寫 hook system 與 governance 機制。每天作為個人 AI 助理在 production 運行（雙機 dogfooding）。</p>
+  <p>延伸應用涵蓋 Discord 多 agent 架構（Atlas）、B2B 電競戰隊 SaaS（LOL Analytics）、付費客戶 HR 系統（Xunrex HR, 11,055 tests pass）、製造業 1B+ records ETL。工作模式：<strong>架構決策 + AI agent 編排 + 結果驗收</strong>。應用數學底子 + 密碼學研究 + 金融證照三者交集。</p>
+</section>
+
+<section>
+  <h2>核心能力</h2>
+  <dl class="skill-grid">
+    <dt>Multi-Agent 架構</dt>
+    <dd>自寫 Supervisor 模型、agent token mgmt、cross-machine relay、任務 ack 契約、SHAREDMEMORY 同步協議</dd>
+    <dt>Framework-level Eng</dt>
+    <dd>能 patch 第三方 SDK 邊界問題（Opus tool_use-only stdout / Discord 40062 / Win cmd-line 8191 字元上限）</dd>
+    <dt>AI 應用工程</dt>
+    <dd>Anthropic Claude SDK / Gemini API / 多模型 routing / streaming UX / context window 管理 / prompt engineering</dd>
+    <dt>Cross-platform</dt>
+    <dd>Telegram (Telethon + bot polling) / Discord (websocket gateway)，自寫 edit-streaming + button parser 對等抽象</dd>
+    <dt>資料工程</dt>
+    <dd>Python + MySQL/PostgreSQL，1 億+ 筆 log ETL，schema design，materialized view 含 GROUPING SETS</dd>
+    <dt>ZK 密碼學</dt>
+    <dd>Halo2 / KZG / PLONK 證明系統實作；Remez minimax + Horner evaluation 把超越函數塞 ZK 電路；ezkl ONNX → Halo2 pipeline</dd>
+    <dt>數學工具</dt>
+    <dd>應數系 4 年訓練（線代／機率／統計／微積分／抽象代數／數值分析）— 看得懂 paper、能讀模型推導</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>旗艦作品</h2>
+  <div class="case flagship">
+    <h3><span class="tag">FLAGSHIP</span>Ductor — LLM Multi-Agent 作業系統<span class="right"><a href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/01_ductor.md">case study →</a></span></h3>
+    <div class="meta">個人主導，2025–2026 持續維運｜跨進程、跨機器、跨 agent 角色的 LLM agent OS，雙機 production dogfooding</div>
+    <h4>架構決策</h4>
+    <ul>
+      <li><strong>Supervisor 模型</strong> + <code>agents.json</code> 為 token single source of truth</li>
+      <li><strong>跨機 user-as-relay</strong>：Telethon 互通兩台 Windows 機器；訊息含 <code>[From {agent}@{hostname}]</code> prefix</li>
+      <li><strong>記憶分層</strong>：SHAREDMEMORY → MAINMEMORY → working memory，Supervisor 自動 propagate</li>
+      <li><strong>任務 ack 契約</strong>：task_assignment → progress → completion / blocked / clarification / handoff，task_id 跨訊息共享</li>
+    </ul>
+    <h4>Framework-level 介入</h4>
+    <ul>
+      <li>修補 <strong>Opus 結束 turn 只有 tool_use 導致 stdout 為空</strong> — <code>cli/claude_provider.py</code> 強制 append visible-text directive</li>
+      <li><strong>Win cmd-line 8191 字元上限</strong> patch — 直接編輯 ductor pipx 套件</li>
+    </ul>
+    <span class="outcome"><strong>規模：</strong>11 sub-agent 跨 2 台機器 · 9 Telegram bot · 3 Discord guild · 自寫 audit/canonical_write/cosign_token governance</span>
+  </div>
+</section>
+
+<section>
+  <h2 class="research">ZK 研究與技術寫作</h2>
+
+  <div class="case research">
+    <h3><span class="tag thesis">THESIS</span>碩士論文 v4 — Polynomial Approximation of Transcendental Functions for ZK Financial Compliance</h3>
+    <div class="meta">78 頁正式論文｜Halo2 PSE v0.3.0 / KZG/SHPLONK / BN254｜13 functions × 637 (pp,d) full ablation</div>
+    <h4>架構設計（Chapter 3）</h4>
+    <ul>
+      <li><strong>Four-layer architecture</strong>：Input Layer / Coefficient Layer / <strong>Precision Layer</strong> / Circuit Layer — 分離資料攝取、多項式係數、固定點精度管理、算術電路構造</li>
+      <li><strong>核心技術貢獻：Deferred Truncation with BN254 Headroom Analysis</strong>（§3.3.2）— 經驗 boundary「if (d+1) × pp &lt; 254, else per-step」，讓 13 函數在 pp=16 全達 ULP=1</li>
+    </ul>
+    <h4>Protocol (Chapter 4 — Scenario A: Black-Scholes Delta-bounded Compliance)</h4>
+    <ul>
+      <li><strong>Four-layer trust model</strong>：genesis anchor / exchange authentication / market data commitment / ZK computation / random audit</li>
+      <li><strong>Dual-proof architecture</strong>：Proof #1 (compliance: 投資組合 Delta ≤ threshold) + Proof #2 (state-transition: state root R<sub>T</sub> 從 R<sub>T-1</sub> 正確衍生)</li>
+      <li><strong>Two Merkle commitments</strong>：state root R<sub>T</sub> 與 market data root R<sub>M</sub> 分離</li>
+    </ul>
+    <h4>實驗結果</h4>
+    <ul>
+      <li>Polynomial evaluation 比 lookup 快 <span class="data-pill">26.3×</span>，lookup 在 pp ≥ 24 不可行</li>
+      <li><strong>Minimax 比 Taylor 準 <span class="data-pill">2× to 4,000×</span></strong>（依函數而異）</li>
+      <li>Merton scenario：<span class="data-pill">6,944-byte proof</span> + <span class="data-pill">~23ms verification</span> + <span class="data-pill">28.6–29.0 effective bits</span></li>
+      <li><strong>首個 end-to-end ZK transcendental-function evaluation</strong> — Black-Scholes Delta hedging (pp=24) + Merton credit default (pp=32)</li>
+    </ul>
+    <span class="outcome"><strong>原創在數值分析層</strong>（Remez minimax + Horner + deferred truncation），ZK 系統用 stock Halo2/KZG — 不假裝 novel cryptography</span>
+  </div>
+
+  <div class="case research">
+    <h3>PLONK Protocol Report + 2 Interactive Demos + Rust/Python Backend<span class="right"><a href="https://github.com/xuancheng307/PLONK">github.com/xuancheng307/PLONK</a></span></h3>
+    <div class="meta">2025-12｜原創繁中技術寫作 + 可互動實作｜~4500 line monolithic HTML report</div>
+    <ul>
+      <li>完整 5-round prover 拆解、AGM security model + Lemma 2.2、batched pairing equation、Q-DLOG</li>
+      <li>2 個 in-browser interactive demo（PLONK Live Demo w²+x=y / range_proof_demo）</li>
+      <li><code>backend_new/</code> 內含 <strong>Rust + Python PLONK backend 真實實作</strong></li>
+      <li>5 篇 .md 補充含 13 章 COMPLETE_TECHNICAL_GUIDE</li>
+    </ul>
+  </div>
+
+  <div class="case research">
+    <h3>ZKMM — 34-page ZK Financial Compliance Research Site<span class="right"><a href="https://github.com/xuancheng307/ZKMM">github.com/xuancheng307/ZKMM</a></span></h3>
+    <div class="meta">原創繁中｜4 sections（背景知識 16 / 協議說明 7 / 提案報告 5 / root 6）｜純 HTML/CSS/vanilla JS</div>
+    <ul>
+      <li>Formal protocol specs：Merkle + <strong>Delta-Greek constraints over Black-Scholes</strong></li>
+      <li>MathJax 3 渲染數學、Mermaid pipeline diagrams（22/34 檔案有圖）</li>
+      <li>含口試 lecture script with stage directions（gesture / pause）— 學術發表準備</li>
+      <li>無 framework，pure static — 證明能在底層 web stack 把研究內容表達清楚</li>
+    </ul>
+  </div>
+
+  <div class="case research">
+    <h3>zkml-knowledge-base — 50-Article ZKML Reference (Curated)<span class="right"><a href="https://github.com/xuancheng307/zkml-knowledge-base">github.com/xuancheng307/zkml-knowledge-base</a></span></h3>
+    <div class="meta">8 sections｜zkp / zkml / ml / frameworks / applications / research / thesis / intro</div>
+    <ul>
+      <li><strong>Curated and edited</strong> 50 篇 ZKML 文章涵蓋 proof systems (Groth16/PLONK/Halo2/STARK)、commitments (KZG/IPA/FRI)、arithmetizations、toolchains (EZKL/Circom/Noir)</li>
+      <li>統一 citation scaffolding 與 bibliography</li>
+    </ul>
+  </div>
+
+  <div class="case research">
+    <h3>ezkl ONNX → Halo2 Pipeline + Auto-tuning 補充實驗</h3>
+    <div class="meta">畢業論文/zkml-experiment｜real ezkl pipeline run on CIFAR-10</div>
+    <ul>
+      <li>真實跑通 ezkl ONNX → Halo2 proof pipeline，產出 proof.json / witness.json artifacts</li>
+      <li><code>tuner/</code> 模組實作 <strong>multi-fidelity Pareto 搜尋</strong>自動調參</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>其他代表案例</h2>
+
+  <div class="case">
+    <h3>Atlas — Discord AI 公司總部<span class="right"><a href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/02_atlas.md">case study →</a></span></h3>
+    <div class="meta">2026-04 ~ 2026-05｜把 Discord 升級成多 channel × 多 agent × 多 context</div>
+    <ul>
+      <li>自寫 <code>DiscordEditStreamer</code> (~225 行) 解 rate-limit 40062：placeholder send → 1.5s/edit throttle → 1900-char split → 3-fail fallback</li>
+      <li>自寫 <code>buttons.py</code> (~120 行) 把 <code>[button:Label]</code> 解析成 Discord UI，按下走 full agent context</li>
+      <li>Channel-context awareness：per-channel rules JSON / per-guild FAQ / per-channel memory 4-section schema</li>
+      <li>Outcome：3 guilds、5 slash commands global、14 channel bootstrap、3 個 ADR</li>
+    </ul>
+  </div>
+
+  <div class="case">
+    <h3>LOL Analytics — Research-grounded AI Coach (B2B SaaS)<span class="right"><a href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/03_lol_analytics.md">case study →</a></span></h3>
+    <div class="meta">2025–2026｜PCS / Tier 2-3 戰隊用付費得起的 to-coach 數據工具</div>
+    <ul>
+      <li>PostgreSQL materialized view 用 GROUPING SETS 一張 MV 同時產 win/loss/all 三組 row 仍可 CONCURRENTLY refresh</li>
+      <li>14-metric registry 套用 gol.gg LCK / Sage Journals 2026 / ScienceDirect 2025 文獻設定 ROLE_DEFAULT_METRICS</li>
+      <li><code>&lt;AiInsightCard&gt;</code> 5 placement × 4 kind × 2 variant，對接 Anthropic API</li>
+      <li>Outcome：production live、Round A→AP 30+ 迭代、4000+ matches 跨服資料</li>
+    </ul>
+  </div>
+
+  <div class="case">
+    <h3>Xunrex HR — Production B2B HR SaaS<span class="right"><a href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/04_xunrex_hr.md">case study →</a></span></h3>
+    <div class="meta">2025–2026｜針對台灣中小企業（~30 員工）的合規勞基法 HR 系統</div>
+    <ul>
+      <li>Flask + SQLAlchemy + Flask-Migrate；MySQL 8.0 (prod) / SQLite (lightweight)，<code>native_enum=False</code> 跨 DB 相容</li>
+      <li>三模式部署：Docker / PyInstaller exe + Waitress (~30MB) / 集中多 instance hosting</li>
+      <li>11 phase 完整模組（考勤、補休、薪資預覽、保險、email log、文件可見性、部門統計）</li>
+      <li>Outcome：<strong>11,055 unit tests pass</strong>、第一個付費客戶 <strong>Xunrex 上線運作中</strong></li>
+    </ul>
+  </div>
+
+  <div class="case">
+    <h3>森嶸電子｜DRAM 測試資料工程</h3>
+    <div class="meta">2025-02 ~ 現在｜DRAM 模組測試 log 結構化 ETL pipeline</div>
+    <ul>
+      <li>Python pandas + pymysql 自動解析 SPD / 電壓 / PMIC / 錯誤 bitmap / pattern error</li>
+      <li>正規化 schema 含 JSON 彈性錯誤資訊；Streamlit 內部查詢介面</li>
+      <li>Outcome：<strong>1 億+ 筆測試資料 ETL 全自動化</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>學歷</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">政治大學 資料科學研究所</span>
+      <span class="entry-date">2023-09 — 2025-12 (預計)</span>
+    </div>
+    <div class="entry-sub">碩士論文：<strong style="color: var(--ink)">Polynomial Approximation of Transcendental Functions for ZK Financial Compliance</strong>（題目暫譯）</div>
+    <ul>
+      <li>完整貢獻 / 數據如「ZK 研究與技術寫作」段</li>
+      <li>論文 stack：Halo2 PSE v0.3.0、KZG/SHPLONK、BN254 curve</li>
+      <li>相關修課：現代密碼學、軟體工程、電腦科學邏輯、機器學習、財務數學、區塊鏈應用</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">政治大學 應用數學系</span>
+      <span class="entry-date">2018-09 — 2023-07</span>
+    </div>
+    <div class="entry-sub">應數核心（線代／機率／統計／微積分／抽象代數／數值分析）+ 跨修商學院（管理學、初級會計、保險）</div>
+  </div>
+</section>
+
+<section>
+  <h2>教學經驗</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">政治大學企管系 助教</span>
+      <span class="entry-date">2020-09 — 2022-09</span>
+    </div>
+    <div class="entry-sub">設計大學管理學課堂用 Excel 經營模擬遊戲</div>
+    <ul>
+      <li>Google Forms 即時資料回傳 + VBA 巨集做回合結算與排名視覺化，支援 30+ 學生同時參與</li>
+      <li><strong>長期影響：系統至今仍被多位教師沿用於管理學課堂</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>技能盤點</h2>
+  <div class="skill-block">
+    <span class="skill-label advanced">進階</span>
+    <span class="skill-tags">
+      <span class="tag-item">Python</span><span class="tag-item">Anthropic Claude SDK</span><span class="tag-item">Gemini API</span><span class="tag-item">Multi-agent orchestration</span><span class="tag-item">MySQL</span><span class="tag-item">PostgreSQL</span><span class="tag-item">Materialized View</span><span class="tag-item">Schema Design</span><span class="tag-item">Telethon</span><span class="tag-item">Linux/Win Ops</span><span class="tag-item">ZK 證明系統實作 (Halo2/KZG/PLONK)</span><span class="tag-item">Framework Patching</span>
+    </span>
+  </div>
+  <div class="skill-block">
+    <span class="skill-label medium">中級</span>
+    <span class="skill-tags">
+      <span class="tag-item">TypeScript</span><span class="tag-item">Next.js</span><span class="tag-item">Flask</span><span class="tag-item">Streamlit</span><span class="tag-item">Express</span><span class="tag-item">Vercel</span><span class="tag-item">Railway</span><span class="tag-item">Cloudflare</span><span class="tag-item">Docker</span><span class="tag-item">PyInstaller</span><span class="tag-item">ezkl ONNX→Halo2</span><span class="tag-item">Remez minimax + Horner</span><span class="tag-item">pandas</span>
+    </span>
+  </div>
+  <div class="skill-block">
+    <span class="skill-label beginner">入門</span>
+    <span class="skill-tags">
+      <span class="tag-item">Rust (學習中, 無 production 實作)</span><span class="tag-item">C++ / MFC</span><span class="tag-item">Plonky2 / 進階 ZK 工具鏈</span>
+    </span>
+  </div>
+</section>
+
+<section>
+  <div class="two-col">
+    <div>
+      <h2>語言能力</h2>
+      <p style="font-size: 9.7pt;"><strong style="color: var(--ink)">中文</strong>：母語</p>
+      <p style="font-size: 9.7pt;"><strong style="color: var(--ink)">英文</strong>：閱讀進階（能讀技術 paper、SDK 文件）；口說／寫作中級</p>
+    </div>
+    <div>
+      <h2>專業證照</h2>
+      <p style="font-size: 9.7pt;">證券商高級業務員、證券商業務員、期貨商業務員（皆 2021-03）</p>
+      <p style="font-size: 9pt; color: var(--muted); font-style: italic; margin-top: 3px;">與碩論「金融安全證明」主軸呼應，對 fintech / DeFi / CBDC 場景的 AI 應用有 baseline 理解</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>工作哲學</h2>
+  <div class="closing">
+    我設計、編排、驗收。具體實作高比例由 AI agent 完成（Claude Code / Codex / Cursor），但<strong>架構決策、ADR、debug 介入、production deploy</strong> 全程主導。這在 2026 不是 disclaimer，是 AI 架構師職位的核心競爭力 — 能把不會講話的需求拆成 agent 可執行的 sub-task、能讀完 agent 產出的 PR 知道它「對但不夠」、能 framework-level 介入修補 SDK 的本質 bug 不繞過。Ductor 本身就是 dogfooding 證明。
+  </div>
+</section>
+
+</div>
+</body>
+</html>
