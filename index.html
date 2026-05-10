@@ -9,16 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --paper:    #faf8f3;
-  --bg:       #fdfcf8;
-  --ink:      #1a1814;
-  --text:     #2a2722;
-  --body:     #3d3a33;
-  --muted:    #757065;
-  --faint:    #a8a195;
-  --rule:     #1a1814;
-  --rule-soft:#d4cfc2;
-  --accent:   #8b3a2e;
+  --canvas:    #ede5d3;
+  --paper:     #f6efde;
+  --bg:        #fbf6e9;
+  --bg-alt:    #f3eada;
+  --bg-warm:   #efe4cc;
+  --ink:       #1a1814;
+  --text:      #2a2722;
+  --body:      #3d3a33;
+  --muted:     #75695a;
+  --faint:     #a99e8a;
+  --rule:      #1a1814;
+  --rule-soft: #d0c5ae;
+  --accent:    #8b3a2e;
+  --accent-2:  #2d4257;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,7 +32,7 @@ html, body {
   font-size: 10.5pt;
   line-height: 1.6;
   color: var(--body);
-  background: var(--paper);
+  background: var(--canvas);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'tnum', 'kern', 'liga';
@@ -40,24 +44,36 @@ a {
   color: var(--ink);
   text-decoration: none;
   border-bottom: 0.5px solid var(--rule-soft);
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, color 0.15s;
 }
-a:hover { border-bottom-color: var(--ink); }
+a:hover { border-bottom-color: var(--ink); color: var(--accent); }
 
 /* ─── PAGE ─── */
 .page {
-  max-width: 720px;
+  max-width: 740px;
   margin: 56px auto;
-  padding: 72px 80px 64px;
   background: var(--bg);
   border: 0.5px solid var(--rule-soft);
   position: relative;
+  box-shadow: 0 1px 3px rgba(26,24,20,0.04), 0 12px 40px -16px rgba(26,24,20,0.12);
+}
+
+/* Top + bottom accent bands */
+.page::before {
+  content: '';
+  display: block;
+  height: 6px;
+  background: linear-gradient(to right, var(--accent) 0%, var(--accent) 60%, var(--accent-2) 60%, var(--accent-2) 100%);
+}
+
+.page-inner {
+  padding: 56px 72px 56px;
 }
 
 /* ─── HEADER ─── */
 header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
   padding-bottom: 36px;
   position: relative;
 }
@@ -68,17 +84,39 @@ header::after {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 32px;
+  width: 40px;
   height: 0.5px;
   background: var(--ink);
 }
 
+.masthead-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.masthead-line .center {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 9pt;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: var(--accent);
+}
+
 .name {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 42pt;
+  font-size: 44pt;
   font-weight: 500;
   color: var(--ink);
-  letter-spacing: -1px;
+  letter-spacing: -1.2px;
   line-height: 1;
   margin-bottom: 6px;
 }
@@ -89,24 +127,27 @@ header::after {
   font-size: 13pt;
   font-weight: 400;
   color: var(--muted);
-  margin-bottom: 28px;
-  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  letter-spacing: 0.6px;
 }
 
-.role {
+.role-row {
+  display: inline-block;
+  padding: 6px 18px;
+  background: var(--ink);
+  color: var(--paper);
   font-family: 'Inter', sans-serif;
-  font-size: 10pt;
+  font-size: 9.5pt;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .subtitle {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
   font-style: italic;
-  font-size: 11pt;
+  font-size: 11.5pt;
   color: var(--text);
   margin-bottom: 22px;
   letter-spacing: 0.2px;
@@ -119,7 +160,6 @@ header::after {
   letter-spacing: 0.3px;
   display: flex;
   justify-content: center;
-  gap: 0;
   flex-wrap: wrap;
 }
 
@@ -128,43 +168,43 @@ header::after {
   padding: 0 14px;
 }
 .contacts span:not(:last-child)::after {
-  content: '·';
+  content: '';
   position: absolute;
-  right: -2px;
-  color: var(--faint);
+  right: -1px;
+  top: 4px;
+  height: 10px;
+  width: 0.5px;
+  background: var(--rule-soft);
 }
 
-.contacts a {
-  color: var(--muted);
-  border-bottom: none;
-}
+.contacts a { color: var(--muted); border-bottom: none; }
 .contacts a:hover { color: var(--ink); }
 
 /* ─── SECTION ─── */
 section {
-  margin-bottom: 38px;
+  margin-bottom: 36px;
   page-break-inside: avoid;
 }
 
 .section-header {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 14px;
   margin-bottom: 18px;
 }
 
 .section-num {
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 14pt;
+  font-size: 16pt;
   color: var(--accent);
   font-weight: 400;
-  width: 28px;
+  width: 32px;
 }
 
 .section-title {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 17pt;
+  font-size: 18pt;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.3px;
@@ -187,9 +227,11 @@ section {
   font-size: 12pt;
   font-weight: 400;
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.7;
   letter-spacing: 0.1px;
   margin-bottom: 14px;
+  border-left: 2px solid var(--accent);
+  padding-left: 18px;
 }
 .lead em { font-style: italic; color: var(--ink); }
 
@@ -209,7 +251,7 @@ section {
 }
 
 .entry-title {
-  font-size: 11pt;
+  font-size: 11.5pt;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.1px;
@@ -234,6 +276,9 @@ section {
   font-feature-settings: 'tnum';
   letter-spacing: 0.2px;
   white-space: nowrap;
+  background: var(--bg-alt);
+  padding: 3px 8px;
+  border-radius: 2px;
 }
 
 .entry-meta {
@@ -249,33 +294,41 @@ section {
 .entry-body {
   font-size: 10pt;
   color: var(--body);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .entry-body strong { color: var(--ink); font-weight: 600; }
 
-.entry-body .metric {
-  color: var(--ink);
-  font-weight: 600;
+.entry-body .scale {
+  display: block;
+  margin-top: 8px;
+  font-family: 'EB Garamond', 'Noto Serif TC', serif;
+  font-style: italic;
+  font-size: 10pt;
+  color: var(--muted);
+  letter-spacing: 0.1px;
 }
 
-/* ─── METRICS ROW (for thesis) ─── */
+/* ─── METRICS BOX (thesis hero) ─── */
+.metrics-box {
+  margin-top: 16px;
+  padding: 18px 24px 20px;
+  background: var(--bg-warm);
+  border: 0.5px solid var(--rule-soft);
+  border-left: 3px solid var(--accent);
+}
+
 .metrics-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 12px;
-  padding: 16px 0 4px;
-  border-top: 0.5px solid var(--rule-soft);
+  gap: 18px;
 }
 
-.metric-cell {
-  text-align: left;
-}
+.metric-cell { text-align: left; }
 
 .metric-value {
   font-family: 'EB Garamond', serif;
-  font-size: 19pt;
+  font-size: 22pt;
   font-weight: 500;
   color: var(--accent);
   line-height: 1;
@@ -283,9 +336,10 @@ section {
   font-feature-settings: 'tnum';
   margin-bottom: 4px;
 }
+.metric-value .unit { font-size: 12pt; color: var(--accent); margin-left: 1px; font-weight: 500; }
 
 .metric-label {
-  font-size: 8pt;
+  font-size: 7.8pt;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -296,9 +350,9 @@ section {
 /* ─── SKILLS ─── */
 .skills-row {
   display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 12px 20px;
-  margin-bottom: 4px;
+  grid-template-columns: 100px 1fr;
+  gap: 10px 24px;
+  margin-bottom: 6px;
   align-items: baseline;
 }
 .skills-row:last-child { margin-bottom: 0; }
@@ -306,28 +360,32 @@ section {
 .skills-label {
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 10.5pt;
-  color: var(--muted);
+  font-size: 11pt;
+  color: var(--accent);
   font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 .skills-list {
   font-size: 10pt;
   color: var(--body);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 /* ─── TWO COLUMN ─── */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  gap: 32px;
+  padding: 18px 24px;
+  background: var(--bg-alt);
+  border: 0.5px solid var(--rule-soft);
 }
 .two-col-block .col-label {
   font-family: 'EB Garamond', serif;
   font-style: italic;
   font-size: 10.5pt;
-  color: var(--muted);
+  color: var(--accent);
   margin-bottom: 8px;
   letter-spacing: 0.2px;
 }
@@ -347,13 +405,36 @@ section {
   margin-top: 8px;
 }
 
-/* ─── CLOSING ─── */
+/* ─── CLOSING (philosophy) ─── */
+.closing-box {
+  background: var(--bg-warm);
+  border: 0.5px solid var(--rule-soft);
+  border-left: 3px solid var(--accent-2);
+  padding: 22px 28px;
+  position: relative;
+}
+
+.closing-box::before {
+  content: '"';
+  position: absolute;
+  top: 0px;
+  left: 14px;
+  font-family: 'EB Garamond', serif;
+  font-size: 60pt;
+  color: var(--accent);
+  opacity: 0.18;
+  line-height: 1;
+  font-weight: 400;
+}
+
 .closing {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 11pt;
-  line-height: 1.7;
+  font-size: 11.5pt;
+  line-height: 1.75;
   color: var(--text);
   letter-spacing: 0.1px;
+  position: relative;
+  z-index: 1;
 }
 .closing strong {
   color: var(--ink);
@@ -363,7 +444,7 @@ section {
 
 /* ─── FOOTER ─── */
 .page-footer {
-  margin-top: 56px;
+  margin-top: 48px;
   padding-top: 24px;
   border-top: 0.5px solid var(--rule-soft);
   text-align: center;
@@ -374,6 +455,11 @@ section {
   letter-spacing: 0.3px;
 }
 .page-footer a { color: var(--accent); border-bottom: none; }
+
+.bottom-band {
+  height: 4px;
+  background: linear-gradient(to right, var(--accent-2) 0%, var(--accent-2) 40%, var(--accent) 40%, var(--accent) 100%);
+}
 
 /* ─── PRINT BAR ─── */
 .print-bar {
@@ -392,28 +478,53 @@ section {
   z-index: 100;
   letter-spacing: 0.4px;
   border: 0.5px solid var(--ink);
+  transition: background 0.15s;
 }
 .print-bar:hover { background: var(--accent); border-color: var(--accent); }
 
 /* ─── PRINT ─── */
 @media print {
-  @page { size: A4; margin: 18mm 22mm; }
+  @page { size: A4; margin: 14mm 16mm; }
   html, body { background: white !important; font-size: 10pt; }
   .page {
     margin: 0 !important;
-    padding: 0 !important;
     border: none !important;
-    background: white !important;
+    background: var(--bg) !important;
     max-width: 100% !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  section { page-break-inside: avoid; }
-  .entry { page-break-inside: avoid; }
+  .page-inner { padding: 0 !important; }
+  .page::before, .bottom-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  section, .entry { page-break-inside: avoid; }
   a { color: inherit !important; border-bottom: none !important; }
   .print-bar { display: none !important; }
-  .metric-value, .section-num { color: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .entry-title .arrow { color: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .page-footer a { color: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  header::after { background: var(--ink) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .metrics-box, .closing-box, .two-col {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: var(--bg-warm) !important;
+    border: 0.5px solid var(--rule-soft) !important;
+  }
+  .metric-value, .section-num, .skills-label, .col-label, .lead {
+    color: var(--accent) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .role-row {
+    background: var(--ink) !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .entry-date {
+    background: var(--bg-alt) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .entry-title .arrow { color: var(--accent) !important; }
+  .page-footer a { color: var(--accent) !important; }
+  header::after { background: var(--ink) !important; }
   .section-title { border-bottom: 0.5px solid var(--ink) !important; }
 }
 </style>
@@ -424,12 +535,23 @@ section {
 
 <div class="page">
 
+<div class="page-inner">
+
 <!-- ────────── HEADER ────────── -->
 <header>
+  <div class="masthead-line">
+    <span>Curriculum Vitae · 2026</span>
+    <span class="center">Volume One</span>
+    <span>Taipei · Taiwan</span>
+  </div>
+
   <h1 class="name">高璿程</h1>
   <div class="name-en">Kao Xuan-Cheng</div>
-  <div class="role">AI Systems Architect</div>
+
+  <div class="role-row">AI Systems Architect</div>
+
   <div class="subtitle">LLM Multi-Agent OS · Zero-Knowledge Financial Compliance · Production Engineering</div>
+
   <div class="contacts">
     <span><a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></span>
     <span>0970 527 427</span>
@@ -473,22 +595,24 @@ section {
     <div class="entry-body">
       首個 end-to-end ZK transcendental-function evaluation — 涵蓋 Black-Scholes Delta hedging 與 Merton credit default 兩個 production 級金融場景。原創貢獻在數值分析層（Remez minimax + Horner evaluation + deferred truncation with BN254 headroom analysis），ZK 系統用 stock Halo2/KZG。
     </div>
-    <div class="metrics-row">
-      <div class="metric-cell">
-        <div class="metric-value">26.3×</div>
-        <div class="metric-label">faster than<br/>lookup table</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-value">6,944<span style="font-size: 12pt;">B</span></div>
-        <div class="metric-label">Merton<br/>proof size</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-value">23<span style="font-size: 12pt;">ms</span></div>
-        <div class="metric-label">verification<br/>time</div>
-      </div>
-      <div class="metric-cell">
-        <div class="metric-value">13×637</div>
-        <div class="metric-label">function ×<br/>(pp,d) ablation</div>
+    <div class="metrics-box">
+      <div class="metrics-row">
+        <div class="metric-cell">
+          <div class="metric-value">26.3<span class="unit">×</span></div>
+          <div class="metric-label">faster than<br/>lookup table</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-value">6,944<span class="unit">B</span></div>
+          <div class="metric-label">Merton<br/>proof size</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-value">23<span class="unit">ms</span></div>
+          <div class="metric-label">verification<br/>time</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-value">13×637</div>
+          <div class="metric-label">function ×<br/>(pp,d) ablation</div>
+        </div>
       </div>
     </div>
   </div>
@@ -498,7 +622,7 @@ section {
       <div class="entry-title">PLONK — Protocol Report, Interactive Demos, Rust/Python Backend<a class="arrow" href="https://github.com/xuancheng307/PLONK">↗</a></div>
       <div class="entry-date">2025·12</div>
     </div>
-    <div class="entry-meta">~4500-line monolithic technical report · 2 in-browser demos · working backend</div>
+    <div class="entry-meta">~4,500-line monolithic technical report · 2 in-browser demos · working backend</div>
     <div class="entry-body">
       原創繁中技術寫作：5-round prover 拆解、AGM security model、batched pairing verification。配合 PLONK Live Demo 與 range proof demo，及 <code>backend_new/</code> 內的 Rust + Python 實作。
     </div>
@@ -541,11 +665,8 @@ section {
     </div>
     <div class="entry-meta">individual project · dual-machine production dogfooding</div>
     <div class="entry-body">
-      跨進程、跨機器、跨 agent 角色的 LLM agent OS。<strong>Supervisor 模型</strong>管 11 個 sub-agent，<strong>Telethon-based cross-machine relay</strong>讓兩台 Windows 機器互通，<strong>記憶分層協議</strong>把 SHAREDMEMORY 自動 propagate。曾 framework-level patch 過 Opus stop-with-tool_use-only、Win cmd-line 8191 字元上限等 SDK 邊界問題。
-
-      <div style="margin-top: 8px; color: var(--muted); font-style: italic; font-family: 'EB Garamond', 'Noto Serif TC', serif; font-size: 10.5pt;">
-        11 sub-agents · 9 Telegram bots · 3 Discord guilds · 2 machines · daily personal use
-      </div>
+      跨進程、跨機器、跨 agent 角色的 LLM agent OS。<strong>Supervisor 模型</strong>管 11 個 sub-agent，<strong>Telethon-based cross-machine relay</strong> 讓兩台 Windows 機器互通，<strong>記憶分層協議</strong>把 SHAREDMEMORY 自動 propagate。曾 framework-level patch 過 Opus stop-with-tool_use-only、Win cmd-line 8191 字元上限等 SDK 邊界問題。
+      <span class="scale">11 sub-agents · 9 Telegram bots · 3 Discord guilds · 2 machines · daily personal use</span>
     </div>
   </div>
 </section>
@@ -570,10 +691,10 @@ section {
 
   <div class="entry">
     <div class="entry-row">
-      <div class="entry-title">LOL Analytics — Research-grounded AI Coach (B2B SaaS)<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/03_lol_analytics.md">↗</a></div>
+      <div class="entry-title">LOL Analytics — Research-grounded AI Coach<a class="arrow" href="https://github.com/xuancheng307/xuancheng307/blob/main/case-studies/03_lol_analytics.md">↗</a></div>
       <div class="entry-date">2025 — 2026</div>
     </div>
-    <div class="entry-meta">PCS / Tier 2-3 戰隊用 to-coach 數據工具</div>
+    <div class="entry-meta">PCS / Tier 2-3 戰隊用 to-coach 數據工具 · B2B SaaS</div>
     <div class="entry-body">
       14-metric registry 套用 gol.gg LCK / Sage Journals 學術文獻。<code>&lt;AiInsightCard&gt;</code> 對接 Anthropic API。Materialized view 用 GROUPING SETS 一張 MV 同時產 win/loss/all 三組維度。<strong>Production live · 4,000+ matches 跨服資料</strong>。
     </div>
@@ -647,7 +768,7 @@ section {
   </div>
 </section>
 
-<!-- ────────── 07 LANGUAGES + CERTIFICATIONS ────────── -->
+<!-- ────────── 07 LANG + CERT ────────── -->
 <section>
   <div class="section-header">
     <span class="section-num">vii.</span>
@@ -675,8 +796,10 @@ section {
     <h2 class="section-title">Working Philosophy</h2>
   </div>
 
-  <div class="closing">
-    我設計、編排、驗收。具體實作高比例由 AI agent 完成，但<strong>架構決策、ADR 撰寫、debug 介入、production deploy</strong> 全程主導。這在 2026 不是 disclaimer — 能把不會講話的需求拆成 agent 可執行的 sub-task、能讀完 agent 產出的 PR 知道它「對但不夠」、能 framework-level 介入修補 SDK 的本質 bug 不繞過，這就是 AI 架構師職位的核心競爭力。Ductor 本身就是這個工作模式的 dogfooding 證明。
+  <div class="closing-box">
+    <div class="closing">
+      我設計、編排、驗收。具體實作高比例由 AI agent 完成，但<strong>架構決策、ADR 撰寫、debug 介入、production deploy</strong> 全程主導。這在 2026 不是 disclaimer — 能把不會講話的需求拆成 agent 可執行的 sub-task、能讀完 agent 產出的 PR 知道它「對但不夠」、能 framework-level 介入修補 SDK 的本質 bug 不繞過，這就是 AI 架構師職位的核心競爭力。Ductor 本身就是這個工作模式的 dogfooding 證明。
+    </div>
   </div>
 </section>
 
@@ -684,7 +807,11 @@ section {
   Full case studies and technical detail at <a href="https://github.com/xuancheng307/xuancheng307">github.com/xuancheng307</a>
 </div>
 
-</div>
+</div><!-- /.page-inner -->
+
+<div class="bottom-band"></div>
+
+</div><!-- /.page -->
 
 </body>
 </html>
