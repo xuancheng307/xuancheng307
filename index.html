@@ -18,6 +18,83 @@
   <link href="./build.css" rel="stylesheet">
   <title>高璿程 Kao Xuan-Cheng — AI Systems Architect</title>
   <style>
+    /* === Layout fix overrides for single-column readable resume === */
+    .page {
+      max-width: 50rem !important;        /* tighter than letter, friendlier reading */
+      min-height: auto !important;
+      height: auto !important;
+      margin-top: 2rem !important;
+      margin-bottom: 2rem !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 12px 40px -12px rgba(0,0,0,0.12);
+    }
+    @media (min-width: 833px) {
+      .page { max-width: 50rem !important; height: auto !important; }
+    }
+
+    .resume-body {
+      column-count: 1 !important;
+      column-fill: auto !important;
+      height: auto !important;
+    }
+
+    /* === Header — bigger, stronger === */
+    header h1 {
+      font-size: 2rem !important;          /* was 1.5rem (text-2xl) */
+      line-height: 1.15 !important;
+      letter-spacing: -0.5px;
+    }
+
+    .initials-container {
+      min-width: 3rem !important;
+      font-size: 1.125rem !important;
+    }
+    .initial { padding: 1px 0; }
+
+    /* === Section header — darker, warmer accent === */
+    h2.tracking-widest {
+      color: #1a365d !important;            /* deep navy (was washed-out gray-550) */
+      font-size: 0.875rem !important;
+      letter-spacing: 0.18em !important;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem !important;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* === Entry title slightly darker === */
+    h3.text-lg { color: #1a202c !important; }
+
+    /* === Body text optimization === */
+    body, .text-md { font-size: 1rem; }
+    p.text-md { line-height: 1.55 !important; }
+
+    /* === Bullets — replace list-inside with proper hanging indent === */
+    .resume-body ul {
+      list-style: none !important;
+      padding-left: 0 !important;
+      margin-top: 0.5rem;
+    }
+    .resume-body ul li {
+      position: relative;
+      padding-left: 1.1em;
+      margin-bottom: 0.25rem;
+      line-height: 1.55;
+      color: #4a5568;
+    }
+    .resume-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 0.55em;
+      height: 1px;
+      background: #1a365d;
+    }
+
+    /* === Section spacing tighter (single col doesn't need huge gaps) === */
+    .resume-body section.mt-8 { margin-top: 1.75rem !important; }
+    .resume-body section.mt-8 section.mb-4\.5 { margin-bottom: 1.1rem !important; }
+
+    /* === Print === */
     .print-bar {
       position: fixed; top: 16px; right: 16px;
       background: #1a202c; color: #fff;
@@ -29,7 +106,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     .print-bar:hover { background: #4a5568; }
-    @media print { .print-bar { display: none !important; } }
+    @media print {
+      .print-bar { display: none !important; }
+      .page { box-shadow: none !important; max-width: 100% !important; }
+      h2.tracking-widest { color: #000 !important; }
+      .resume-body ul li::before { background: #000 !important; }
+    }
   </style>
 </head>
 
@@ -57,7 +139,7 @@
         </div>
       </header>
 
-      <div class="md:col-count-2 print:col-count-2 col-gap-md md:h-letter-col print:h-letter-col col-fill-auto">
+      <div class="resume-body">
 
         <!-- ABOUT -->
         <section class="mt-8 first:mt-0">
