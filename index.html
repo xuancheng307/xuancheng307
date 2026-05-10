@@ -9,20 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --canvas:    #ede5d3;
-  --paper:     #f6efde;
-  --bg:        #fbf6e9;
-  --bg-alt:    #f3eada;
-  --bg-warm:   #efe4cc;
+  --canvas:    #e8dec5;
+  --paper:     #f4ecd6;
+  --bg:        #faf3df;
+  --bg-soft:   #f5ecd2;
+  --bg-warm:   #f0e5c5;
   --ink:       #1a1814;
   --text:      #2a2722;
   --body:      #3d3a33;
   --muted:     #75695a;
-  --faint:     #a99e8a;
+  --faint:     #ada183;
   --rule:      #1a1814;
-  --rule-soft: #d0c5ae;
+  --rule-soft: #cfc3a5;
+  --rule-fine: #ddd3b3;
   --accent:    #8b3a2e;
   --accent-2:  #2d4257;
+  --gold:      #a08544;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,7 +48,7 @@ a {
   border-bottom: 0.5px solid var(--rule-soft);
   transition: border-color 0.15s, color 0.15s;
 }
-a:hover { border-bottom-color: var(--ink); color: var(--accent); }
+a:hover { border-bottom-color: var(--accent); color: var(--accent); }
 
 /* ─── PAGE ─── */
 .page {
@@ -55,25 +57,53 @@ a:hover { border-bottom-color: var(--ink); color: var(--accent); }
   background: var(--bg);
   border: 0.5px solid var(--rule-soft);
   position: relative;
-  box-shadow: 0 1px 3px rgba(26,24,20,0.04), 0 12px 40px -16px rgba(26,24,20,0.12);
+  box-shadow: 0 1px 3px rgba(26,24,20,0.04), 0 12px 40px -16px rgba(26,24,20,0.14);
+  /* Subtle paper grain via gradient */
+  background-image:
+    radial-gradient(ellipse at top, var(--bg) 0%, var(--bg-soft) 100%);
 }
 
-/* Top + bottom accent bands */
+/* Top trim — single elegant rule */
 .page::before {
   content: '';
   display: block;
-  height: 6px;
-  background: linear-gradient(to right, var(--accent) 0%, var(--accent) 60%, var(--accent-2) 60%, var(--accent-2) 100%);
+  height: 2px;
+  background: var(--accent);
 }
 
 .page-inner {
-  padding: 56px 72px 56px;
+  padding: 64px 80px 56px;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  color: var(--faint);
+  padding-bottom: 4px;
+  margin-bottom: 36px;
+  border-bottom: 0.5px solid var(--rule-fine);
+}
+
+.masthead .ornament {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 9pt;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  text-transform: none;
+  font-weight: 500;
 }
 
 /* ─── HEADER ─── */
 header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 52px;
   padding-bottom: 36px;
   position: relative;
 }
@@ -84,41 +114,29 @@ header::after {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
+  width: 28px;
   height: 0.5px;
   background: var(--ink);
 }
 
-.masthead-line {
+.kicker {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 7.5pt;
+  font-size: 8pt;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  color: var(--muted);
-  margin-bottom: 24px;
-  padding-bottom: 14px;
-  border-bottom: 0.5px solid var(--rule-soft);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.masthead-line .center {
-  font-family: 'EB Garamond', serif;
-  font-style: italic;
-  font-size: 9pt;
-  letter-spacing: 0.5px;
-  text-transform: none;
+  letter-spacing: 5px;
   color: var(--accent);
+  margin-bottom: 18px;
+  font-weight: 500;
 }
 
 .name {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
-  font-size: 44pt;
+  font-size: 48pt;
   font-weight: 500;
   color: var(--ink);
-  letter-spacing: -1.2px;
+  letter-spacing: -1.4px;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .name-en {
@@ -127,30 +145,26 @@ header::after {
   font-size: 13pt;
   font-weight: 400;
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   letter-spacing: 0.6px;
-}
-
-.role-row {
-  display: inline-block;
-  padding: 6px 18px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: 'Inter', sans-serif;
-  font-size: 9.5pt;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin-bottom: 14px;
 }
 
 .subtitle {
   font-family: 'EB Garamond', 'Noto Serif TC', serif;
   font-style: italic;
-  font-size: 11.5pt;
+  font-size: 12pt;
   color: var(--text);
   margin-bottom: 22px;
   letter-spacing: 0.2px;
+}
+
+.subtitle .sep {
+  display: inline-block;
+  margin: 0 6px;
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 500;
+  transform: translateY(-1px);
 }
 
 .contacts {
@@ -165,41 +179,39 @@ header::after {
 
 .contacts span {
   position: relative;
-  padding: 0 14px;
+  padding: 0 16px;
 }
 .contacts span:not(:last-child)::after {
-  content: '';
+  content: '·';
   position: absolute;
-  right: -1px;
-  top: 4px;
-  height: 10px;
-  width: 0.5px;
-  background: var(--rule-soft);
+  right: -3px;
+  color: var(--faint);
 }
 
 .contacts a { color: var(--muted); border-bottom: none; }
-.contacts a:hover { color: var(--ink); }
+.contacts a:hover { color: var(--accent); }
 
 /* ─── SECTION ─── */
 section {
-  margin-bottom: 36px;
+  margin-bottom: 38px;
   page-break-inside: avoid;
 }
 
 .section-header {
   display: flex;
   align-items: baseline;
-  gap: 14px;
-  margin-bottom: 18px;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
 .section-num {
   font-family: 'EB Garamond', serif;
   font-style: italic;
-  font-size: 16pt;
+  font-size: 14pt;
   color: var(--accent);
   font-weight: 400;
   width: 32px;
+  flex-shrink: 0;
 }
 
 .section-title {
@@ -213,7 +225,7 @@ section {
   padding-bottom: 6px;
 }
 
-/* ─── SUMMARY ─── */
+/* ─── SUMMARY (with drop cap) ─── */
 .summary p {
   margin-bottom: 12px;
   color: var(--body);
@@ -229,11 +241,21 @@ section {
   color: var(--text);
   line-height: 1.7;
   letter-spacing: 0.1px;
-  margin-bottom: 14px;
-  border-left: 2px solid var(--accent);
-  padding-left: 18px;
+  margin-bottom: 16px;
 }
 .lead em { font-style: italic; color: var(--ink); }
+
+.lead::first-letter {
+  font-family: 'EB Garamond', 'Noto Serif TC', serif;
+  font-size: 48pt;
+  font-weight: 500;
+  float: left;
+  line-height: 0.9;
+  color: var(--accent);
+  margin-right: 8px;
+  margin-top: 4px;
+  margin-bottom: -4px;
+}
 
 /* ─── ENTRY ─── */
 .entry {
@@ -274,11 +296,9 @@ section {
   font-size: 8.5pt;
   color: var(--muted);
   font-feature-settings: 'tnum';
-  letter-spacing: 0.2px;
+  letter-spacing: 0.5px;
   white-space: nowrap;
-  background: var(--bg-alt);
-  padding: 3px 8px;
-  border-radius: 2px;
+  font-weight: 400;
 }
 
 .entry-meta {
@@ -309,42 +329,44 @@ section {
   letter-spacing: 0.1px;
 }
 
-/* ─── METRICS BOX (thesis hero) ─── */
-.metrics-box {
-  margin-top: 16px;
-  padding: 18px 24px 20px;
-  background: var(--bg-warm);
-  border: 0.5px solid var(--rule-soft);
-  border-left: 3px solid var(--accent);
-}
-
-.metrics-row {
+/* ─── METRICS GRID (hairline-divided, no fill) ─── */
+.metrics-grid {
+  margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  border-top: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
 }
 
-.metric-cell { text-align: left; }
+.metric-cell {
+  text-align: center;
+  padding: 16px 12px 14px;
+  border-right: 0.5px solid var(--rule-fine);
+}
+
+.metric-cell:last-child { border-right: none; }
 
 .metric-value {
   font-family: 'EB Garamond', serif;
-  font-size: 22pt;
+  font-size: 24pt;
   font-weight: 500;
   color: var(--accent);
   line-height: 1;
   letter-spacing: -0.5px;
   font-feature-settings: 'tnum';
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
-.metric-value .unit { font-size: 12pt; color: var(--accent); margin-left: 1px; font-weight: 500; }
+.metric-value .unit { font-size: 13pt; color: var(--accent); margin-left: 1px; font-weight: 500; }
 
 .metric-label {
-  font-size: 7.8pt;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 9pt;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.35;
+  text-transform: none;
 }
 
 /* ─── SKILLS ─── */
@@ -352,10 +374,12 @@ section {
   display: grid;
   grid-template-columns: 100px 1fr;
   gap: 10px 24px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   align-items: baseline;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--rule-fine);
 }
-.skills-row:last-child { margin-bottom: 0; }
+.skills-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
 
 .skills-label {
   font-family: 'EB Garamond', serif;
@@ -375,11 +399,15 @@ section {
 /* ─── TWO COLUMN ─── */
 .two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.5px 1fr;
   gap: 32px;
-  padding: 18px 24px;
-  background: var(--bg-alt);
-  border: 0.5px solid var(--rule-soft);
+  align-items: start;
+}
+.two-col-divider {
+  background: var(--rule-fine);
+  width: 0.5px;
+  height: 100%;
+  align-self: stretch;
 }
 .two-col-block .col-label {
   font-family: 'EB Garamond', serif;
@@ -405,26 +433,20 @@ section {
   margin-top: 8px;
 }
 
-/* ─── CLOSING (philosophy) ─── */
-.closing-box {
-  background: var(--bg-warm);
-  border: 0.5px solid var(--rule-soft);
-  border-left: 3px solid var(--accent-2);
-  padding: 22px 28px;
+/* ─── CLOSING (refined, with printer's ornament) ─── */
+.closing-wrapper {
   position: relative;
+  padding-top: 12px;
 }
 
-.closing-box::before {
-  content: '"';
-  position: absolute;
-  top: 0px;
-  left: 14px;
+.ornament {
+  text-align: center;
   font-family: 'EB Garamond', serif;
-  font-size: 60pt;
-  color: var(--accent);
-  opacity: 0.18;
-  line-height: 1;
-  font-weight: 400;
+  font-style: italic;
+  font-size: 14pt;
+  color: var(--gold);
+  margin-bottom: 16px;
+  letter-spacing: 0.5em;
 }
 
 .closing {
@@ -433,8 +455,9 @@ section {
   line-height: 1.75;
   color: var(--text);
   letter-spacing: 0.1px;
-  position: relative;
-  z-index: 1;
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto;
 }
 .closing strong {
   color: var(--ink);
@@ -444,9 +467,9 @@ section {
 
 /* ─── FOOTER ─── */
 .page-footer {
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 0.5px solid var(--rule-soft);
+  margin-top: 52px;
+  padding-top: 22px;
+  border-top: 0.5px solid var(--rule-fine);
   text-align: center;
   font-family: 'EB Garamond', serif;
   font-style: italic;
@@ -456,9 +479,12 @@ section {
 }
 .page-footer a { color: var(--accent); border-bottom: none; }
 
-.bottom-band {
-  height: 4px;
-  background: linear-gradient(to right, var(--accent-2) 0%, var(--accent-2) 40%, var(--accent) 40%, var(--accent) 100%);
+/* Bottom trim — matched single rule */
+.page::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--accent-2);
 }
 
 /* ─── PRINT BAR ─── */
@@ -490,35 +516,24 @@ section {
     margin: 0 !important;
     border: none !important;
     background: var(--bg) !important;
+    background-image: none !important;
     max-width: 100% !important;
     box-shadow: none !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   .page-inner { padding: 0 !important; }
-  .page::before, .bottom-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page::before, .page::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   section, .entry { page-break-inside: avoid; }
   a { color: inherit !important; border-bottom: none !important; }
   .print-bar { display: none !important; }
-  .metrics-box, .closing-box, .two-col {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    background: var(--bg-warm) !important;
-    border: 0.5px solid var(--rule-soft) !important;
-  }
-  .metric-value, .section-num, .skills-label, .col-label, .lead {
+  .metric-value, .section-num, .skills-label, .col-label, .lead::first-letter, .kicker {
     color: var(--accent) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-  .role-row {
-    background: var(--ink) !important;
-    color: white !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .entry-date {
-    background: var(--bg-alt) !important;
+  .ornament, .masthead .ornament, .subtitle .sep {
+    color: var(--gold) !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -534,24 +549,23 @@ section {
 <div class="print-bar" onclick="window.print()">Print / Save as PDF</div>
 
 <div class="page">
-
 <div class="page-inner">
+
+<!-- ────────── MASTHEAD ────────── -->
+<div class="masthead">
+  <span>Curriculum Vitae</span>
+  <span class="ornament">— 高璿程 —</span>
+  <span>MMXXVI · 臺北</span>
+</div>
 
 <!-- ────────── HEADER ────────── -->
 <header>
-  <div class="masthead-line">
-    <span>Curriculum Vitae · 2026</span>
-    <span class="center">Volume One</span>
-    <span>Taipei · Taiwan</span>
-  </div>
-
+  <div class="kicker">AI Systems Architect</div>
   <h1 class="name">高璿程</h1>
   <div class="name-en">Kao Xuan-Cheng</div>
-
-  <div class="role-row">AI Systems Architect</div>
-
-  <div class="subtitle">LLM Multi-Agent OS · Zero-Knowledge Financial Compliance · Production Engineering</div>
-
+  <div class="subtitle">
+    LLM Multi-Agent OS<span class="sep">·</span>Zero-Knowledge Financial Compliance<span class="sep">·</span>Production Engineering
+  </div>
   <div class="contacts">
     <span><a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></span>
     <span>0970 527 427</span>
@@ -595,24 +609,22 @@ section {
     <div class="entry-body">
       首個 end-to-end ZK transcendental-function evaluation — 涵蓋 Black-Scholes Delta hedging 與 Merton credit default 兩個 production 級金融場景。原創貢獻在數值分析層（Remez minimax + Horner evaluation + deferred truncation with BN254 headroom analysis），ZK 系統用 stock Halo2/KZG。
     </div>
-    <div class="metrics-box">
-      <div class="metrics-row">
-        <div class="metric-cell">
-          <div class="metric-value">26.3<span class="unit">×</span></div>
-          <div class="metric-label">faster than<br/>lookup table</div>
-        </div>
-        <div class="metric-cell">
-          <div class="metric-value">6,944<span class="unit">B</span></div>
-          <div class="metric-label">Merton<br/>proof size</div>
-        </div>
-        <div class="metric-cell">
-          <div class="metric-value">23<span class="unit">ms</span></div>
-          <div class="metric-label">verification<br/>time</div>
-        </div>
-        <div class="metric-cell">
-          <div class="metric-value">13×637</div>
-          <div class="metric-label">function ×<br/>(pp,d) ablation</div>
-        </div>
+    <div class="metrics-grid">
+      <div class="metric-cell">
+        <div class="metric-value">26.3<span class="unit">×</span></div>
+        <div class="metric-label">faster than<br/>lookup table</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-value">6,944<span class="unit">B</span></div>
+        <div class="metric-label">Merton<br/>proof size</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-value">23<span class="unit">ms</span></div>
+        <div class="metric-label">verification<br/>time</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-value">13×637</div>
+        <div class="metric-label">function ×<br/>(pp,d) ablation</div>
       </div>
     </div>
   </div>
@@ -781,6 +793,7 @@ section {
       <p><strong>中文</strong>　母語</p>
       <p><strong>英文</strong>　閱讀進階；口說 / 寫作中級</p>
     </div>
+    <div class="two-col-divider"></div>
     <div class="two-col-block">
       <div class="col-label">Certifications</div>
       <p>證券商高級業務員 · 證券商業務員 · 期貨商業務員</p>
@@ -796,7 +809,8 @@ section {
     <h2 class="section-title">Working Philosophy</h2>
   </div>
 
-  <div class="closing-box">
+  <div class="closing-wrapper">
+    <div class="ornament">❦ ❦ ❦</div>
     <div class="closing">
       我設計、編排、驗收。具體實作高比例由 AI agent 完成，但<strong>架構決策、ADR 撰寫、debug 介入、production deploy</strong> 全程主導。這在 2026 不是 disclaimer — 能把不會講話的需求拆成 agent 可執行的 sub-task、能讀完 agent 產出的 PR 知道它「對但不夠」、能 framework-level 介入修補 SDK 的本質 bug 不繞過，這就是 AI 架構師職位的核心競爭力。Ductor 本身就是這個工作模式的 dogfooding 證明。
     </div>
@@ -808,9 +822,6 @@ section {
 </div>
 
 </div><!-- /.page-inner -->
-
-<div class="bottom-band"></div>
-
 </div><!-- /.page -->
 
 </body>
