@@ -460,8 +460,8 @@
     <div class="highlights">
       <div class="hl">
         <div class="hl-tag">Production</div>
-        <div class="hl-title">LLM Multi-Agent OS</div>
-        <div class="hl-sub">Open-source framework, self-extended &amp; deployed daily — Telegram + Discord + cross-machine</div>
+        <div class="hl-title">Claude on Telegram</div>
+        <div class="hl-sub">AI conversation as cross-machine bridge between two PCs — 11 sub-agents, daily-driver</div>
       </div>
       <div class="hl">
         <div class="hl-tag">In Production</div>
@@ -482,7 +482,7 @@
 
     <!-- ============ ABOUT ============ -->
     <p class="about">
-      AI 系統架構師。過去 12 個月經營 <strong>4 條 LLM 系統 work</strong>：(1) 基於開源 multi-agent framework 擴充並部署為每日工作流主幹的 <strong>multi-agent OS</strong>，(2) 於森嶸電子實習期間建構並上線的 <strong>HR 管理系統</strong>，(3) 學術文獻支撐的 <strong>AI coaching tool</strong>（針對 esports 戰隊），(4) 接入 Discord 並具備語音頻道管理能力的 <strong>AI operator</strong>（multi-persona）。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
+      AI 系統架構師。過去 12 個月經營 <strong>4 條 LLM 系統 work</strong>：(1) <strong>把 Claude 帶到 Telegram，並讓 AI 以自然對話作為兩台 PC 之間的溝通橋接</strong>（基於開源 multi-agent framework 擴充，每日工作流主幹），(2) 於森嶸電子實習期間建構並上線的 <strong>HR 管理系統</strong>，(3) 學術文獻支撐的 <strong>AI coaching tool</strong>（針對 esports 戰隊），(4) 接入 Discord 並具備語音頻道管理能力的 <strong>AI operator</strong>（multi-persona）。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
     </p>
 
     <!-- ============ PROJECTS (flagship) ============ -->
@@ -495,7 +495,7 @@
 
       <div class="card">
         <div class="card-head">
-          <div class="card-title">Ductor <span class="em">— Extended &amp; Deployed LLM Multi-Agent OS</span></div>
+          <div class="card-title">Ductor <span class="em">— Claude on Telegram + AI-Conversation Cross-Machine Bridge</span></div>
           <div class="card-meta">Open-source framework, self-extended <span class="sep">·</span> 2025 — Present <span class="sep">·</span> Production daily</div>
         </div>
         <div class="stack">
@@ -506,10 +506,10 @@
           <span class="chip">discord.py</span>
         </div>
         <div class="callout">
-          <strong>Used in production daily.</strong> 跨機協作、ops 自動化、決策輔助 — 我的工作流主幹。基於開源 LLM agent framework 深度擴充與部署。
+          <strong>把 Claude 帶到 Telegram，讓 AI 以自然對話作為兩台 PC 之間的溝通橋接層。</strong> 跨機協作、ops 自動化、決策輔助 — 每日工作流主幹，基於開源 LLM agent framework 擴充與部署。
         </div>
         <div class="card-body">
-          基於開源 LLM multi-agent 框架（ductor），<strong>自行擴充並部署為日常工作流主幹</strong>。11 sub-agents、跨機（雙台 Windows）同步運作、Telegram + Discord 雙傳輸層。對框架本身貢獻多處 patch — 例如 Windows 命令列長度上限、Discord API 邊界 case、Opus tool-use streaming 邊界 case 等底層修正。Sub-agent 編排、記憶層配置、cron 工作流、跨機 relay 等使用層整合全部手動設定。
+          基於開源 LLM multi-agent 框架（ductor），擴充並部署為跨機 AI 工作流主幹。<strong>核心差異化：兩台 PC 之間的協作不靠 RPC / message queue，而靠 AI agent 之間的自然語言對話交換 — Telegram 即是傳輸層</strong>。主 agent 在 Telegram 收 chairman 指令；若需對方機器資源，用 AI 對話 relay 給對方 main agent，對方執行完後對話回傳結果。11 sub-agents、雙台 Windows 同步運作、Telegram + Discord 雙傳輸層。對框架本身貢獻多處 patch — 例如 Windows 命令列長度上限、Discord API 邊界 case、Opus tool-use streaming 邊界 case 等。
         </div>
       </div>
 
