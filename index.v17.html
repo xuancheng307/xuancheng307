@@ -446,7 +446,7 @@
         <h1 class="name-cn">高璿程</h1>
         <div class="name-en">Kao Xuan-Cheng</div>
         <div class="role">AI Systems Architect</div>
-        <div class="tagline">Solo end-to-end · research → architecture → production</div>
+        <div class="tagline">LLM Multi-Agent Systems · ZK Cryptography · Production Engineering</div>
       </div>
       <div class="contact">
         <div><span class="label">EMAIL</span> <a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></div>
@@ -461,7 +461,7 @@
       <div class="hl">
         <div class="hl-tag">Production</div>
         <div class="hl-title">LLM Multi-Agent OS</div>
-        <div class="hl-sub">Self-built, dogfooded daily — Telegram + Discord + cross-machine</div>
+        <div class="hl-sub">Used in production daily — Telegram + Discord + cross-machine</div>
       </div>
       <div class="hl">
         <div class="hl-tag">Paid Customer</div>
@@ -482,7 +482,7 @@
 
     <!-- ============ ABOUT ============ -->
     <p class="about">
-      AI 系統架構師 — 過去 12 個月一人從零端到端寫出 <strong>4 個生產級 LLM 系統</strong>，包括 <strong>每天自用的 multi-agent OS</strong> 與 <strong>已收費的 B2B HR SaaS</strong>。同期在政大進行碩論——把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；於統一證券量化交易部研究集團穩定幣 × ZKP 應用。底子：應用數學 + 密碼學 + 三張券商證照。<strong>不是 LangChain 拼裝級——框架破了會自己 patch Anthropic SDK / aiogram / discord.py 內部</strong>那種深度。沒有 PM、沒有 reviewer、研究到收費客戶一條龍。
+      AI 系統架構師。過去 12 個月寫出 <strong>4 個生產級 LLM 系統</strong>，包含 <strong>每天用於工作流主幹的 multi-agent OS</strong>、<strong>已收費的 B2B HR SaaS</strong>、與 <strong>學術文獻支撐的 AI coaching SaaS</strong>。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題，並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
     </p>
 
     <!-- ============ PROJECTS (flagship) ============ -->
@@ -506,10 +506,10 @@
           <span class="chip">discord.py</span>
         </div>
         <div class="callout">
-          <strong>Daily-driver production system.</strong> 自己每天用，不是 demo — 跨機協作、ops 自動化、決策輔助全靠它。
+          <strong>Used in production daily.</strong> 跨機協作、ops 自動化、決策輔助 — 我自己的工作流主幹。
         </div>
         <div class="card-body">
-          自寫 <strong>supervisor + inter-agent bus + 分層記憶 + 任務 ack 契約</strong>。當 Anthropic SDK / aiogram / discord.py 遇到 bug，直接 patch 框架內部（Windows 8191 命令列限制、Discord rate-limit 40062、Opus stop-with-tool_use force-text contract）— 不是 LangChain 拼裝級的能力。雙機 Telegram + Discord 同步運作，主 agent + sub-agents 共享 supervisor。
+          自寫 <strong>supervisor、agent 間通訊、分層記憶、任務 ack 協定</strong>。當底層 SDK 出 bug 時直接修框架原始碼 — 例如 Windows 命令列長度上限、Discord API 邊界 case、Opus tool-use streaming 邊界 case 等。雙機 Telegram + Discord 同步運作，主 agent 與 sub-agents 共享 supervisor。
         </div>
       </div>
 
@@ -529,7 +529,7 @@
           <strong>First paying customer live.</strong> 從規格、架構、實作、部署到客戶上線全程一人完成。
         </div>
         <div class="card-body">
-          台灣中小企業 <strong>勞基法合規</strong> HR 系統，特別針對 ~30 人公司。設計上 <strong>single-tenant 多 instance</strong>，三種部署模式可選：Docker / exe+SQLite 桌面版 / centralized hosting — 每間公司一份自己的資料庫，可審計、no SaaS lock-in。已完成週年制特休、平行核簽、補修管理、異常打卡偵測、多角色權限、薪資試算、員工自助查詢等全套功能。
+          針對台灣中小企業的 <strong>勞基法合規</strong> HR 系統。設計上 <strong>single-tenant 多 instance</strong>，三種部署模式可選：Docker、桌面 exe + SQLite、centralized hosting — 每間公司一份自己的資料庫，可審計、no SaaS lock-in。涵蓋出勤、假勤、薪資、簽核、員工自助查詢等核心模組，並完成多角色權限與異常打卡偵測。
         </div>
       </div>
 
@@ -546,10 +546,10 @@
           <span class="chip">Riot API</span>
         </div>
         <div class="callout">
-          <strong>B2B SaaS for tier 2-3 戰隊.</strong> Coaching tool — 每個 metric 背一篇學術論文，不是 vibes-based 建議。
+          <strong>Coaching tool for esports teams.</strong> 14 個分析 metric 每個都對應一篇 peer-reviewed 論文 — 可解釋、可審計的 AI 教練。
         </div>
         <div class="card-body">
-          台灣 PCS 與東南亞 Tier 2-3 戰隊的 to-coach 工具。跨服 4,000+ 對戰資料；PostgreSQL <strong>GROUPING SETS materialized view</strong> 預聚合分析；對接 Anthropic API 產出每場個人化建議。可信度差異化來自 <strong>14-metric registry — 每個都對應一篇 paper</strong>，不像市場上多數 AI 教練工具是 black-box 直覺式輸出。
+          台灣 PCS 與東南亞 esports 戰隊的 coaching 工具。跨服 4,000+ 對戰資料；PostgreSQL <strong>GROUPING SETS materialized view</strong> 預聚合分析；對接 Anthropic API 產出每場個人化建議。差異化來自 <strong>14-metric registry — 每個都對應一篇 paper</strong>，建議可追溯、可審計，而不是 black-box 直覺式輸出。
         </div>
       </div>
 
@@ -568,7 +568,7 @@
           <strong>Discord 上的 AI 公司虛擬辦公室.</strong> 多 persona 共享同一份記憶，外部能力（Gemini 等）做為 slash command 工具而非另開 bot。
         </div>
         <div class="card-body">
-          技術核心：自寫 <strong>DiscordEditStreamer</strong> 解決 Discord rate-limit 40062 問題（discord.py 沒處理）、自寫 buttons.py 解析 message UI markers、4-section memory schema 帶 channel-context awareness。設計核心：multi-persona single-relay 架構（CEO / CTO / CFO 共用同一個 bot 但有獨立角色標籤），避免 N 個 bot 各自寫一份記憶的問題。
+          技術核心：自寫 <strong>DiscordEditStreamer</strong> 解決 Discord API 在串流訊息上的 rate-limit 邊界問題、message UI marker parser、channel-context 感知的多段記憶 schema。設計核心：<strong>multi-persona single-relay</strong> 架構（CEO / CTO / CFO 共用同一個 bot 但有獨立角色標籤），避免 N 個 bot 各自寫一份記憶造成知識分裂。
         </div>
       </div>
     </section>
@@ -584,7 +584,7 @@
       <div class="card">
         <div class="card-head">
           <div class="card-title">Master's Thesis <span class="em">— Polynomial Approximation of Transcendental Functions for ZK Financial Compliance</span></div>
-          <div class="card-meta">78-page thesis <span class="sep">·</span> 2024 — Dec 2026</div>
+          <div class="card-meta">NCCU Master's <span class="sep">·</span> 2024 — Dec 2026</div>
         </div>
         <div class="stack">
           <span class="chip accent">Halo2 PSE</span>
@@ -598,7 +598,7 @@
           <strong>首個把超越函數整套塞進 ZK 電路的 end-to-end 構造.</strong> 應用場景：可驗證金融合規 — 證明 trader 沒違規但不洩漏 position。
         </div>
         <div class="card-body">
-          目標問題：金融機構要對監管證明「我的 trading 沒違規」（例如 Delta 對沖在範圍內、credit default 機率符合報告），但 又不想洩漏實際倉位。傳統做法只能 trust audit；本論文做到 <strong>zero-knowledge proof + transcendental functions（指數、對數、誤差函數等）</strong> — 監管驗證 23 毫秒、proof 約 7KB，比 lookup table 路線快 26 倍且 pp≥24 時 lookup 直接做不到。<strong>原創核心在數值分析層</strong>：deferred truncation with BN254 headroom analysis，讓 13 個函數在 pp=16 達到 ULP=1。
+          目標問題：金融機構要向監管證明「trading 沒違規」（例如 Delta 對沖在範圍內、credit default 機率符合報告），又不想洩漏實際倉位。傳統做法只能信任稽核；本論文做到 <strong>零知識證明 + 超越函數計算（指數、對數、誤差函數等）</strong> — 監管驗證僅需毫秒級時間、proof 體積數 KB，<strong>較傳統 lookup table 方法快一個數量級</strong>，並在高精度需求下 lookup 方法直接不可行。<strong>原創核心在數值分析層</strong>，已在 13 個常用金融函數上達到最高精度。
         </div>
       </div>
 
@@ -635,7 +635,7 @@
           <div class="exp-meta">Jul — Aug 2025 · Taipei</div>
         </div>
         <div class="exp-body">
-          支援統一集團 <strong>「發行集團穩定幣」可行性評估</strong> — 整理國內外案例 / 監管趨勢 / 商業模式；跨部門討論穩定幣應用架構（payment / 會員點數 / 供應鏈結算），從技術可行性 + 風險面提初步建議。同時實作 <strong>multi-factor quant trading strategy</strong>（factor selection、data processing、簡易 backtest）。延伸研究 <strong>「stablecoin × ZKP privacy」</strong>，直接連結到 碩論方向 — 罕見的 「AI / crypto research 同時懂金融實務 + 持證」組合。
+          支援統一集團 <strong>「發行集團穩定幣」可行性評估</strong> — 整理國內外案例、監管趨勢、商業模式；跨部門討論穩定幣應用架構（payment / 會員點數 / 供應鏈結算），從技術可行性與風險面提初步建議。同時實作 <strong>multi-factor quant trading strategy</strong>（factor selection、data processing、簡易 backtest）。延伸研究 <strong>「stablecoin × ZKP privacy」</strong>，與碩論方向直接互通。
         </div>
       </div>
 
@@ -670,12 +670,21 @@
 
       <div class="exp">
         <div class="exp-head">
-          <div class="exp-org">National Chengchi University 政治大學</div>
-          <div class="exp-meta">Sep 2018 — Dec 2026 (expected)</div>
+          <div class="exp-org">National Chengchi University 政治大學<span class="role-after">M.S., Data Science</span></div>
+          <div class="exp-meta">Sep 2023 — Dec 2026 (expected)</div>
         </div>
         <div class="exp-body">
-          <strong>M.S., Data Science</strong> · 2023 — 2026（預計）· 碩論方向 ZK 金融合規<br>
-          <strong>B.S., Applied Mathematics</strong> · 2018 — 2023 · 跨修商學院（金融 / 會計 / 行銷）
+          碩論方向：<strong>ZK 金融合規</strong>。修課涵蓋現代密碼學、機器學習、財務數學、區塊鏈應用、軟體工程概論、電腦科學邏輯。
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <div class="exp-org">National Chengchi University 政治大學<span class="role-after">B.S., Applied Mathematics</span></div>
+          <div class="exp-meta">Sep 2018 — Jul 2023</div>
+        </div>
+        <div class="exp-body">
+          應用數學系，跨修 商學院 — 金融 / 會計 / 行銷 / 統計。
         </div>
       </div>
     </section>
@@ -756,7 +765,7 @@
       </div>
 
       <div class="exp-body" style="margin-top:0;">
-        <strong>Securities Licenses (Taiwan, 2021.03)</strong> — 證券商高級業務員 · 證券商業務員 · 期貨商業務員 <span style="color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">— rare AI × finance combo</span><br>
+        <strong>Securities Licenses (Taiwan, 2021.03)</strong> — 證券商高級業務員 · 證券商業務員 · 期貨商業務員<br>
         <strong>中文</strong> Native · <strong>English</strong> Reading Advanced; Speaking / Writing Intermediate
       </div>
     </section>
