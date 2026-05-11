@@ -461,7 +461,7 @@
       <div class="hl">
         <div class="hl-tag">Production</div>
         <div class="hl-title">LLM Multi-Agent OS</div>
-        <div class="hl-sub">Used in production daily — Telegram + Discord + cross-machine</div>
+        <div class="hl-sub">Open-source framework, self-extended &amp; deployed daily — Telegram + Discord + cross-machine</div>
       </div>
       <div class="hl">
         <div class="hl-tag">In Production</div>
@@ -482,7 +482,7 @@
 
     <!-- ============ ABOUT ============ -->
     <p class="about">
-      AI 系統架構師。過去 12 個月寫出 <strong>4 個生產級 LLM 系統</strong>，包含 <strong>每天用於工作流主幹的 multi-agent OS</strong>、<strong>於森嶸電子實習期間建構並上線的 HR 管理系統</strong>、與 <strong>學術文獻支撐的 AI coaching SaaS</strong>。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題，並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
+      AI 系統架構師。過去 12 個月經營 <strong>4 條 LLM 系統 work</strong>：(1) 基於開源 multi-agent framework 擴充並部署為每日工作流主幹的 <strong>multi-agent OS</strong>，(2) 於森嶸電子實習期間建構並上線的 <strong>HR 管理系統</strong>，(3) 學術文獻支撐的 <strong>AI coaching tool</strong>（針對 esports 戰隊），(4) Discord 上的 <strong>multi-persona AI HQ</strong>。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
     </p>
 
     <!-- ============ PROJECTS (flagship) ============ -->
@@ -495,8 +495,8 @@
 
       <div class="card">
         <div class="card-head">
-          <div class="card-title">Ductor <span class="em">— LLM Multi-Agent OS</span></div>
-          <div class="card-meta">Individual <span class="sep">·</span> 2025 — Present <span class="sep">·</span> Production daily</div>
+          <div class="card-title">Ductor <span class="em">— Extended &amp; Deployed LLM Multi-Agent OS</span></div>
+          <div class="card-meta">Open-source framework, self-extended <span class="sep">·</span> 2025 — Present <span class="sep">·</span> Production daily</div>
         </div>
         <div class="stack">
           <span class="chip accent">Anthropic Claude SDK</span>
@@ -506,10 +506,10 @@
           <span class="chip">discord.py</span>
         </div>
         <div class="callout">
-          <strong>Used in production daily.</strong> 跨機協作、ops 自動化、決策輔助 — 我自己的工作流主幹。
+          <strong>Used in production daily.</strong> 跨機協作、ops 自動化、決策輔助 — 我的工作流主幹。基於開源 LLM agent framework 深度擴充與部署。
         </div>
         <div class="card-body">
-          自寫 <strong>supervisor、agent 間通訊、分層記憶、任務 ack 協定</strong>。當底層 SDK 出 bug 時直接修框架原始碼 — 例如 Windows 命令列長度上限、Discord API 邊界 case、Opus tool-use streaming 邊界 case 等。雙機 Telegram + Discord 同步運作，主 agent 與 sub-agents 共享 supervisor。
+          基於開源 LLM multi-agent 框架（ductor），<strong>自行擴充並部署為日常工作流主幹</strong>。11 sub-agents、跨機（雙台 Windows）同步運作、Telegram + Discord 雙傳輸層。對框架本身貢獻多處 patch — 例如 Windows 命令列長度上限、Discord API 邊界 case、Opus tool-use streaming 邊界 case 等底層修正。Sub-agent 編排、記憶層配置、cron 工作流、跨機 relay 等使用層整合全部手動設定。
         </div>
       </div>
 
@@ -536,7 +536,7 @@
       <div class="card">
         <div class="card-head">
           <div class="card-title">LOL Analytics <span class="em">— Research-grounded AI Coach</span></div>
-          <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> B2B SaaS</div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> In development, targeting esports teams</div>
         </div>
         <div class="stack">
           <span class="chip accent">Next.js / TypeScript</span>
@@ -546,10 +546,10 @@
           <span class="chip">Riot API</span>
         </div>
         <div class="callout">
-          <strong>Coaching tool for esports teams.</strong> 14 個分析 metric 每個都對應一篇 peer-reviewed 論文 — 可解釋、可審計的 AI 教練。
+          <strong>Coaching tool targeting esports teams.</strong> 14 個分析 metric 套用學術文獻 — 可解釋、可審計的 AI 教練，差異化於市場上多數 black-box 直覺式工具。
         </div>
         <div class="card-body">
-          台灣 PCS 與東南亞 esports 戰隊的 coaching 工具。跨服 4,000+ 對戰資料；PostgreSQL <strong>GROUPING SETS materialized view</strong> 預聚合分析；對接 Anthropic API 產出每場個人化建議。差異化來自 <strong>14-metric registry — 每個都對應一篇 paper</strong>，建議可追溯、可審計，而不是 black-box 直覺式輸出。
+          為台灣 PCS 與東南亞 esports 戰隊設計的 coaching 工具。跨服對戰資料 4000+ 筆；PostgreSQL <strong>GROUPING SETS materialized view</strong> 預聚合分析；對接 Anthropic API 產出每場個人化建議。差異化來自 <strong>14-metric registry 全部對應學術文獻</strong>，使分析建議可追溯、可審計。
         </div>
       </div>
 
