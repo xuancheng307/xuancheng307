@@ -1,0 +1,34 @@
+# Structured personal facts — used by AI to fill resume header.
+# Keep this short and stable. Free-form narrative goes in about.md.
+
+name:
+  zh: 高璿程
+  en: Kao Xuan-Cheng
+  initials_en: KX        # used in resume initials block; could be 高 or KX or other
+gender: 男
+birth_date: 1999-03-07
+
+contact:
+  email: b128506789@gmail.com
+  phone: "0970 527 427"
+  github: github.com/xuancheng307
+  location:
+    city: Taipei
+    country: Taiwan
+
+# Headline that appears under name
+tagline:
+  role: AI Systems Architect
+  axes:
+    - LLM Multi-Agent OS
+    - ZK Financial Compliance
+    - Production Engineering
+
+# Public-facing URLs
+public:
+  resume_url: https://xuancheng307.github.io/xuancheng307/
+  github_profile: https://github.com/xuancheng307
+  knowledge_bases:
+    - https://github.com/xuancheng307/ZKMM
+    - https://github.com/xuancheng307/PLONK
+    - https://github.com/xuancheng307/zkml-knowledge-base
