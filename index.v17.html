@@ -482,7 +482,7 @@
 
     <!-- ============ ABOUT ============ -->
     <p class="about">
-      AI 系統架構師。過去 12 個月經營 <strong>4 條 LLM 系統 work</strong>：(1) 基於開源 multi-agent framework 擴充並部署為每日工作流主幹的 <strong>multi-agent OS</strong>，(2) 於森嶸電子實習期間建構並上線的 <strong>HR 管理系統</strong>，(3) 學術文獻支撐的 <strong>AI coaching tool</strong>（針對 esports 戰隊），(4) Discord 上的 <strong>multi-persona AI HQ</strong>。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
+      AI 系統架構師。過去 12 個月經營 <strong>4 條 LLM 系統 work</strong>：(1) 基於開源 multi-agent framework 擴充並部署為每日工作流主幹的 <strong>multi-agent OS</strong>，(2) 於森嶸電子實習期間建構並上線的 <strong>HR 管理系統</strong>，(3) 學術文獻支撐的 <strong>AI coaching tool</strong>（針對 esports 戰隊），(4) 接入 Discord 並具備語音頻道管理能力的 <strong>AI operator</strong>（multi-persona）。同期在政大進行碩論：把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；並於統一證券量化交易部研究集團穩定幣 × ZKP 應用。應用數學系出身，三張券商證照，能在 <strong>需要時直接修底層 SDK 與框架原始碼</strong>。
     </p>
 
     <!-- ============ PROJECTS (flagship) ============ -->
@@ -555,8 +555,8 @@
 
       <div class="card">
         <div class="card-head">
-          <div class="card-title">Atlas <span class="em">— Discord AI Company HQ</span></div>
-          <div class="card-meta">Individual <span class="sep">·</span> Apr — May 2026</div>
+          <div class="card-title">Atlas <span class="em">— Discord AI Operator (chat + voice channels)</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> Apr 2026 — Present <span class="sep">·</span> Live on Discord (Administrator scope)</div>
         </div>
         <div class="stack">
           <span class="chip accent">discord.py</span>
@@ -565,10 +565,10 @@
           <span class="chip">Anthropic SDK</span>
         </div>
         <div class="callout">
-          <strong>Discord 上的 AI 公司虛擬辦公室.</strong> 多 persona 共享同一份記憶，外部能力（Gemini 等）做為 slash command 工具而非另開 bot。
+          <strong>讓 AI 接入 Discord，並具備管理語音頻道的能力 — 不侷限於文字 chat。</strong> 多 persona 共享同一份記憶，外部能力（Gemini 等）做為 slash command 工具而非另開 bot。
         </div>
         <div class="card-body">
-          技術核心：自寫 <strong>DiscordEditStreamer</strong> 解決 Discord API 在串流訊息上的 rate-limit 邊界問題、message UI marker parser、channel-context 感知的多段記憶 schema。設計核心：<strong>multi-persona single-relay</strong> 架構（CEO / CTO / CFO 共用同一個 bot 但有獨立角色標籤），避免 N 個 bot 各自寫一份記憶造成知識分裂。
+          把 AI 帶到 Discord 端，具備 server administrator 權限以程式化管理頻道（含 <strong>語音頻道</strong>）、roles 與訊息流。技術核心：自寫 <strong>DiscordEditStreamer</strong> 解決 Discord API 串流訊息 rate-limit 邊界問題、message UI marker parser、channel-context 感知記憶 schema。設計核心：<strong>multi-persona single-relay</strong>（CEO / CTO / CFO 共用一個 bot 但有獨立角色標籤），避免 N 個 bot 各自寫一份記憶造成知識分裂。
         </div>
       </div>
     </section>
