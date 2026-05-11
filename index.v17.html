@@ -124,45 +124,44 @@
       width: 3.2rem;
     }
 
-    /* ===== KPI strip ===== */
-    .kpi-strip {
+    /* ===== Highlights strip ===== */
+    .highlights {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
       margin-top: 1.6rem;
-      padding: 1.25rem 0;
+      padding: 1.1rem 0;
       border-bottom: 1px solid var(--rule);
     }
-    .kpi {
-      padding: 0 0.9rem;
+    .hl {
+      padding: 0 1rem;
       border-right: 1px solid var(--rule-soft);
-      text-align: left;
     }
-    .kpi:first-child { padding-left: 0; }
-    .kpi:last-child { border-right: none; padding-right: 0; }
-    .kpi-num {
-      font-family: "Fraunces", serif;
-      font-size: 1.95rem;
-      font-weight: 600;
-      color: var(--accent);
-      line-height: 1;
-      letter-spacing: -0.01em;
-    }
-    .kpi-num .unit {
-      font-size: 0.85rem;
-      color: var(--accent-2);
-      font-weight: 500;
-      margin-left: 0.15em;
-    }
-    .kpi-label {
+    .hl:first-child { padding-left: 0; }
+    .hl:last-child { border-right: none; padding-right: 0; }
+    .hl-tag {
       font-family: "JetBrains Mono", monospace;
-      font-size: 0.66rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.5rem;
-      line-height: 1.3;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .hl-title {
+      font-family: "Fraunces", serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.005em;
+    }
+    .hl-sub {
+      font-family: "Inter", "Noto Sans TC", sans-serif;
+      font-size: 0.78rem;
+      color: var(--slate);
+      line-height: 1.4;
     }
 
     /* ===== Section ===== */
@@ -419,7 +418,7 @@
       .card { background: transparent !important; border-left: 2px solid #555 !important; }
       .callout { background: #f3f3f3 !important; color: #000 !important; }
       .callout .big { color: #000 !important; }
-      .kpi-num, .role, .card-title .em { color: #000 !important; }
+      .role, .card-title .em, .hl-tag { color: #000 !important; }
       .chip { background: #f0f0f0 !important; color: #000 !important; }
       .chip.accent { background: #e0e0e0 !important; color: #000 !important; }
       .card-meta .repo, .entry-title .repo { color: #333 !important; }
@@ -430,8 +429,8 @@
       .page { padding: 2rem 1.5rem; }
       .header { grid-template-columns: 1fr; align-items: start; }
       .contact { text-align: left; }
-      .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 0.8rem 0; }
-      .kpi { border-right: none; padding: 0.4rem 0; }
+      .highlights { grid-template-columns: repeat(2, 1fr); gap: 1rem 0; }
+      .hl { border-right: none; padding: 0.5rem 0; }
       .name-cn { font-size: 2.1rem; }
     }
   </style>
@@ -447,7 +446,7 @@
         <h1 class="name-cn">高璿程</h1>
         <div class="name-en">Kao Xuan-Cheng</div>
         <div class="role">AI Systems Architect</div>
-        <div class="tagline">LLM Multi-Agent OS · ZK Financial Compliance · Production Engineering</div>
+        <div class="tagline">Solo end-to-end · research → architecture → production</div>
       </div>
       <div class="contact">
         <div><span class="label">EMAIL</span> <a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></div>
@@ -457,33 +456,33 @@
       </div>
     </header>
 
-    <!-- ============ KPI STRIP ============ -->
-    <div class="kpi-strip">
-      <div class="kpi">
-        <div class="kpi-num">11<span class="unit">agents</span></div>
-        <div class="kpi-label">Ductor<br>sub-agents</div>
+    <!-- ============ HIGHLIGHTS ============ -->
+    <div class="highlights">
+      <div class="hl">
+        <div class="hl-tag">Production</div>
+        <div class="hl-title">LLM Multi-Agent OS</div>
+        <div class="hl-sub">Self-built, dogfooded daily — Telegram + Discord + cross-machine</div>
       </div>
-      <div class="kpi">
-        <div class="kpi-num">11,055</div>
-        <div class="kpi-label">HR SaaS<br>tests passing</div>
+      <div class="hl">
+        <div class="hl-tag">Paid Customer</div>
+        <div class="hl-title">B2B HR SaaS</div>
+        <div class="hl-sub">Taiwan labor-law compliance, first customer live</div>
       </div>
-      <div class="kpi">
-        <div class="kpi-num">78<span class="unit">pages</span></div>
-        <div class="kpi-label">ZK Thesis<br>peer-reviewed</div>
+      <div class="hl">
+        <div class="hl-tag">Research</div>
+        <div class="hl-title">ZK × Finance Thesis</div>
+        <div class="hl-sub">Verifiable financial compliance via zero-knowledge proofs (NCCU MS, 2026-12)</div>
       </div>
-      <div class="kpi">
-        <div class="kpi-num">26.3<span class="unit">×</span></div>
-        <div class="kpi-label">ZK eval<br>vs lookup</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-num">1B<span class="unit">+</span></div>
-        <div class="kpi-label">DRAM log<br>records ETL</div>
+      <div class="hl">
+        <div class="hl-tag">Cross-Domain</div>
+        <div class="hl-title">AI + Finance</div>
+        <div class="hl-sub">Uni-Sec quant intern · 3 securities licenses · stablecoin research</div>
       </div>
     </div>
 
     <!-- ============ ABOUT ============ -->
     <p class="about">
-      政大資料科學研究所碩士（<strong>2026-12 預計畢業</strong>）。研究方向 <span class="accent">零知識證明在金融安全領域的應用</span> — 把超越函數塞進 ZK 電路，建構首個 end-to-end ZK transcendental-function evaluation。過去 12 個月自寫多個生產級 LLM 系統，旗艦作品 <strong>Ductor</strong> 是雙機 multi-agent OS，每天 production dogfooding。工作模式：<strong>架構決策 + AI agent 編排 + 結果驗收</strong>。應用數學 + 密碼學 + 金融證照三者交集。
+      AI 系統架構師 — 過去 12 個月一人從零端到端寫出 <strong>4 個生產級 LLM 系統</strong>，包括 <strong>每天自用的 multi-agent OS</strong> 與 <strong>已收費的 B2B HR SaaS</strong>。同期在政大進行碩論——把超越函數塞進零知識電路，解 <span class="accent">可驗證金融合規</span> 問題；於統一證券量化交易部研究集團穩定幣 × ZKP 應用。底子：應用數學 + 密碼學 + 三張券商證照。<strong>不是 LangChain 拼裝級——框架破了會自己 patch Anthropic SDK / aiogram / discord.py 內部</strong>那種深度。沒有 PM、沒有 reviewer、研究到收費客戶一條龍。
     </p>
 
     <!-- ============ PROJECTS (flagship) ============ -->
@@ -500,19 +499,17 @@
           <div class="card-meta">Individual <span class="sep">·</span> 2025 — Present <span class="sep">·</span> Production daily</div>
         </div>
         <div class="stack">
-          <span class="chip accent">Claude SDK</span>
-          <span class="chip">Python</span>
+          <span class="chip accent">Anthropic Claude SDK</span>
+          <span class="chip">Python / asyncio</span>
+          <span class="chip">Telethon</span>
           <span class="chip">aiogram</span>
           <span class="chip">discord.py</span>
-          <span class="chip">Telethon</span>
-          <span class="chip">aiohttp</span>
-          <span class="chip">asyncio</span>
         </div>
         <div class="callout">
-          <span class="big">11</span>sub-agents · <span class="big">9</span>Telegram bots · <span class="big">3</span>Discord guilds · cross-machine relay
+          <strong>Daily-driver production system.</strong> 自己每天用，不是 demo — 跨機協作、ops 自動化、決策輔助全靠它。
         </div>
         <div class="card-body">
-          自寫雙機跨進程 LLM agent OS — supervisor / inter-agent bus / 記憶分層 / 任務 ack 契約。Framework-level patches：Opus stop-with-tool_use force-text contract、Windows cmd-line 8191 limit、Discord restart-marker loop。每天 chairman 對話 + 跨機協作 + cron 自動巡檢全部跑在這個系統上。
+          自寫 <strong>supervisor + inter-agent bus + 分層記憶 + 任務 ack 契約</strong>。當 Anthropic SDK / aiogram / discord.py 遇到 bug，直接 patch 框架內部（Windows 8191 命令列限制、Discord rate-limit 40062、Opus stop-with-tool_use force-text contract）— 不是 LangChain 拼裝級的能力。雙機 Telegram + Discord 同步運作，主 agent + sub-agents 共享 supervisor。
         </div>
       </div>
 
@@ -524,18 +521,15 @@
         <div class="stack">
           <span class="chip accent">Flask</span>
           <span class="chip">SQLAlchemy</span>
-          <span class="chip">MySQL 8</span>
-          <span class="chip">SQLite</span>
-          <span class="chip">Alembic</span>
+          <span class="chip">MySQL 8 / SQLite</span>
           <span class="chip">Docker</span>
           <span class="chip">PyInstaller</span>
-          <span class="chip">Waitress</span>
         </div>
         <div class="callout">
-          <span class="big">11,055</span>unit tests · <span class="big">228</span>routes · <span class="big">12</span>phases · <span class="big">0</span>failures
+          <strong>First paying customer live.</strong> 從規格、架構、實作、部署到客戶上線全程一人完成。
         </div>
         <div class="card-body">
-          台灣中小企業 <strong>勞基法合規</strong> HR 系統 — single-tenant 多 instance 三模式部署（Docker / exe+SQLite / centralized hosting）。週年制特休 / 平行核簽 / 補修管理 / 異常打卡偵測 / 多角色權限。第一個付費客戶已上線。
+          台灣中小企業 <strong>勞基法合規</strong> HR 系統，特別針對 ~30 人公司。設計上 <strong>single-tenant 多 instance</strong>，三種部署模式可選：Docker / exe+SQLite 桌面版 / centralized hosting — 每間公司一份自己的資料庫，可審計、no SaaS lock-in。已完成週年制特休、平行核簽、補修管理、異常打卡偵測、多角色權限、薪資試算、員工自助查詢等全套功能。
         </div>
       </div>
 
@@ -545,19 +539,17 @@
           <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> B2B SaaS</div>
         </div>
         <div class="stack">
-          <span class="chip accent">PostgreSQL</span>
+          <span class="chip accent">Next.js / TypeScript</span>
+          <span class="chip">PostgreSQL</span>
           <span class="chip">Materialized View</span>
-          <span class="chip">asyncpg</span>
-          <span class="chip">FastAPI</span>
-          <span class="chip">Next.js</span>
           <span class="chip">Anthropic API</span>
           <span class="chip">Riot API</span>
         </div>
         <div class="callout">
-          <span class="big">4,000+</span>matches 跨服資料 · <span class="big">14</span>-metric registry · 學術文獻支撐
+          <strong>B2B SaaS for tier 2-3 戰隊.</strong> Coaching tool — 每個 metric 背一篇學術論文，不是 vibes-based 建議。
         </div>
         <div class="card-body">
-          PCS / Tier 2-3 戰隊 to-coach 工具 — <strong>GROUPING SETS materialized view</strong> 預聚合分析、AiInsightCard 對接 Anthropic API 產出每場 personalized 建議。可信度來自背後 14 個 metric 都有 paper 引用。
+          台灣 PCS 與東南亞 Tier 2-3 戰隊的 to-coach 工具。跨服 4,000+ 對戰資料；PostgreSQL <strong>GROUPING SETS materialized view</strong> 預聚合分析；對接 Anthropic API 產出每場個人化建議。可信度差異化來自 <strong>14-metric registry — 每個都對應一篇 paper</strong>，不像市場上多數 AI 教練工具是 black-box 直覺式輸出。
         </div>
       </div>
 
@@ -570,13 +562,13 @@
           <span class="chip accent">discord.py</span>
           <span class="chip">Custom stream editor</span>
           <span class="chip">Slash commands</span>
-          <span class="chip">Multi-channel context</span>
+          <span class="chip">Anthropic SDK</span>
         </div>
         <div class="callout">
-          <span class="big">3</span>guilds · <span class="big">5</span>slash commands · <span class="big">14</span>channels · single-relay multi-persona
+          <strong>Discord 上的 AI 公司虛擬辦公室.</strong> 多 persona 共享同一份記憶，外部能力（Gemini 等）做為 slash command 工具而非另開 bot。
         </div>
         <div class="card-body">
-          自寫 <strong>DiscordEditStreamer</strong> 解 rate-limit 40062 + buttons.py 解析 message UI markers。Channel-context awareness 4-section memory schema。C-suite multi-persona 共享同一份記憶，外部能力（Gemini / future Imagen / Veo）用 slash command 而非另開 bot。
+          技術核心：自寫 <strong>DiscordEditStreamer</strong> 解決 Discord rate-limit 40062 問題（discord.py 沒處理）、自寫 buttons.py 解析 message UI markers、4-section memory schema 帶 channel-context awareness。設計核心：multi-persona single-relay 架構（CEO / CTO / CFO 共用同一個 bot 但有獨立角色標籤），避免 N 個 bot 各自寫一份記憶的問題。
         </div>
       </div>
     </section>
@@ -599,15 +591,14 @@
           <span class="chip">KZG / SHPLONK</span>
           <span class="chip">BN254</span>
           <span class="chip">Remez minimax</span>
-          <span class="chip">Horner scheme</span>
           <span class="chip">Black-Scholes</span>
           <span class="chip">Merton</span>
         </div>
         <div class="callout">
-          <span class="big">26.3×</span>faster than lookup · <span class="big">6,944</span>-byte proof · <span class="big">~23</span>ms verification · ULP=1 across 13 functions
+          <strong>首個把超越函數整套塞進 ZK 電路的 end-to-end 構造.</strong> 應用場景：可驗證金融合規 — 證明 trader 沒違規但不洩漏 position。
         </div>
         <div class="card-body">
-          首個 end-to-end <strong>ZK transcendental-function evaluation</strong>（Black-Scholes Delta hedging pp=24 + Merton credit default pp=32）。核心貢獻 <strong>Deferred truncation with BN254 headroom analysis</strong>（§3.3.2）— boundary equation `if (d+1)·pp < 254 then deferred else per-step`，讓 13 functions 在 pp=16 全靠 deferred 達到 ULP=1。Honest framing：ZK 系統用 stock Halo2/KZG，金融模型用 stock Black-Scholes/Merton，<strong>原創全部在數值分析層</strong>。
+          目標問題：金融機構要對監管證明「我的 trading 沒違規」（例如 Delta 對沖在範圍內、credit default 機率符合報告），但 又不想洩漏實際倉位。傳統做法只能 trust audit；本論文做到 <strong>zero-knowledge proof + transcendental functions（指數、對數、誤差函數等）</strong> — 監管驗證 23 毫秒、proof 約 7KB，比 lookup table 路線快 26 倍且 pp≥24 時 lookup 直接做不到。<strong>原創核心在數值分析層</strong>：deferred truncation with BN254 headroom analysis，讓 13 個函數在 pp=16 達到 ULP=1。
         </div>
       </div>
 
@@ -644,7 +635,7 @@
           <div class="exp-meta">Jul — Aug 2025 · Taipei</div>
         </div>
         <div class="exp-body">
-          <strong>統一集團穩定幣專案研究</strong> — 國內外案例 / 監管趨勢 / 商業模式整理，支援「發行集團穩定幣」可行性評估。跨部門討論穩定幣應用架構（payment / 會員點數 / 供應鏈結算），技術 + 風險角度提初步建議。同時實作 <strong>multi-factor quant trading strategy</strong>（factor selection / data processing / 簡易 backtest）。延伸研究 <strong>「stablecoin × privacy tech / ZKP」</strong> — 直接呼應碩論主軸。
+          支援統一集團 <strong>「發行集團穩定幣」可行性評估</strong> — 整理國內外案例 / 監管趨勢 / 商業模式；跨部門討論穩定幣應用架構（payment / 會員點數 / 供應鏈結算），從技術可行性 + 風險面提初步建議。同時實作 <strong>multi-factor quant trading strategy</strong>（factor selection、data processing、簡易 backtest）。延伸研究 <strong>「stablecoin × ZKP privacy」</strong>，直接連結到 碩論方向 — 罕見的 「AI / crypto research 同時懂金融實務 + 持證」組合。
         </div>
       </div>
 
@@ -654,7 +645,7 @@
           <div class="exp-meta">Feb — Aug 2025 · Taipei</div>
         </div>
         <div class="exp-body">
-          DRAM 模組測試 log ETL pipeline — <strong>1 億+ records</strong> 自動化進 production MySQL。跨部門 <strong>Streamlit 內部查詢介面</strong>（測試現場 / 財務 / 研發）。
+          DRAM 模組測試 log <strong>ETL pipeline at scale</strong> — 自動化清洗 1 億+ 筆 production 級資料進 MySQL，取代既有人工處理流程。為現場測試 / 財務 / 研發三部門寫 <strong>Streamlit 內部查詢介面</strong>，讓非工程背景同事可以自助分析。
         </div>
       </div>
 
@@ -698,37 +689,60 @@
       </div>
 
       <div class="skills-grid">
-        <div class="skills-label">Advanced</div>
+        <div class="skills-label">LLM Systems</div>
         <div class="skills-row stack">
-          <span class="chip accent">Python</span>
           <span class="chip accent">Anthropic Claude SDK</span>
           <span class="chip accent">Multi-agent orchestration</span>
+          <span class="chip accent">Framework patching</span>
+          <span class="chip">LangGraph</span>
+          <span class="chip">Telethon</span>
+          <span class="chip">aiogram</span>
+          <span class="chip">discord.py</span>
+        </div>
+
+        <div class="skills-label">Backend</div>
+        <div class="skills-row stack">
+          <span class="chip accent">Python / asyncio</span>
           <span class="chip accent">MySQL / PostgreSQL</span>
           <span class="chip accent">Materialized View</span>
-          <span class="chip accent">Telethon</span>
-          <span class="chip accent">Halo2 / KZG / PLONK</span>
-          <span class="chip accent">Framework patching</span>
+          <span class="chip">SQLAlchemy / Alembic</span>
+          <span class="chip">Flask</span>
+          <span class="chip">Docker</span>
+          <span class="chip">PyInstaller / Waitress</span>
         </div>
 
-        <div class="skills-label">Intermediate</div>
+        <div class="skills-label">Cryptography</div>
         <div class="skills-row stack">
-          <span class="chip">LangGraph</span>
+          <span class="chip accent">Halo2 PSE</span>
+          <span class="chip accent">KZG / SHPLONK</span>
+          <span class="chip accent">PLONK</span>
+          <span class="chip">BN254</span>
+          <span class="chip">Remez minimax</span>
+          <span class="chip">ezkl (ONNX → Halo2)</span>
+        </div>
+
+        <div class="skills-label">Frontend</div>
+        <div class="skills-row stack">
+          <span class="chip">Next.js / TypeScript</span>
+          <span class="chip">React</span>
+          <span class="chip">Streamlit</span>
+          <span class="chip">vanilla HTML / CSS / JS</span>
+        </div>
+
+        <div class="skills-label">Data / Quant</div>
+        <div class="skills-row stack">
+          <span class="chip">pandas</span>
+          <span class="chip">Multi-factor strategy</span>
+          <span class="chip">ETL at scale (1B+ rows)</span>
           <span class="chip">n8n</span>
           <span class="chip">Google Apps Script</span>
-          <span class="chip">ezkl (ONNX → Halo2)</span>
-          <span class="chip">Remez minimax</span>
-          <span class="chip">TypeScript / Next.js</span>
-          <span class="chip">Flask / Streamlit</span>
-          <span class="chip">Docker / PyInstaller</span>
-          <span class="chip">pandas</span>
-          <span class="chip">Multi-factor quant</span>
         </div>
 
-        <div class="skills-label">Learning</div>
+        <div class="skills-label">Exploring</div>
         <div class="skills-row stack">
           <span class="chip">Rust</span>
-          <span class="chip">C++ / MFC</span>
           <span class="chip">Plonky2</span>
+          <span class="chip">C++ / MFC</span>
         </div>
       </div>
     </section>
@@ -742,8 +756,8 @@
       </div>
 
       <div class="exp-body" style="margin-top:0;">
-        <strong>中文</strong> Native · <strong>English</strong> Reading Advanced; Speaking / Writing Intermediate<br>
-        <strong>金融證照</strong>（2021.03）證券商高級業務員 · 證券商業務員 · 期貨商業務員
+        <strong>Securities Licenses (Taiwan, 2021.03)</strong> — 證券商高級業務員 · 證券商業務員 · 期貨商業務員 <span style="color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.78rem;">— rare AI × finance combo</span><br>
+        <strong>中文</strong> Native · <strong>English</strong> Reading Advanced; Speaking / Writing Intermediate
       </div>
     </section>
 
