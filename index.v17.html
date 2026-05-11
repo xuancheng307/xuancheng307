@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kao Xuan-Cheng / 高璿程 — AI Systems Architect · ZK Financial Compliance Researcher">
+  <meta name="author" content="Kao Xuan-Cheng / 高璿程">
+  <title>高璿程 Kao Xuan-Cheng — AI Systems Architect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Tokens ===== */
+    :root {
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --ink: #0f172a;
+      --ink-2: #1e293b;
+      --slate: #475569;
+      --muted: #94a3b8;
+      --rule: #e2e8f0;
+      --rule-soft: #eef2f7;
+      --accent: #5b21b6;          /* ZK purple */
+      --accent-2: #7c3aed;
+      --accent-soft: #ede9fe;
+      --chip-bg: #f1f3f7;
+      --chip-ink: #334155;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", "Noto Sans TC", system-ui, -apple-system, sans-serif;
+      font-size: 14.5px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== Print bar ===== */
+    .print-bar {
+      position: fixed; top: 18px; right: 18px; z-index: 100;
+      background: var(--ink); color: #fff;
+      padding: 9px 18px; border-radius: 999px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11.5px; font-weight: 500; letter-spacing: 0.04em;
+      cursor: pointer; user-select: none; border: none;
+      box-shadow: 0 6px 20px -8px rgba(15,23,42,0.4);
+      transition: background 0.2s;
+    }
+    .print-bar:hover { background: var(--accent); }
+
+    /* ===== Page ===== */
+    .page {
+      max-width: 58rem;
+      margin: 2rem auto;
+      background: var(--paper);
+      padding: 3.25rem 3.5rem;
+      box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 16px 48px -16px rgba(15,23,42,0.16);
+    }
+
+    /* ===== Header ===== */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: end;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .name-cn {
+      font-family: "Noto Sans TC", "Fraunces", serif;
+      font-size: 2.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      color: var(--ink);
+      margin: 0;
+    }
+    .name-en {
+      font-family: "Fraunces", serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--slate);
+      margin-top: 0.35rem;
+      letter-spacing: 0.01em;
+    }
+    .role {
+      font-family: "Fraunces", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.9rem;
+      letter-spacing: 0.005em;
+    }
+    .tagline {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--slate);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+    }
+    .contact {
+      text-align: right;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--slate);
+      line-height: 1.85;
+      letter-spacing: 0.005em;
+    }
+    .contact a:hover { color: var(--accent); }
+    .contact .label {
+      color: var(--muted);
+      display: inline-block;
+      width: 3.2rem;
+    }
+
+    /* ===== KPI strip ===== */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 1.6rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .kpi {
+      padding: 0 0.9rem;
+      border-right: 1px solid var(--rule-soft);
+      text-align: left;
+    }
+    .kpi:first-child { padding-left: 0; }
+    .kpi:last-child { border-right: none; padding-right: 0; }
+    .kpi-num {
+      font-family: "Fraunces", serif;
+      font-size: 1.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .kpi-num .unit {
+      font-size: 0.85rem;
+      color: var(--accent-2);
+      font-weight: 500;
+      margin-left: 0.15em;
+    }
+    .kpi-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.3;
+    }
+
+    /* ===== Section ===== */
+    section.block { margin-top: 2.1rem; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.1rem;
+    }
+    .section-head .marker {
+      width: 0.5rem;
+      height: 0.5rem;
+      background: var(--accent);
+      transform: rotate(45deg);
+    }
+    .section-head h2 {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 0;
+      flex: 1;
+    }
+    .section-head .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      margin-left: 0.4rem;
+    }
+
+    /* ===== Flagship card ===== */
+    .card {
+      margin-bottom: 1.3rem;
+      padding: 1rem 1.1rem;
+      background: #fbfaf7;
+      border-left: 2px solid var(--accent);
+      border-radius: 0 2px 2px 0;
+    }
+    .card + .card { margin-top: 0; }
+    .card-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card-title {
+      font-family: "Fraunces", serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .card-title .em { color: var(--accent); }
+    .card-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .card-meta .repo {
+      color: var(--accent);
+      transition: color 0.15s;
+    }
+    .card-meta .repo:hover { color: var(--accent-2); text-decoration: underline; }
+    .card-meta .sep {
+      color: var(--rule);
+      padding: 0 0.5em;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.32rem;
+      margin-top: 0.55rem;
+    }
+    .chip {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.66rem;
+      font-weight: 500;
+      padding: 0.18rem 0.5rem;
+      background: var(--chip-bg);
+      color: var(--chip-ink);
+      border-radius: 3px;
+      letter-spacing: 0.01em;
+    }
+    .chip.accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .callout {
+      margin-top: 0.7rem;
+      padding: 0.6rem 0.8rem;
+      background: var(--accent-soft);
+      border-radius: 2px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+    .callout .big {
+      font-family: "Fraunces", serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-right: 0.3rem;
+    }
+
+    .card-body {
+      margin-top: 0.65rem;
+      font-size: 0.92rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .card-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ===== Compact entry ===== */
+    .entry {
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--rule-soft);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem 1.2rem;
+      align-items: baseline;
+    }
+    .entry:last-child { border-bottom: none; }
+    .entry-title {
+      font-family: "Fraunces", serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .entry-title .repo {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-left: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .entry-title .repo:hover { text-decoration: underline; }
+    .entry-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .entry-body {
+      grid-column: 1 / -1;
+      font-size: 0.88rem;
+      color: var(--slate);
+      margin-top: 0.1rem;
+      line-height: 1.55;
+    }
+
+    /* ===== Experience entry ===== */
+    .exp {
+      margin-bottom: 1rem;
+    }
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exp-org {
+      font-family: "Fraunces", serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .exp-org .role-after {
+      font-family: "Inter", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-left: 0.5rem;
+    }
+    .exp-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .exp-body {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .exp-body strong { color: var(--ink); font-weight: 600; }
+
+    /* ===== Skills grid ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 6rem 1fr;
+      gap: 0.7rem 1.2rem;
+      align-items: start;
+    }
+    .skills-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.15rem;
+    }
+    .skills-row .chip { font-size: 0.72rem; padding: 0.22rem 0.55rem; }
+
+    /* ===== Footer line ===== */
+    .footer-line {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ===== About ===== */
+    .about {
+      margin-top: 1.4rem;
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+    .about strong { color: var(--ink); font-weight: 600; }
+    .about .accent { color: var(--accent); font-weight: 600; }
+
+    /* ===== Print ===== */
+    @media print {
+      @page { margin: 1cm 1.2cm; size: A4; }
+      body { background: #fff; }
+      .print-bar { display: none !important; }
+      .page {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+      .card { background: transparent !important; border-left: 2px solid #555 !important; }
+      .callout { background: #f3f3f3 !important; color: #000 !important; }
+      .callout .big { color: #000 !important; }
+      .kpi-num, .role, .card-title .em { color: #000 !important; }
+      .chip { background: #f0f0f0 !important; color: #000 !important; }
+      .chip.accent { background: #e0e0e0 !important; color: #000 !important; }
+      .card-meta .repo, .entry-title .repo { color: #333 !important; }
+      .section-head .marker { background: #000 !important; }
+    }
+
+    @media (max-width: 720px) {
+      .page { padding: 2rem 1.5rem; }
+      .header { grid-template-columns: 1fr; align-items: start; }
+      .contact { text-align: left; }
+      .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 0.8rem 0; }
+      .kpi { border-right: none; padding: 0.4rem 0; }
+      .name-cn { font-size: 2.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-bar" onclick="window.print()">PRINT / SAVE PDF</button>
+
+  <div class="page">
+
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+      <div>
+        <h1 class="name-cn">高璿程</h1>
+        <div class="name-en">Kao Xuan-Cheng</div>
+        <div class="role">AI Systems Architect</div>
+        <div class="tagline">LLM Multi-Agent OS · ZK Financial Compliance · Production Engineering</div>
+      </div>
+      <div class="contact">
+        <div><span class="label">EMAIL</span> <a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a></div>
+        <div><span class="label">PHONE</span> 0970 527 427</div>
+        <div><span class="label">GITHUB</span> <a href="https://github.com/xuancheng307">xuancheng307</a></div>
+        <div><span class="label">LOC</span> Taipei, Taiwan</div>
+      </div>
+    </header>
+
+    <!-- ============ KPI STRIP ============ -->
+    <div class="kpi-strip">
+      <div class="kpi">
+        <div class="kpi-num">11<span class="unit">agents</span></div>
+        <div class="kpi-label">Ductor<br>sub-agents</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">11,055</div>
+        <div class="kpi-label">HR SaaS<br>tests passing</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">78<span class="unit">pages</span></div>
+        <div class="kpi-label">ZK Thesis<br>peer-reviewed</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">26.3<span class="unit">×</span></div>
+        <div class="kpi-label">ZK eval<br>vs lookup</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">1B<span class="unit">+</span></div>
+        <div class="kpi-label">DRAM log<br>records ETL</div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <p class="about">
+      政大資料科學研究所碩士（<strong>2026-12 預計畢業</strong>）。研究方向 <span class="accent">零知識證明在金融安全領域的應用</span> — 把超越函數塞進 ZK 電路，建構首個 end-to-end ZK transcendental-function evaluation。過去 12 個月自寫多個生產級 LLM 系統，旗艦作品 <strong>Ductor</strong> 是雙機 multi-agent OS，每天 production dogfooding。工作模式：<strong>架構決策 + AI agent 編排 + 結果驗收</strong>。應用數學 + 密碼學 + 金融證照三者交集。
+    </p>
+
+    <!-- ============ PROJECTS (flagship) ============ -->
+    <section class="block">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Projects</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Ductor <span class="em">— LLM Multi-Agent OS</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2025 — Present <span class="sep">·</span> Production daily</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">Claude SDK</span>
+          <span class="chip">Python</span>
+          <span class="chip">aiogram</span>
+          <span class="chip">discord.py</span>
+          <span class="chip">Telethon</span>
+          <span class="chip">aiohttp</span>
+          <span class="chip">asyncio</span>
+        </div>
+        <div class="callout">
+          <span class="big">11</span>sub-agents · <span class="big">9</span>Telegram bots · <span class="big">3</span>Discord guilds · cross-machine relay
+        </div>
+        <div class="card-body">
+          自寫雙機跨進程 LLM agent OS — supervisor / inter-agent bus / 記憶分層 / 任務 ack 契約。Framework-level patches：Opus stop-with-tool_use force-text contract、Windows cmd-line 8191 limit、Discord restart-marker loop。每天 chairman 對話 + 跨機協作 + cron 自動巡檢全部跑在這個系統上。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Xunrex HR <span class="em">— Production B2B SaaS</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> First paying customer live</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">Flask</span>
+          <span class="chip">SQLAlchemy</span>
+          <span class="chip">MySQL 8</span>
+          <span class="chip">SQLite</span>
+          <span class="chip">Alembic</span>
+          <span class="chip">Docker</span>
+          <span class="chip">PyInstaller</span>
+          <span class="chip">Waitress</span>
+        </div>
+        <div class="callout">
+          <span class="big">11,055</span>unit tests · <span class="big">228</span>routes · <span class="big">12</span>phases · <span class="big">0</span>failures
+        </div>
+        <div class="card-body">
+          台灣中小企業 <strong>勞基法合規</strong> HR 系統 — single-tenant 多 instance 三模式部署（Docker / exe+SQLite / centralized hosting）。週年制特休 / 平行核簽 / 補修管理 / 異常打卡偵測 / 多角色權限。第一個付費客戶已上線。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">LOL Analytics <span class="em">— Research-grounded AI Coach</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> B2B SaaS</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">PostgreSQL</span>
+          <span class="chip">Materialized View</span>
+          <span class="chip">asyncpg</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">Anthropic API</span>
+          <span class="chip">Riot API</span>
+        </div>
+        <div class="callout">
+          <span class="big">4,000+</span>matches 跨服資料 · <span class="big">14</span>-metric registry · 學術文獻支撐
+        </div>
+        <div class="card-body">
+          PCS / Tier 2-3 戰隊 to-coach 工具 — <strong>GROUPING SETS materialized view</strong> 預聚合分析、AiInsightCard 對接 Anthropic API 產出每場 personalized 建議。可信度來自背後 14 個 metric 都有 paper 引用。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Atlas <span class="em">— Discord AI Company HQ</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> Apr — May 2026</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">discord.py</span>
+          <span class="chip">Custom stream editor</span>
+          <span class="chip">Slash commands</span>
+          <span class="chip">Multi-channel context</span>
+        </div>
+        <div class="callout">
+          <span class="big">3</span>guilds · <span class="big">5</span>slash commands · <span class="big">14</span>channels · single-relay multi-persona
+        </div>
+        <div class="card-body">
+          自寫 <strong>DiscordEditStreamer</strong> 解 rate-limit 40062 + buttons.py 解析 message UI markers。Channel-context awareness 4-section memory schema。C-suite multi-persona 共享同一份記憶，外部能力（Gemini / future Imagen / Veo）用 slash command 而非另開 bot。
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="block">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Research</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Master's Thesis <span class="em">— Polynomial Approximation of Transcendental Functions for ZK Financial Compliance</span></div>
+          <div class="card-meta">78-page thesis <span class="sep">·</span> 2024 — Dec 2026</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">Halo2 PSE</span>
+          <span class="chip">KZG / SHPLONK</span>
+          <span class="chip">BN254</span>
+          <span class="chip">Remez minimax</span>
+          <span class="chip">Horner scheme</span>
+          <span class="chip">Black-Scholes</span>
+          <span class="chip">Merton</span>
+        </div>
+        <div class="callout">
+          <span class="big">26.3×</span>faster than lookup · <span class="big">6,944</span>-byte proof · <span class="big">~23</span>ms verification · ULP=1 across 13 functions
+        </div>
+        <div class="card-body">
+          首個 end-to-end <strong>ZK transcendental-function evaluation</strong>（Black-Scholes Delta hedging pp=24 + Merton credit default pp=32）。核心貢獻 <strong>Deferred truncation with BN254 headroom analysis</strong>（§3.3.2）— boundary equation `if (d+1)·pp < 254 then deferred else per-step`，讓 13 functions 在 pp=16 全靠 deferred 達到 ULP=1。Honest framing：ZK 系統用 stock Halo2/KZG，金融模型用 stock Black-Scholes/Merton，<strong>原創全部在數值分析層</strong>。
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">PLONK <a href="https://github.com/xuancheng307/PLONK" class="repo">↗ github.com/xuancheng307/PLONK</a></div>
+        <div class="entry-meta">Personal · Dec 2025</div>
+        <div class="entry-body">4,500-line 繁中 technical report + 2 in-browser demos + Rust / Python backend。從 R1CS 到 lookup argument 全流程教材。</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">ZKMM <a href="https://github.com/xuancheng307/ZKMM" class="repo">↗ github.com/xuancheng307/ZKMM</a></div>
+        <div class="entry-meta">Companion to thesis · 2025</div>
+        <div class="entry-body">34-page research site — formal protocol specs, MathJax, Mermaid, lecture script。Pure HTML / CSS / vanilla JS，無 build step。</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">zkml-knowledge-base <a href="https://github.com/xuancheng307/zkml-knowledge-base" class="repo">↗ github.com/xuancheng307/zkml-knowledge-base</a></div>
+        <div class="entry-meta">2025</div>
+        <div class="entry-body">Curated 50-article ZKML reference 跨 8 sections — Halo2 ecosystem / ezkl / lookup tables / circuit optimization。</div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="block">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Experience</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <div class="exp-org">統一證券 Uni-President Securities<span class="role-after">量化交易部實習生</span></div>
+          <div class="exp-meta">Jul — Aug 2025 · Taipei</div>
+        </div>
+        <div class="exp-body">
+          <strong>統一集團穩定幣專案研究</strong> — 國內外案例 / 監管趨勢 / 商業模式整理，支援「發行集團穩定幣」可行性評估。跨部門討論穩定幣應用架構（payment / 會員點數 / 供應鏈結算），技術 + 風險角度提初步建議。同時實作 <strong>multi-factor quant trading strategy</strong>（factor selection / data processing / 簡易 backtest）。延伸研究 <strong>「stablecoin × privacy tech / ZKP」</strong> — 直接呼應碩論主軸。
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <div class="exp-org">森嶸電子 Sen Rong Electronics<span class="role-after">Data Engineering Intern</span></div>
+          <div class="exp-meta">Feb — Aug 2025 · Taipei</div>
+        </div>
+        <div class="exp-body">
+          DRAM 模組測試 log ETL pipeline — <strong>1 億+ records</strong> 自動化進 production MySQL。跨部門 <strong>Streamlit 內部查詢介面</strong>（測試現場 / 財務 / 研發）。
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <div class="exp-org">政大企管系 NCCU Business Admin<span class="role-after">Teaching Assistant</span></div>
+          <div class="exp-meta">Sep 2020 — Sep 2022 · Taipei</div>
+        </div>
+        <div class="exp-body">
+          自製 <strong>Excel 經營模擬遊戲</strong>（Forms + VBA），30+ 學生同時操作。系統至今仍被多位教師沿用。
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="block">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Education</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head">
+          <div class="exp-org">National Chengchi University 政治大學</div>
+          <div class="exp-meta">Sep 2018 — Dec 2026 (expected)</div>
+        </div>
+        <div class="exp-body">
+          <strong>M.S., Data Science</strong> · 2023 — 2026（預計）· 碩論方向 ZK 金融合規<br>
+          <strong>B.S., Applied Mathematics</strong> · 2018 — 2023 · 跨修商學院（金融 / 會計 / 行銷）
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="block">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Skills</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skills-label">Advanced</div>
+        <div class="skills-row stack">
+          <span class="chip accent">Python</span>
+          <span class="chip accent">Anthropic Claude SDK</span>
+          <span class="chip accent">Multi-agent orchestration</span>
+          <span class="chip accent">MySQL / PostgreSQL</span>
+          <span class="chip accent">Materialized View</span>
+          <span class="chip accent">Telethon</span>
+          <span class="chip accent">Halo2 / KZG / PLONK</span>
+          <span class="chip accent">Framework patching</span>
+        </div>
+
+        <div class="skills-label">Intermediate</div>
+        <div class="skills-row stack">
+          <span class="chip">LangGraph</span>
+          <span class="chip">n8n</span>
+          <span class="chip">Google Apps Script</span>
+          <span class="chip">ezkl (ONNX → Halo2)</span>
+          <span class="chip">Remez minimax</span>
+          <span class="chip">TypeScript / Next.js</span>
+          <span class="chip">Flask / Streamlit</span>
+          <span class="chip">Docker / PyInstaller</span>
+          <span class="chip">pandas</span>
+          <span class="chip">Multi-factor quant</span>
+        </div>
+
+        <div class="skills-label">Learning</div>
+        <div class="skills-row stack">
+          <span class="chip">Rust</span>
+          <span class="chip">C++ / MFC</span>
+          <span class="chip">Plonky2</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LANG + CERT ============ -->
+    <section class="block">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Languages &amp; Certifications</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="exp-body" style="margin-top:0;">
+        <strong>中文</strong> Native · <strong>English</strong> Reading Advanced; Speaking / Writing Intermediate<br>
+        <strong>金融證照</strong>（2021.03）證券商高級業務員 · 證券商業務員 · 期貨商業務員
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <div class="footer-line">
+      <span>kao xuan-cheng · ai systems architect</span>
+      <span>v17 · 2026-05-11</span>
+    </div>
+
+  </div>
+</body>
+</html>

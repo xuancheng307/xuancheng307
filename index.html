@@ -150,6 +150,23 @@
     .resume-body section.mt-8 { margin-top: 1.75rem !important; }
     .resume-body section.mt-8 section.mb-4\.5 { margin-bottom: 1.1rem !important; }
 
+    /* === Repo link in h3 === */
+    .repo-link {
+      display: inline-block;
+      margin-left: 0.5rem;
+      font-family: FiraGO, "Noto Sans TC", system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #68778d;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      vertical-align: middle;
+      transition: color 0.15s;
+    }
+    .repo-link::before { content: "↗ "; opacity: 0.6; }
+    .repo-link:hover { color: #1a365d; }
+    @media print { .repo-link { color: #333 !important; } }
+
     /* === Print === */
     .print-bar {
       position: fixed; top: 16px; right: 16px;
@@ -359,7 +376,7 @@
                   Master&apos;s Thesis &mdash; ZK Financial Compliance
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  78-page thesis &middot; 2024 &ndash; Dec 2025
+                  78-page thesis &middot; 2024 &ndash; Dec 2026
                 </p>
               </header>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
@@ -372,7 +389,7 @@
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">PLONK</h3>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">PLONK <a href="https://github.com/xuancheng307/PLONK" class="repo-link">github.com/xuancheng307/PLONK</a></h3>
                 <p class="leading-normal text-md text-gray-650">Personal &middot; Dec 2025</p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
@@ -382,7 +399,7 @@
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">ZKMM</h3>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">ZKMM <a href="https://github.com/xuancheng307/ZKMM" class="repo-link">github.com/xuancheng307/ZKMM</a></h3>
                 <p class="leading-normal text-md text-gray-650">Companion to thesis &middot; 2025</p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
@@ -392,7 +409,7 @@
 
             <section class="mb-4.5 break-inside-avoid">
               <header>
-                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">zkml-knowledge-base</h3>
+                <h3 class="text-lg font-semibold text-gray-700 leading-snugish">zkml-knowledge-base <a href="https://github.com/xuancheng307/zkml-knowledge-base" class="repo-link">github.com/xuancheng307/zkml-knowledge-base</a></h3>
                 <p class="leading-normal text-md text-gray-650">2025</p>
               </header>
               <p class="mt-2.1 text-md text-gray-700 leading-normal">
@@ -415,11 +432,11 @@
                   National Chengchi University &middot; 政治大學
                 </h3>
                 <p class="leading-normal text-md text-gray-650">
-                  Sep 2018 &ndash; Dec 2025
+                  Sep 2018 &ndash; Dec 2026
                 </p>
               </header>
               <ul class="list-inside leading-relaxed text-md text-gray-700 mt-2.1">
-                <li><span class="font-medium text-gray-600 print:text-black">M.S., Data Science</span> &middot; 2023 &ndash; 2025（預計）</li>
+                <li><span class="font-medium text-gray-600 print:text-black">M.S., Data Science</span> &middot; 2023 &ndash; 2026（預計）</li>
                 <li><span class="font-medium text-gray-600 print:text-black">B.S., Applied Mathematics</span> &middot; 2018 &ndash; 2023 &middot; 跨修商學院</li>
               </ul>
             </section>
