@@ -4,7 +4,7 @@
 
 📄 **Live Resume**: [xuancheng307.github.io](https://xuancheng307.github.io/)
 
-政大資料科學研究所碩士（2025-12 預計畢業）。研究方向：**零知識證明在金融安全領域的應用** — 把 13 個超越函數（exp / sigmoid / log / sqrt 等）塞進 ZK 電路裡。核心技術貢獻：**deferred truncation with BN254 headroom analysis**。
+政大資料科學研究所碩士（2026-12 預計畢業）。研究方向：**零知識證明在金融安全領域的應用** — 把 13 個超越函數（exp / sigmoid / log / sqrt 等）塞進 ZK 電路裡。核心技術貢獻：**deferred truncation with BN254 headroom analysis**。
 
 過去 12 個月主導設計並運行多個 LLM 系統，旗艦作品 **Ductor** 是雙機跨進程的 LLM Agent 作業系統，每天作為個人 AI 助理在 production dogfooding。
 

@@ -4,7 +4,8 @@ institution: National Chengchi University 政治大學
 degree: M.S.
 department: 資料科學研究所 (Data Science)
 start: 2023-09
-end: 2025-12   # TBD — original plan; actual defense date pending confirmation
+end: 2026-12   # expected — confirmed by chairman 2026-05-11
+expected_graduation: true
 status: ongoing
 priority: high
 thesis: research/thesis-zk-financial-compliance.md
@@ -25,6 +26,6 @@ thesis: research/thesis-zk-financial-compliance.md
 
 # Notes
 
-- 預計畢業日期 2025-12 (原計畫) — 已 2026-05 還沒畢業，實際 status 待 chairman 確認
-- 同年考取台大網媒所正取 + 交大人工智慧所，選政大因密碼學方向 + 數學延續 + 頂尖指導教授
-- 履歷上目前寫「2023-09 ~ 2025-12」需要 chairman 給最新狀態
+- 預計畢業：2026-12（chairman 確認 2026-05-11）
+- 原計畫 2025-12，延一年
+- 同年考取台大網媒所正取 + 交大人工智慧所，選政大因密碼學方向 + 數學延續 + 頂尖指導教授（履歷 v3+ 拿掉這條 boast，但 internal 留紀錄）

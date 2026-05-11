@@ -1,8 +1,8 @@
 # Master's Thesis — Polynomial Approximation of Transcendental Functions for ZK Financial Compliance
 
-> 78-page thesis at NCCU (政治大學資料科學研究所), expected defense 2025-12. Stack: Halo2 PSE v0.3.0, KZG/SHPLONK, BN254. **Core technical contribution: deferred truncation with BN254 headroom analysis** — letting 13 transcendental functions (exp, sigmoid, log, sqrt, etc.) be evaluated inside ZK circuits at production-grade precision.
+> 78-page thesis at NCCU (政治大學資料科學研究所), expected defense 2026-12. Stack: Halo2 PSE v0.3.0, KZG/SHPLONK, BN254. **Core technical contribution: deferred truncation with BN254 headroom analysis** — letting 13 transcendental functions (exp, sigmoid, log, sqrt, etc.) be evaluated inside ZK circuits at production-grade precision.
 
-**Status**: Active research, defense expected 2025-12
+**Status**: Active research, defense expected 2026-12
 
 ---
 

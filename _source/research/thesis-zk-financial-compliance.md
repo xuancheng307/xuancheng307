@@ -4,7 +4,8 @@ title: Master's Thesis — Polynomial Approximation of Transcendental Functions 
 slug: thesis-zk-financial-compliance
 artifact_type: thesis
 start: 2024
-end: 2025-12   # TBD - chairman to confirm actual defense date
+end: 2026-12   # expected defense — confirmed by chairman 2026-05-11
+expected_defense: true
 status: ongoing
 priority: highest
 flagship: true
