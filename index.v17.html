@@ -475,14 +475,14 @@
       </div>
       <div class="hl">
         <div class="hl-tag">Output</div>
-        <div class="hl-title">4 systems / 12 months</div>
+        <div class="hl-title">7 work / 12 months</div>
         <div class="hl-sub">Spec blueprint · write prompts · delegate to AI agents · QA + ship</div>
       </div>
     </div>
 
     <!-- ============ ABOUT ============ -->
     <p class="about">
-      AI 系統架構師。<strong>核心能力：發現需求、用 AI 解決需求 — 即使解法尚未被社群驗證或普及，也親自嘗試開發 AI 的潛能</strong>。工作模式：把 AI agents 當員工 — 自己 spec 出藍圖、寫 prompt、編排執行、驗收繳交成果。過去 12 個月以這個方式產出 4 套自主開發系統：(1) 用 <strong>ductor (open-source) + Anthropic Claude SDK + Telethon</strong> 把 Claude 帶到 Telegram，作為個人跨機工作流主幹 dogfood daily；(2) 用 <strong>Flask + SQLAlchemy + 三模式部署</strong>，於森嶸電子實習期間 ship 出勞基法合規 HR 系統，<strong>現為該公司日常營運使用</strong>；(3) 用 <strong>Next.js + PostgreSQL materialized view + Anthropic API</strong> 打造學術文獻支撐的 esports AI coaching tool（in development）；(4) 用 <strong>discord.py + 自寫 streaming patch</strong> 把 AI 接入 Discord，**降低 AI 使用門檻讓不懂工程的朋友能一起使用**（含語音頻道管理能力）。應用數學系出身、<span class="accent">密碼學（ZK）方向</span> 政大碩論進行中。
+      AI 系統架構師。<strong>核心能力：發現需求、用 AI 解決需求 — 即使解法尚未被社群驗證或普及，也親自嘗試開發 AI 的潛能</strong>。工作模式：把 AI agents 當員工 — 自己 spec 出藍圖、寫 prompt、編排執行、驗收繳交成果。過去 12 個月以這個方式產出 7 個自主開發 work — 主要包含：(1) <strong>Ductor</strong>，把 Claude 帶到 Telegram 並讓 AI 對話作為兩台 PC 之間的橋接（個人 dogfood daily）；(2) <strong>Xunrex HR</strong>，於森嶸電子實習期間建構並上線勞基法合規 HR 系統（現為該公司日常營運使用）；(3) <strong>Teaching Website</strong>，多角色教學平台即將與徐景輝博士啟用（為跨機構教學的教授解需求）；(4) <strong>Atlas</strong>，把 AI 接入 Discord 降低使用門檻讓不懂工程的朋友能一起用 AI；以及 <strong>OneShotBuild</strong>（GPT + Claude 雙模型編排的企業簡報生成器，in dev）、<strong>LOL Analytics</strong>（學術文獻支撐的 esports AI 教練，in dev）、<strong>陳世憲書法館同行計畫</strong>（為書法老師客製的 AI-powered 行銷策略提案）等 3 個 case。應用數學系出身、<span class="accent">密碼學（ZK）方向</span> 政大碩論進行中。
     </p>
 
     <!-- ============ PROJECTS (flagship) ============ -->
@@ -535,6 +535,26 @@
 
       <div class="card">
         <div class="card-head">
+          <div class="card-title">Teaching Website <span class="em">— Multi-Role Course Platform for a Cross-Institution Professor</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> Launching with 徐景輝博士 (NCCU visiting professor)</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">Next.js 16 / React 19</span>
+          <span class="chip">Supabase (Auth + Realtime)</span>
+          <span class="chip">TipTap rich-text</span>
+          <span class="chip">QR code</span>
+          <span class="chip">dnd-kit</span>
+        </div>
+        <div class="callout">
+          <strong>為跨機構教學的教授設計的多角色課程平台</strong> — 同一份教材，不同學校 / 班級可分別配置存取權限與可見性。
+        </div>
+        <div class="card-body">
+          教授在<strong>大學、企業內訓、專業機構</strong>多場域同時開課，但市面 LMS 都綁定單一機構，內容無法跨校共用。功能：3 層存取控制（機構 → 班級 → 學生）、即時投票（Supabase Realtime + QR 註冊）、匿名提問、作業批改、章節簡報模式。展現<strong>為非工程用戶（教授 + 學生）設計多角色權限產品</strong>的能力 — 從需求訪談、架構、實作到部署一人完成，即將與徐景輝博士正式啟用。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
           <div class="card-title">LOL Analytics <span class="em">— Research-grounded AI Coach</span></div>
           <div class="card-meta">Individual <span class="sep">·</span> 2025 — 2026 <span class="sep">·</span> In development, targeting esports teams</div>
         </div>
@@ -555,6 +575,26 @@
 
       <div class="card">
         <div class="card-head">
+          <div class="card-title">OneShotBuild <span class="em">— LaTeX-based AI Presentation Generator</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2025 — Present <span class="sep">·</span> In development (enterprise internal use)</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">GPT-4 + Anthropic Claude (dual-LLM)</span>
+          <span class="chip">XeLaTeX / Beamer</span>
+          <span class="chip">TikZ</span>
+          <span class="chip">Streamlit</span>
+          <span class="chip">Python</span>
+        </div>
+        <div class="callout">
+          <strong>GPT (規劃) + Claude (LaTeX 生成) 雙模型編排</strong> — 從自然語言一鍵生出企業級 PDF 簡報，自動還原企業 VI（從 PPT 模板提取設計元素）。
+        </div>
+        <div class="card-body">
+          企業內部頻繁需要規範化的 PDF 簡報，但 PowerPoint 維護成本高、難自動化、樣式飄移。功能：<strong>multi-LLM 編排分工</strong> — GPT 寫內容大綱、Claude 翻譯成 LaTeX 程式碼、XeLaTeX 輸出符合企業 VI 的 PDF。展現<strong>設計 multi-LLM 系統（不只 single-prompt）</strong>的能力，以及走社群少嘗試的 LaTeX-as-presentation-engine 路徑。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
           <div class="card-title">Atlas <span class="em">— Discord AI Operator (chat + voice channels)</span></div>
           <div class="card-meta">Individual <span class="sep">·</span> Apr 2026 — Present <span class="sep">·</span> Live for non-technical friends on Discord (Administrator scope)</div>
         </div>
@@ -569,6 +609,26 @@
         </div>
         <div class="card-body">
           把 AI 從 chatGPT-style 直接介面搬到大眾熟悉的 Discord — <strong>讓不懂 prompt / 不懂 AI / 不懂工程的朋友也能在熟悉的介面上自然使用 AI</strong>。AI 在 Discord 上同時具備 administrator 權限，可程式化管理頻道（含<strong>語音頻道</strong>）、roles 與訊息流。展現<strong>把 AI 接入第三方平台、處理權限模型、為非技術用戶設計 AI 入口</strong>的能力。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">陳世憲書法館 同行計畫 <span class="em">— AI-Powered Marketing Strategy for a Cultural Heritage Business</span></div>
+          <div class="card-meta">Individual <span class="sep">·</span> 2026 <span class="sep">·</span> Strategy proposal for 陳世憲老師 (台灣意象書法館)</div>
+        </div>
+        <div class="stack">
+          <span class="chip accent">Brand strategy</span>
+          <span class="chip">AI content production</span>
+          <span class="chip">VI design</span>
+          <span class="chip">Multi-language content</span>
+          <span class="chip">CRM design</span>
+        </div>
+        <div class="callout">
+          <strong>為陳世憲老師（台灣意象書法館）量身打造的行銷優化提案</strong> — 把書法文化資產轉成可規模化的訂閱商品，AI 內容生產做為核心引擎之一。
+        </div>
+        <div class="card-body">
+          傳統文化產業（書法 / 工藝）面臨「客單價低、依賴單次體驗、難規模化」三大瓶頸；AI 提供內容生產 + 多語言國際化 + CRM 數據化的新工具。8 大優化方向 + 3 階段路線（地基 → 差異化 → 規模化），核心商品「月字」每月主題書法字創造回訪。展現<strong>為非工程用戶（書法家）做產業診斷 + AI 應用設計 + 策略提案</strong>的跨域 product / 行銷 thinking。
         </div>
       </div>
     </section>
