@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>高璿程 Kao Xuan-Cheng — AI Systems Architect</title>
+<meta name="description" content="高璿程 / Kao Xuan-Cheng — AI Systems Architect. CV composed in kami: warm parchment, ink-blue accent, serif at one weight." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* kami CV — same tokens as design-systems/kami/DESIGN.md.
+   Language override: Traditional Chinese leads, Source Serif 4 falls in for Latin. */
+
+:root {
+  /* Surface */
+  --parchment: #f5f4ed;
+  --ivory: #faf9f5;
+  --warm-sand: #e8e6dc;
+
+  /* Brand (single chromatic accent) */
+  --brand: #1B365D;
+  --brand-light: #2D5A8A;
+
+  /* Text — four levels, no fifth */
+  --near-black: #141413;
+  --dark-warm: #3d3d3a;
+  --olive: #504e49;
+  --stone: #6b6a64;
+
+  /* Border */
+  --border: #e8e6dc;
+  --border-soft: #e5e3d8;
+
+  /* Tag tints — solid hex, NEVER rgba */
+  --tag-08: #EEF2F7;
+  --tag-14: #E4ECF5;
+  --tag-22: #D0DCE9;
+  --tag-30: #D6E1EE;
+
+  /* Type stacks — Noto Serif TC leads, Source Serif 4 handles Latin */
+  --serif: "Noto Serif TC", "Source Serif 4", "Source Han Serif TC", "Songti TC", Charter, Georgia, serif;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, Monaco, monospace;
+
+  /* Motion */
+  --whisper: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--parchment); color: var(--near-black); }
+body {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0.35px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga", "calt";
+}
+strong { font-weight: 500; }
+img { max-width: 100%; display: block; }
+a { color: var(--brand); text-decoration: none; border-bottom: 1px solid currentColor; }
+a:hover { color: var(--brand-light); }
+
+.shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 88px 64px 120px;
+  position: relative;
+}
+
+/* ---------- print button (chrome only) ---------- */
+.print-bar {
+  position: fixed; top: 18px; right: 18px; z-index: 100;
+  background: var(--near-black); color: var(--parchment);
+  padding: 9px 18px; border-radius: 999px;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.4px; cursor: pointer; user-select: none; border: none;
+  box-shadow: var(--whisper);
+  transition: background 0.2s;
+}
+.print-bar:hover { background: var(--brand); }
+
+/* ---------- eyebrow strip ---------- */
+.eyebrow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+  margin-bottom: 88px;
+}
+.eyebrow-row .lang { display: inline-flex; gap: 16px; }
+.eyebrow-row .lang a { color: var(--stone); border-bottom: none; }
+.eyebrow-row .lang a.active { color: var(--brand); }
+.eyebrow-row .meta {
+  display: inline-flex;
+  gap: 22px;
+  font-variant-numeric: tabular-nums;
+}
+.eyebrow-row .meta b { color: var(--near-black); font-weight: 500; }
+
+/* ---------- hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.45fr 0.55fr;
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 96px;
+}
+.hero-copy h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(60px, 7.4vw, 106px);
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  color: var(--near-black);
+  margin-bottom: 14px;
+}
+.hero-copy h1 .ink { color: var(--brand); }
+.hero-copy .name-en {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--olive);
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.hero-copy .tagline {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--olive);
+  max-width: 42ch;
+}
+.hero-tokens {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: var(--stone);
+  text-transform: uppercase;
+}
+.hero-tokens .row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-variant-numeric: tabular-nums;
+}
+.hero-tokens .row b {
+  color: var(--brand);
+  font-weight: 500;
+  font-family: var(--serif);
+  font-size: 14px;
+}
+.hero-tokens .row span { font-family: var(--sans); }
+
+/* ---------- manifesto ---------- */
+.manifesto {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 44px 0 40px;
+  margin-bottom: 88px;
+  display: grid;
+  grid-template-columns: 1fr 1.85fr;
+  gap: 56px;
+  align-items: start;
+}
+.manifesto .label {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.manifesto .body {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.65;
+  letter-spacing: 0.05em;
+  color: var(--olive);
+  border-left: 2px solid var(--brand);
+  padding: 4px 0 4px 24px;
+}
+.manifesto .body strong { color: var(--near-black); font-weight: 500; }
+.manifesto .body .ink { color: var(--brand); font-weight: 500; }
+.manifesto .signature {
+  margin-top: 22px;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--dark-warm);
+  display: inline-flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.manifesto .signature span { color: var(--stone); }
+.manifesto .signature a { color: var(--dark-warm); border-bottom: none; }
+.manifesto .signature a:hover { color: var(--brand); }
+
+/* ---------- metrics row ---------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 88px;
+}
+.metric {
+  padding: 28px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-right: 1px solid var(--border-soft);
+}
+.metric:last-child { border-right: 0; }
+.metric .value {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+.metric .label {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--near-black);
+  margin-top: 8px;
+}
+.metric .sub {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--olive);
+  line-height: 1.5;
+  max-width: 30ch;
+}
+
+/* ---------- chapters ---------- */
+.chapters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 72px;
+  margin-bottom: 96px;
+}
+.chapter {
+  display: grid;
+  grid-template-columns: 1fr 2.6fr;
+  gap: 56px;
+  align-items: start;
+}
+.chapter .head { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 32px; }
+.chapter .num {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--brand);
+  letter-spacing: 0.4px;
+  font-variant-numeric: tabular-nums;
+}
+.chapter .title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--near-black);
+  letter-spacing: 0.4px;
+}
+.chapter .lede {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--olive);
+  line-height: 1.5;
+  max-width: 30ch;
+}
+.chapter .body {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.chapter .body p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--dark-warm);
+  line-height: 1.65;
+  max-width: 64ch;
+}
+.chapter .body p strong { color: var(--near-black); font-weight: 500; }
+.chapter .body p .ink { color: var(--brand); font-weight: 500; }
+.chapter .body code {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--brand);
+  background: var(--tag-08);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.chapter ul.dash {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chapter ul.dash li {
+  position: relative;
+  padding-left: 16px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--dark-warm);
+  line-height: 1.65;
+}
+.chapter ul.dash li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+}
+.chapter ul.dash li strong { color: var(--near-black); font-weight: 500; }
+
+/* ---------- entry block (per-project / per-experience) ---------- */
+.entry {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 18px;
+}
+.entry:first-of-type { border-top: 0; padding-top: 0; }
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.entry-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--near-black);
+  letter-spacing: 0.2px;
+}
+.entry-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.3px;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.entry-meta .ink { color: var(--brand); }
+.entry-body {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--dark-warm);
+  line-height: 1.65;
+  max-width: 66ch;
+}
+.entry-body strong { color: var(--near-black); font-weight: 500; }
+.entry-body .ink { color: var(--brand); font-weight: 500; }
+.entry-stack {
+  margin-top: 8px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------- tag system ---------- */
+.tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 2px;
+  color: var(--brand);
+  background: var(--tag-08);
+  letter-spacing: 0.3px;
+}
+.tag.standard { background: var(--tag-14); padding: 2px 8px; border-radius: 4px; }
+.tag.brush {
+  background: linear-gradient(to right, #D6E1EE, #E4ECF5 70%, #EEF2F7);
+}
+.tag-row { display: inline-flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+/* ---------- skills grid (chapter 04 only) ---------- */
+.skills-domain {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px 20px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-soft);
+}
+.skills-domain:first-of-type { border-top: 0; }
+.skills-domain .d-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.skills-domain .d-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------- footer ---------- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 56px;
+  display: grid;
+  grid-template-columns: 1.4fr 0.85fr 0.85fr 0.9fr;
+  gap: 48px;
+  align-items: start;
+}
+.footer .kicker {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: -0.6px;
+  color: var(--near-black);
+  margin-bottom: 14px;
+}
+.footer .kicker .ink { color: var(--brand); }
+.footer .colophon {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--olive);
+  max-width: 34ch;
+  line-height: 1.55;
+}
+.footer .col h4 {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 16px;
+}
+.footer .col ul { list-style: none; padding: 0; margin: 0; }
+.footer .col li {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--dark-warm);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.footer .col li a { color: var(--dark-warm); border-bottom: none; }
+.footer .col li a:hover { color: var(--brand); }
+.footer .col li small {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--stone);
+  letter-spacing: 0.4px;
+  margin-top: 1px;
+}
+
+.legal {
+  margin-top: 56px;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--stone);
+  letter-spacing: 0.4px;
+  font-variant-numeric: tabular-nums;
+}
+.legal b { color: var(--near-black); font-weight: 500; }
+
+/* ---------- print ---------- */
+@media print {
+  @page { margin: 1.5cm 1.6cm; size: A4; }
+  body { background: #fff !important; letter-spacing: 0 !important; }
+  .print-bar { display: none !important; }
+  .shell { padding: 0 !important; max-width: 100% !important; }
+  .chapter .head { position: static !important; }
+  .hero { margin-bottom: 36px; }
+  .manifesto { margin-bottom: 36px; padding: 24px 0; }
+  .metrics { margin-bottom: 36px; }
+  .chapters { gap: 36px; margin-bottom: 36px; }
+  .footer { padding-top: 24px; }
+  .legal { margin-top: 24px; padding-top: 12px; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .shell { padding: 64px 48px 96px; }
+  .hero { grid-template-columns: 1fr; gap: 36px; align-items: start; }
+  .hero-tokens { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .manifesto { grid-template-columns: 1fr; gap: 22px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .metric:nth-child(2n) { border-right: 0; }
+  .metric:nth-child(-n+2) { border-bottom: 1px solid var(--border-soft); }
+  .chapter { grid-template-columns: 1fr; gap: 22px; }
+  .chapter .head { position: static; }
+  .footer { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer .kicker { font-size: 44px; }
+}
+@media (max-width: 640px) {
+  .shell { padding: 48px 24px 72px; }
+  .hero-copy h1 { font-size: 46px; line-height: 1.08; letter-spacing: -0.6px; }
+  .hero-copy .name-en { font-size: 18px; }
+  .hero-copy .tagline { font-size: 17px; }
+  .metrics { grid-template-columns: 1fr; }
+  .metric { border-right: 0; border-bottom: 1px solid var(--border-soft); }
+  .metric:last-child { border-bottom: 0; }
+  .footer { grid-template-columns: 1fr; gap: 28px; }
+  .footer .kicker { font-size: 36px; }
+  .chapter .body p, .entry-body { font-size: 13.5px; }
+  .legal { flex-direction: column; gap: 10px; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<button class="print-bar" onclick="window.print()">PRINT / SAVE PDF</button>
+
+<main class="shell">
+
+  <!-- ============ EYEBROW ============ -->
+  <div class="eyebrow-row" data-od-id="eyebrow-row">
+    <div class="lang">
+      <a href="#" class="active">中文</a>
+      <a href="#">EN</a>
+    </div>
+    <div class="meta">
+      <span><b>CV</b> · Curriculum Vitæ</span>
+      <span><b>v18</b></span>
+      <span>MMXXVI</span>
+      <span>Taipei · UTC+8</span>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-od-id="hero">
+    <div class="hero-copy">
+      <h1>高<span class="ink">璿程</span></h1>
+      <div class="name-en">Kao Xuan-Cheng · AI Systems Architect</div>
+      <p class="tagline">
+        Identifies needs, explores AI capabilities, ships novel solutions — 應用數學 × 密碼學 × 金融證照三者交集。
+      </p>
+    </div>
+    <div class="hero-tokens">
+      <span class="row"><b>7</b> <span>Work · 12 months</span></span>
+      <span class="row"><b>1</b> <span>Master's · ZK Cryptography</span></span>
+      <span class="row"><b>3</b> <span>Securities licenses</span></span>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto" data-od-id="manifesto">
+    <span class="label">Mode · 工作模式</span>
+    <div>
+      <p class="body">
+        核心能力：<strong>發現需求、用 AI 解決需求</strong> — 即使解法尚未被社群驗證或普及，也親自嘗試開發 AI 的潛能。工作模式：<span class="ink">把 AI agents 當員工經營</span> — 自己 spec 出藍圖、寫 prompt、編排執行、驗收繳交成果。過去 12 個月以這個方式產出 7 套自主開發 work，從個人工作流主幹到客戶日常營運使用。
+      </p>
+      <div class="signature">
+        — Kao Xuan-Cheng
+        <span><a href="mailto:b128506789@gmail.com">b128506789@gmail.com</a> · 0970 527 427 · <a href="https://github.com/xuancheng307">github.com/xuancheng307</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METRICS ============ -->
+  <section class="metrics" data-od-id="metrics">
+    <div class="metric">
+      <div class="value">7</div>
+      <div class="label">Self-built work</div>
+      <div class="sub">過去 12 個月產出，從個人工具到客戶上線。</div>
+    </div>
+    <div class="metric">
+      <div class="value">2</div>
+      <div class="label">Real-user deployments</div>
+      <div class="sub">Xunrex HR 在森嶸電子日常使用、陳世憲書法館策略在執行討論中。</div>
+    </div>
+    <div class="metric">
+      <div class="value">1</div>
+      <div class="label">Master&apos;s thesis</div>
+      <div class="sub">Zero-Knowledge Cryptography · 政大資料科學所 · 2026-12 預計。</div>
+    </div>
+    <div class="metric">
+      <div class="value">3</div>
+      <div class="label">Securities licenses</div>
+      <div class="sub">證券商高級業務員 · 證券商業務員 · 期貨商業務員（2021）。</div>
+    </div>
+  </section>
+
+  <!-- ============ CHAPTERS ============ -->
+  <section class="chapters" data-od-id="chapters">
+
+    <!-- ============ Chapter 01: Selected Work ============ -->
+    <article class="chapter" data-od-id="chapter-01">
+      <div class="head">
+        <p class="num">01</p>
+        <h2 class="title">Selected Work</h2>
+        <p class="lede">從個人工具、實習交付，到客戶上線 — 7 套全部自主開發。</p>
+      </div>
+      <div class="body">
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Ductor — Claude on Telegram + Cross-Machine Bridge</div>
+            <div class="entry-meta"><span class="ink">2025 — Present</span> · Daily-driver</div>
+          </div>
+          <p class="entry-body">
+            把 Claude 帶到 Telegram，讓 AI 以自然對話作為兩台 PC 之間的溝通橋接層。基於開源 ductor 框架擴充並部署，11 個 sub-agents 跨機同步運作。展現對開源 LLM 框架的<strong>深度部署能力</strong>與多服務串接整合 — 個人每日工作流主幹。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">Anthropic Claude SDK</span>
+            <span class="tag">Telethon</span>
+            <span class="tag">aiogram</span>
+            <span class="tag">discord.py</span>
+            <span class="tag">asyncio</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Xunrex HR — HR Management System</div>
+            <div class="entry-meta"><span class="ink">2025 — 2026</span> · In customer production</div>
+          </div>
+          <p class="entry-body">
+            森嶸電子實習期間 ship 出的勞基法合規 HR 管理系統，<strong>2025 年起為森嶸電子（約 30 名員工）日常營運使用</strong>。每間公司一份獨立資料、可審計、不被 SaaS 鎖定。展現獨自擔起一套內部商業系統的能力 — 從需求訪談、架構設計、實作到客戶實際使用全程 own。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">Flask</span>
+            <span class="tag">SQLAlchemy</span>
+            <span class="tag">MySQL 8 / SQLite</span>
+            <span class="tag">Docker</span>
+            <span class="tag">PyInstaller</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Teaching Website — Multi-Role Course Platform</div>
+            <div class="entry-meta"><span class="ink">2025 — 2026</span> · Launching with 徐景輝博士</div>
+          </div>
+          <p class="entry-body">
+            為跨機構教學的教授（NCCU 兼任 / 企業內訓 / 專業機構授課）設計的多角色課程平台 — 同一份教材，不同機構可分別配置存取權限與可見性。3 層存取控制、即時投票（Supabase Realtime + QR 註冊）、匿名提問、作業批改。展現<strong>為非工程用戶設計多角色權限產品</strong>的能力。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">Next.js 16 / React 19</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">TipTap</span>
+            <span class="tag">dnd-kit</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">LOL Analytics — Research-grounded AI Coach</div>
+            <div class="entry-meta"><span class="ink">2025 — 2026</span> · In development</div>
+          </div>
+          <p class="entry-body">
+            為 esports 戰隊（PCS、東南亞）設計的 AI coaching 工具。差異化在於<strong>每個分析建議都背學術文獻支撐</strong> — 可解釋、可追溯，不是市場上常見的 black-box 直覺式輸出。展現把學術研究轉成可使用產品的能力，並在資料層做效能設計支援即時查詢。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">Next.js / TypeScript</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Materialized View</span>
+            <span class="tag">Anthropic API</span>
+            <span class="tag">Riot API</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">OneShotBuild — LaTeX-based AI Presentation Generator</div>
+            <div class="entry-meta"><span class="ink">2025 — Present</span> · In development</div>
+          </div>
+          <p class="entry-body">
+            GPT (規劃) + Claude (LaTeX 生成) <strong>雙模型編排</strong>，從自然語言一鍵生出企業級 PDF 簡報、自動還原企業 VI（從 PowerPoint 模板提取設計元素）。展現設計 multi-LLM 系統的能力，以及走社群少嘗試的 LaTeX-as-presentation-engine 路徑。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">GPT-4 + Anthropic Claude</span>
+            <span class="tag">XeLaTeX / Beamer</span>
+            <span class="tag">TikZ</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Atlas — Discord AI Operator (chat + voice channels)</div>
+            <div class="entry-meta"><span class="ink">Apr 2026 — Present</span> · Live for friends on Discord</div>
+          </div>
+          <p class="entry-body">
+            把 AI 接入 Discord — <strong>降低 AI 使用門檻，讓不懂 prompt / 不懂工程的朋友也能在熟悉介面上一起使用 AI</strong>。同時具備 administrator scope 可程式化管理頻道（含語音頻道）。展現把 AI 接入第三方平台、處理權限模型、為非技術用戶設計 AI 入口的能力。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">discord.py</span>
+            <span class="tag">Custom stream editor</span>
+            <span class="tag">Slash commands</span>
+            <span class="tag">Anthropic SDK</span>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">陳世憲書法館 同行計畫 — Marketing Strategy for Cultural Heritage</div>
+            <div class="entry-meta"><span class="ink">2026</span> · Engaged with 陳世憲老師</div>
+          </div>
+          <p class="entry-body">
+            為陳世憲老師（台灣意象書法館）量身打造的行銷優化策略 — <strong>已獲館長同意，正在進入下一階段執行討論</strong>。把書法文化資產轉成可規模化的訂閱商品，AI 內容生產做為核心引擎之一。展現為非工程用戶（書法家）做產業診斷 + AI 應用設計的跨域 product thinking。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">Brand strategy</span>
+            <span class="tag">AI content production</span>
+            <span class="tag">VI design</span>
+            <span class="tag">Multi-language content</span>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ============ Chapter 02: Research ============ -->
+    <article class="chapter" data-od-id="chapter-02">
+      <div class="head">
+        <p class="num">02</p>
+        <h2 class="title">Research</h2>
+        <p class="lede">密碼學深度 — Zero-Knowledge Proof 系統與應用。</p>
+      </div>
+      <div class="body">
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Master&apos;s Thesis — Zero-Knowledge Cryptography Research</div>
+            <div class="entry-meta"><span class="ink">2024 — Dec 2026</span> · NCCU Master&apos;s</div>
+          </div>
+          <p class="entry-body">
+            NCCU 碩論方向：zero-knowledge proof 系統的<strong>數值分析層</strong> — 把超越函數放進 ZK 電路的 end-to-end 構造，原創貢獻 deferred truncation with BN254 headroom analysis。展現密碼學深度與<strong>跨領域整合解 open problem</strong> 的研究能力。
+          </p>
+          <div class="entry-stack">
+            <span class="tag">Halo2 PSE</span>
+            <span class="tag">KZG / SHPLONK</span>
+            <span class="tag">BN254</span>
+            <span class="tag">Remez minimax</span>
+            <span class="tag">Black-Scholes</span>
+            <span class="tag">Merton</span>
+          </div>
+        </div>
+
+        <ul class="dash">
+          <li><strong>PLONK</strong> — 4,500-line 繁中 technical report + 2 in-browser demos + Rust / Python backend。<a href="https://github.com/xuancheng307/PLONK">github.com/xuancheng307/PLONK</a></li>
+          <li><strong>ZKMM</strong> — 34-page research site（formal protocol specs / MathJax / Mermaid），論文配套教材，pure HTML 無 build step。<a href="https://github.com/xuancheng307/ZKMM">github.com/xuancheng307/ZKMM</a></li>
+          <li><strong>zkml-knowledge-base</strong> — Curated 50-article ZKML reference 跨 8 sections（Halo2 ecosystem / ezkl / lookup tables / circuit optimization）。<a href="https://github.com/xuancheng307/zkml-knowledge-base">github.com/xuancheng307/zkml-knowledge-base</a></li>
+        </ul>
+
+      </div>
+    </article>
+
+    <!-- ============ Chapter 03: Experience ============ -->
+    <article class="chapter" data-od-id="chapter-03">
+      <div class="head">
+        <p class="num">03</p>
+        <h2 class="title">Experience</h2>
+        <p class="lede">實習與教學助理 — 真實場域的工程交付。</p>
+      </div>
+      <div class="body">
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">統一證券 Uni-President Securities — 量化交易部實習生</div>
+            <div class="entry-meta"><span class="ink">Jul — Aug 2025</span> · Taipei</div>
+          </div>
+          <p class="entry-body">
+            支援統一集團 <strong>「發行集團穩定幣」可行性評估</strong> — 整理國內外案例、監管趨勢、商業模式；跨部門討論穩定幣應用架構（payment / 會員點數 / 供應鏈結算），從技術可行性與風險面提初步建議。同時實作 multi-factor quant trading strategy（factor selection、data processing、簡易 backtest）。延伸研究 <span class="ink">stablecoin × ZKP privacy</span>，與碩論方向直接互通。
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">森嶸電子 Sen Rong Electronics — Data Engineering Intern</div>
+            <div class="entry-meta"><span class="ink">Feb — Aug 2025</span> · Taipei</div>
+          </div>
+          <p class="entry-body">
+            三條主要交付：(1) DRAM 模組測試 log <strong>ETL pipeline at scale</strong> — 自動化清洗 1 億+ 筆 production 級資料進 MySQL，取代既有人工流程；(2) <strong>Xunrex HR 管理系統</strong>（見 Selected Work）— 為公司建構一套合勞基法的 HR 系統並上線使用；(3) 為現場測試 / 財務 / 研發三部門寫 Streamlit 內部查詢介面，讓非工程背景同事可自助分析。
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">政大企管系 NCCU Business Admin — Teaching Assistant</div>
+            <div class="entry-meta"><span class="ink">Sep 2020 — Sep 2022</span> · Taipei</div>
+          </div>
+          <p class="entry-body">
+            自製 Excel 經營模擬遊戲（Forms + VBA），30+ 學生同時操作。系統至今仍被多位後續教師沿用。
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ============ Chapter 04: Toolkit · Education ============ -->
+    <article class="chapter" data-od-id="chapter-04">
+      <div class="head">
+        <p class="num">04</p>
+        <h2 class="title">Toolkit · Education</h2>
+        <p class="lede">應用數學 → 密碼學 → AI 工程。基礎、工具棧、證照。</p>
+      </div>
+      <div class="body">
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">National Chengchi University 政治大學 — M.S., Data Science</div>
+            <div class="entry-meta"><span class="ink">Sep 2023 — Dec 2026</span> · expected</div>
+          </div>
+          <p class="entry-body">
+            碩論方向：<strong>ZK 金融合規</strong>。修課涵蓋現代密碼學、機器學習、財務數學、區塊鏈應用、軟體工程概論、電腦科學邏輯。
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">National Chengchi University 政治大學 — B.S., Applied Mathematics</div>
+            <div class="entry-meta"><span class="ink">Sep 2018 — Jul 2023</span></div>
+          </div>
+          <p class="entry-body">
+            應用數學系。修習部分商學院學分（金融 / 會計 / 行銷）。
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Technical Skills</div>
+            <div class="entry-meta">By domain</div>
+          </div>
+          <div class="skills-domain">
+            <div class="d-label">LLM Systems</div>
+            <div class="d-chips">
+              <span class="tag">Anthropic Claude SDK</span>
+              <span class="tag">Multi-agent orchestration</span>
+              <span class="tag">Prompt design</span>
+              <span class="tag">LangGraph</span>
+              <span class="tag">Telethon</span>
+              <span class="tag">aiogram</span>
+              <span class="tag">discord.py</span>
+            </div>
+          </div>
+          <div class="skills-domain">
+            <div class="d-label">Cryptography</div>
+            <div class="d-chips">
+              <span class="tag">Halo2 PSE</span>
+              <span class="tag">KZG / SHPLONK</span>
+              <span class="tag">PLONK</span>
+              <span class="tag">BN254</span>
+              <span class="tag">Remez minimax</span>
+              <span class="tag">ezkl (ONNX → Halo2)</span>
+            </div>
+          </div>
+          <div class="skills-domain">
+            <div class="d-label">Backend · Data</div>
+            <div class="d-chips">
+              <span class="tag">Python / asyncio</span>
+              <span class="tag">MySQL / PostgreSQL</span>
+              <span class="tag">Materialized View</span>
+              <span class="tag">SQLAlchemy</span>
+              <span class="tag">Flask / Docker</span>
+              <span class="tag">ETL at scale (1B+ rows)</span>
+              <span class="tag">pandas</span>
+            </div>
+          </div>
+          <div class="skills-domain">
+            <div class="d-label">Frontend · Tools</div>
+            <div class="d-chips">
+              <span class="tag">Next.js / TypeScript</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">n8n</span>
+              <span class="tag">Google Apps Script</span>
+              <span class="tag">Rust (exploring)</span>
+              <span class="tag">Plonky2 (exploring)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <div class="entry-title">Certifications · Languages</div>
+            <div class="entry-meta"><span class="ink">2021</span> · Taiwan</div>
+          </div>
+          <p class="entry-body">
+            <strong>Securities Licenses</strong>（2021.03）— 證券商高級業務員 · 證券商業務員 · 期貨商業務員。<br>
+            <strong>中文</strong> Native · <strong>English</strong> Reading Advanced · Speaking / Writing Intermediate.
+          </p>
+        </div>
+
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-od-id="footer">
+    <div>
+      <h2 class="kicker">Kao Xuan-<span class="ink">Cheng.</span></h2>
+      <p class="colophon">
+        AI 系統架構師 — open to roles in Taipei or remote. 開放洽談，歡迎來訊。
+      </p>
+    </div>
+    <div class="col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:b128506789@gmail.com">b128506789@gmail.com<small>Primary email</small></a></li>
+        <li>0970 527 427<small>Mobile · Taiwan</small></li>
+        <li>Taipei, Taiwan<small>UTC+8</small></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Source</h4>
+      <ul>
+        <li><a href="https://github.com/xuancheng307">github.com/xuancheng307<small>Profile</small></a></li>
+        <li><a href="https://github.com/xuancheng307/PLONK">PLONK<small>4,500-line ZK 教材</small></a></li>
+        <li><a href="https://github.com/xuancheng307/ZKMM">ZKMM<small>Thesis companion</small></a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Languages</h4>
+      <ul>
+        <li>中文 / Mandarin<small>Native</small></li>
+        <li>English<small>Reading · Advanced</small></li>
+        <li>English<small>Speaking · Intermediate</small></li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="legal">
+    <span><b>Kao Xuan-Cheng</b> · Curriculum Vitæ · MMXXVI</span>
+    <span>Composed in kami · 紙 · paper-first</span>
+  </div>
+
+</main>
+</body>
+</html>
